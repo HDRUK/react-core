@@ -1,8 +1,7 @@
 import { ReactElement } from "react";
 import { CommonVariants, CommonSizes } from "../../types";
 
-export interface ButtonProps
-  extends Omit<React.HTMLProps<HTMLButtonElement>, "size"> {
+export interface ButtonProps extends React.ComponentProps<"button"> {
   variant: CommonVariants;
   size: CommonSizes;
   iconLeft?: ReactElement;

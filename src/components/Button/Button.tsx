@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css } from "@emotion/react";
+import { jsx } from "@emotion/react";
 import React from "react";
 import { cx } from "@emotion/css";
-import LayoutBox from "../LayoutBox/LayoutBox";
-import { LayoutBoxProps } from "../LayoutBox/LayoutBox.types";
 import { ButtonProps } from "./Button.types";
 import * as styles from "./Button.styles";
+import useCommonStyles from "../../hooks/useCommonStyles";
+import { ComponentStyleProps } from "../../types";
 
-const Button: React.FC<ButtonProps & LayoutBoxProps> = ({
+const Button: React.FC<ButtonProps & ComponentStyleProps> = ({
   variant,
   children,
   size,
@@ -24,30 +24,32 @@ const Button: React.FC<ButtonProps & LayoutBoxProps> = ({
   className,
   ...outerProps
 }) => {
+  const commonStyles = useCommonStyles({
+    mt,
+    mr,
+    ml,
+    mb,
+    m,
+    width,
+    maxWidth,
+    minWidth,
+  });
+
   return (
-    <LayoutBox
+    <button
       {...outerProps}
-      as="button"
-      mt={mt}
-      mr={mr}
-      ml={ml}
-      mb={mb}
-      m={m}
-      width={width}
-      minWidth={minWidth}
-      maxWidth={maxWidth}
-      css={styles.root({ size, variant })}
+      css={[commonStyles, styles.root({ size, variant })]}
       className={cx("ui-Button", className)}
     >
       {iconLeft} {children} {iconRight}
-    </LayoutBox>
+    </button>
   );
 };
 
 Button.defaultProps = {
   size: "medium",
   variant: "primary",
-  type: "input",
+  type: "button",
   disabled: false,
 };
 

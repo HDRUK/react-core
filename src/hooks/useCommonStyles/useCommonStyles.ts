@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { css } from "@emotion/css";
+import { css } from "@emotion/react";
 import { getCommonStyles } from "../../theme";
 import { CommonStyleProps } from "../../types";
 
