@@ -100,6 +100,12 @@ export const getComponentVariant = (component, variant, theme) => {
 };
 
 export const getComponentSize = (component, size, theme) => {
+  const themeSize = theme.components[component].sizes[size];
+
+  if (typeof themeSize === "string") {
+    return themeSize;
+  }
+
   return getComponentStylesFromTheme(
     theme.components[component].sizes[size],
     theme

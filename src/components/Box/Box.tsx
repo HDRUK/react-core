@@ -2,9 +2,9 @@ import { cx } from "@emotion/css";
 import { jsx } from "@emotion/react";
 import React from "react";
 import useCommonStyles from "../../hooks/useCommonStyles";
-import { LayoutBoxProps } from "./LayoutBox.types";
+import { BoxProps } from "./Box.types";
 
-const LayoutBox: React.FC<LayoutBoxProps> = ({
+const Box: React.FC<BoxProps> = ({
   as = "div",
   children,
   className,
@@ -58,11 +58,11 @@ const LayoutBox: React.FC<LayoutBoxProps> = ({
     as,
     {
       ...outerProps,
-      className: cx("ui-LayoutBox", className, commonStyles),
+      className: cx("ui-Box", className, commonStyles),
       css,
     },
     children
   );
 };
 
-export default LayoutBox;
+export default Box;
