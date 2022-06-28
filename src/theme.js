@@ -112,6 +112,13 @@ export const getComponentSize = (component, size, theme) => {
   );
 };
 
+export const getComponentGlobals = (component, theme) => {
+  return getComponentStylesFromTheme(
+    theme.components[component].globals,
+    theme
+  );
+};
+
 export const getFontSizeStyle = (fontSize, theme) => {
   return getComponentStylesFromTheme({ fontSize }, theme);
 };
@@ -247,154 +254,28 @@ export const DEFAULT_THEME = {
     none: "none",
   },
   components: {
-    Alert: {
-      variants: {
-        success: {
-          background: "green50",
-          color: "green400",
-          fill: "green400",
-          borderColor: "green400",
-        },
-        info: {
-          background: "platinum50",
-          color: "platinum700",
-          fill: "platinum700",
-          borderColor: "platinum700",
-        },
-        warning: {
-          background: "gold50",
-          color: "brown900",
-          fill: "yellow700",
-          borderColor: "yellow700",
-        },
-        danger: {
-          background: "red50",
-          color: "red700",
-          fill: "red700",
-          borderColor: "red700",
-        },
-      },
-    },
     Button: THEME_BUTTON,
-    Cta: {
-      sizes: {
-        small: {
-          fontSize: "sm",
-        },
-        medium: {
-          fontSize: "md",
-        },
-        large: {
-          fontSize: "xl",
-        },
+    Card: {
+      globals: {
+        boxShadow: "1px 1px 3px 0 rgb(0 0 0 / 9%)",
+        backgroundColor: "white",
+        borderRadius: "2px",
       },
     },
-    IconButton: merge({}, THEME_BUTTON, {
-      sizes: {
-        small: {
-          padding: "6px",
-        },
-        medium: { padding: "10px" },
-        large: { padding: "14px" },
+    CardHeader: {
+      globals: {
+        borderColor: "grey200",
+        fontSize: "xl",
+        fontWeight: "500",
       },
-      variants: {
-        primary: {
-          fill: "purple500",
-          color: "purple500",
-          background: "none",
-          borderColor: "transparent",
-          hoverColor: "white",
-          hoverFill: "white",
-          disabledFill: "purple500",
-        },
-        secondary: {
-          fill: "purple500",
-          color: "purple500",
-          background: "none",
-          borderColor: "transparent",
-          hoverFill: "white",
-          disabledFill: "purple500",
-        },
-        tertiary: {
-          fill: "purple500",
-          color: "purple500",
-          background: "none",
-          borderColor: "transparent",
-        },
-      },
-    }),
-    Checkbox: {
-      height: "20px",
-      width: "20px",
-      fontSize: THEME_FONT_SIZES.md,
-      disabledColor: "grey600",
-      variants: {
-        primary: {
-          borderColor: "grey200",
-          checkedBackground: "green700",
-          hoverBackground: "grey200",
-          disabledBackground: "grey100",
-        },
-        secondary: {
-          borderColor: "grey200",
-          checkedBackground: "grey700",
-          hoverBackground: "grey200",
-          disabledBackground: "grey100",
-        },
+    },
+    CardFooter: {
+      globals: {
+        borderColor: "grey200",
       },
     },
     Icon: {
       sizes: THEME_FONT_SIZES,
-    },
-    Input: THEME_INPUT,
-    Dropdown: THEME_INPUT,
-    Textarea: THEME_INPUT,
-    Typeahead: THEME_INPUT,
-    Typography: {
-      variants: {
-        h1: {
-          fontSize: THEME_FONT_SIZES["5xl"],
-          fontWeight: "700",
-          color: "grey900",
-        },
-        h2: {
-          fontSize: THEME_FONT_SIZES["4xl"],
-          fontWeight: "500",
-          color: "grey900",
-        },
-        h3: {
-          fontSize: THEME_FONT_SIZES["3xl"],
-          fontWeight: "500",
-          color: "grey900",
-        },
-        h4: {
-          fontSize: THEME_FONT_SIZES["2xl"],
-          fontWeight: "500",
-          color: "grey900",
-        },
-        h5: {
-          fontSize: THEME_FONT_SIZES.xl,
-          fontWeight: "500",
-          color: "grey900",
-        },
-        h6: {
-          fontSize: THEME_FONT_SIZES.lg,
-          fontWeight: "500",
-          color: "grey900",
-        },
-        body: {
-          fontSize: THEME_FONT_SIZES.md,
-          lineHeight: "20px",
-        },
-        caption: {
-          fontSize: THEME_FONT_SIZES.sm,
-          lineHeight: "16px",
-        },
-        tiny: {
-          fontSize: THEME_FONT_SIZES.xs,
-          lineHeight: "14px",
-        },
-      },
     },
   },
 };

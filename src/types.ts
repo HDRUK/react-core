@@ -26,15 +26,26 @@ export interface CommonStyleProps {
   maxHeight?: string;
 }
 
-export interface ComponentStyleProps {
+export type ComponentStyleProps = MarginStyleProps & WidthStyleProps;
+
+export interface MarginStyleProps {
   m?: number;
   ml?: number;
   mb?: number;
   mt?: number;
   mr?: number;
+}
+
+export interface WidthStyleProps {
   width?: string;
   minWidth?: string;
   maxWidth?: string;
+}
+
+export interface HeightStyleProps {
+  height?: string;
+  minHeight?: string;
+  maxHeight?: string;
 }
 
 export interface ThemeFontSizes {
