@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import SVG from "react-inlinesvg";
+import closeIcon from "../../images/icons/close.svg";
+import Icon from "../Icon";
+import { Card, CardBody } from "../Card";
+import Cta from "./Cta";
+
+<Meta title="Molecules/Cta" component={Cta} />
+
+<Canvas>
+  <Story name="Variations">
+    {(props) => (
+      <Card>
+        <CardBody>
+          <div>
+            <Cta
+              {...props}
+              mb={4}
+              size="large"
+              iconRight={<SVG src={closeIcon} />}
+            >
+              Large
+            </Cta>
+          </div>
+          <div>
+            <Cta {...props} mb={4} iconRight={<SVG src={closeIcon} />}>
+              Default
+            </Cta>
+          </div>
+          <div>
+            <Cta
+              {...props}
+              size="small"
+              iconRight={<SVG src={closeIcon} />}
+              mb={10}
+            >
+              Small
+            </Cta>
+          </div>
+          <div>
+            <Cta
+              {...props}
+              mb={4}
+              size="large"
+              iconLeft={<SVG src={closeIcon} />}
+            >
+              Large
+            </Cta>
+          </div>
+          <div>
+            <Cta {...props} mb={4} iconLeft={<SVG src={closeIcon} />}>
+              Default
+            </Cta>
+          </div>
+          <div>
+            <Cta {...props} size="small" iconLeft={<SVG src={closeIcon} />}>
+              Small
+            </Cta>
+          </div>
+        </CardBody>
+      </Card>
+    )}
+  </Story>
+</Canvas>

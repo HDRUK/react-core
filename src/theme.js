@@ -1,5 +1,4 @@
 import isNil from "lodash/isNil";
-import merge from "lodash/merge";
 
 export const getSize = (value, { base: { increment, unit } }) => {
   return `${value * increment}${unit}`;
@@ -119,7 +118,7 @@ export const getComponentGlobals = (component, theme) => {
   );
 };
 
-export const getFontSizeStyle = (fontSize, theme) => {
+export const getComponentFontSize = (fontSize, theme) => {
   return getComponentStylesFromTheme({ fontSize }, theme);
 };
 

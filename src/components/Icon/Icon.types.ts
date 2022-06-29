@@ -1,23 +1,24 @@
-import { ReactElement } from "react";
+import { ComponentProps, ReactElement } from "react";
 
-export interface IconProps extends React.ComponentProps<"span"> {
+export type IconSizes =
+  | "xxs"
+  | "xs"
+  | "sm"
+  | "md"
+  | "default"
+  | "lg"
+  | "xl"
+  | "2xl"
+  | "3xl"
+  | "4xl"
+  | "5xl"
+  | "contained";
+export interface IconProps extends ComponentProps<"span"> {
   svg: ReactElement;
-  size:
-    | "xxs"
-    | "xs"
-    | "sm"
-    | "md"
-    | "default"
-    | "lg"
-    | "xl"
-    | "2xl"
-    | "3xl"
-    | "4xl"
-    | "5xl"
-    | "contained";
-  color: string;
-  fill: string;
-  stroke: string;
+  size: IconSizes;
+  color?: string;
+  fill?: string;
+  stroke?: string;
 }
 
 export type IconStyleProps = Pick<
