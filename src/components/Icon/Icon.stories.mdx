@@ -1,33 +1,39 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import SVG from "react-inlinesvg";
-import userIcon from "../../images/icons/star.svg";
 
 import Icon from "./Icon";
+import { Card, CardBody } from "../Card";
+
+import userIcon from "../../images/icons/star.svg";
 
 <Meta title="Atoms/Icon" component={Icon} />
 
 <Canvas>
   <Story name="Sizes">
-    {(props) => {
-      return [
-        "xxs",
-        "xs",
-        "sm",
-        "md",
-        "lg",
-        "xl",
-        "2xl",
-        "3xl",
-        "4xl",
-        "5xl",
-      ].map((size) => (
-        <Icon
-          svg={<SVG src={userIcon} />}
-          size={size}
-          mr={2}
-          stroke="grey800"
-        />
-      ));
-    }}
+    {(props) => (
+      <Card>
+        <CardBody>
+          {[
+            "xxs",
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+            "2xl",
+            "3xl",
+            "4xl",
+            "5xl",
+          ].map((size) => (
+            <Icon
+              svg={<SVG src={userIcon} />}
+              size={size}
+              mr={2}
+              stroke="grey800"
+            />
+          ))}
+        </CardBody>
+      </Card>
+    )}
   </Story>
 </Canvas>
