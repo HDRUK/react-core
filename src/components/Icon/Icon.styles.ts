@@ -1,6 +1,5 @@
-import { css } from "@emotion/react";
+import { css, Theme } from "@emotion/react";
 import { getComponentSize, getComponentStylesFromTheme } from "../../theme";
-import { Theme } from "../../types";
 import { IconStyleProps } from "./Icon.types";
 
 export const root =

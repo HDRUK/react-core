@@ -66,7 +66,11 @@ export interface ThemeColors {
 }
 
 export interface ThemeComponents {
-  [key: string]: string;
+  Button: any;
+  Card: any;
+  CardHeader: any;
+  CardFooter: any;
+  Icon: any;
 }
 
 export interface Theme {

@@ -1,7 +1,6 @@
-import { css } from "@emotion/react";
+import { css, Theme } from "@emotion/react";
 import { getComponentSize, getComponentVariant } from "../../theme";
 import { getSize } from "../../theme";
-import { Theme } from "../../types";
 import { ButtonStyleProps } from "./Button.types";
 
 export const mixins = {

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from "@emotion/react";
 import { cx } from "@emotion/css";
-import * as styles from "./Card.styles.js";
+import * as styles from "./Card.styles";
 import { CardFooterProps } from "./Card.types";
 
 const CardFooter: React.FC<CardFooterProps> = ({
@@ -13,7 +13,7 @@ const CardFooter: React.FC<CardFooterProps> = ({
     <div
       {...outerProps}
       className={cx(className, "ui-CardFooter")}
-      css={styles.cardFooter()}
+      css={styles.cardFooter}
     >
       {children}
     </div>

@@ -1,7 +1,7 @@
-import { css } from "@emotion/react";
+import { css, Theme } from "@emotion/react";
 import { getComponentGlobals, getSize } from "../../theme";
 
-export const root = () => (theme) => {
+export const root = () => (theme: Theme) => {
   return css`
     word-break: break-word;
     width: 100%;
@@ -11,7 +11,7 @@ export const root = () => (theme) => {
   `;
 };
 
-export const cardHeader = () => (theme) =>
+export const cardHeader = (theme: Theme) =>
   css`
     border-bottom: 1px solid;
     padding: ${getSize(6, theme)};
@@ -19,12 +19,12 @@ export const cardHeader = () => (theme) =>
     ${getComponentGlobals("CardHeader", theme)}
   `;
 
-export const cardBody = () => (theme) =>
+export const cardBody = (theme: Theme) =>
   css`
     padding: ${getSize(6, theme)};
   `;
 
-export const cardFooter = () => (theme) =>
+export const cardFooter = (theme: Theme) =>
   css`
     display: flex;
     justify-content: flex-end;

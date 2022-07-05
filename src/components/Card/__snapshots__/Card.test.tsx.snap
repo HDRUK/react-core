@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the Card component should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-Card css-1izvi8c-Card"
+    role="article"
+  >
+    <div
+      class="cardHeader ui-CardHeader css-ng95ul-CardHeader"
+    >
+      Header
+    </div>
+    <div
+      class="cardBody ui-CardBody css-4iti4b-CardBody"
+    >
+      Body
+    </div>
+    <div
+      class="cardFooter ui-CardFooter css-qh5rze-CardFooter"
+    >
+      Footer
+    </div>
+  </div>
+</DocumentFragment>
+`;

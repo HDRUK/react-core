@@ -12,8 +12,8 @@ export interface CtaProps extends ComponentProps<"button"> {
 }
 
 export interface CtaStyleProps {
-  color: string;
-  fill: string;
+  color?: string;
+  fill?: string;
   fontSize: keyof ThemeFontSizes;
   iconSize: IconSizes;
 }

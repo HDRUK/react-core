@@ -39,6 +39,7 @@ const Card: React.FC<CardProps & ComponentStyleProps & HeightStyleProps> = ({
 
   return (
     <div
+      role="article"
       {...outerProps}
       className={cx(className, "ui-Card")}
       css={[commonStyles, styles.root()]}

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from "@emotion/react";
 import { cx } from "@emotion/css";
-import * as styles from "./Card.styles.js";
+import * as styles from "./Card.styles";
 import { CardBodyProps } from "./Card.types.js";
 
 const CardBody: React.FC<CardBodyProps> = ({
@@ -13,7 +13,7 @@ const CardBody: React.FC<CardBodyProps> = ({
     <div
       {...outerProps}
       className={cx(className, "ui-CardBody")}
-      css={styles.cardBody()}
+      css={styles.cardBody}
     >
       {children}
     </div>
