@@ -6,7 +6,7 @@ import { MarginStyleProps } from "../../types";
 import * as styles from "./Icon.styles";
 import { IconProps } from "./Icon.types";
 
-const Icon: React.FC<IconProps & MarginStyleProps> = ({
+const Icon: React.FC<IconProps> = ({
   svg,
   size,
   color,
@@ -34,10 +34,7 @@ const Icon: React.FC<IconProps & MarginStyleProps> = ({
 };
 
 Icon.defaultProps = {
-  size: "default",
-  color: "inherit",
-  fill: "inherit",
-  stroke: "none",
+  size: "md",
 };
 
 export default Icon;

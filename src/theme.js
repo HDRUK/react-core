@@ -4,6 +4,10 @@ export const getSize = (value, { base: { increment, unit } }) => {
   return `${value * increment}${unit}`;
 };
 
+export const getColorStyle = (prop, value, theme) => {
+  return getCommonStyle(prop, theme.colors[value]);
+};
+
 export const getSpacingStyle = (prop, value, theme) => {
   return typeof value === "number" ? `${prop}: ${getSize(value, theme)};` : "";
 };
@@ -16,6 +20,7 @@ export const getStyle = (propParts, value, theme) => {
   const styleProp = propParts.join("-").toLowerCase();
 
   if (styleProp === "font-size") {
+    console.log("theme.font.size[value]", value, theme.font);
     return `${styleProp}: ${theme.font.size[value]};`;
   }
 
@@ -24,6 +29,7 @@ export const getStyle = (propParts, value, theme) => {
 
 export const getCommonStyles = (props, theme) => {
   const {
+    m,
     ml,
     mr,
     mb,
@@ -44,6 +50,7 @@ export const getCommonStyles = (props, theme) => {
   } = props;
 
   return `
+  ${getSpacingStyle("margin", m, theme)}
 		${getSpacingStyle("margin-left", ml, theme)}
 		${getSpacingStyle("margin-right", mr, theme)}
 		${getSpacingStyle("margin-bottom", mb, theme)}
@@ -273,8 +280,59 @@ export const DEFAULT_THEME = {
         borderColor: "grey200",
       },
     },
+    Dimmer: {
+      globals: {
+        backgroundColor: "rgba(0,0,0,0.15)",
+      },
+    },
     Icon: {
       sizes: THEME_FONT_SIZES,
+    },
+    Typography: {
+      variants: {
+        h1: {
+          fontSize: "5xl",
+          fontWeight: "700",
+          color: "grey900",
+        },
+        h2: {
+          fontSize: "4xl",
+          fontWeight: "700",
+          color: "grey900",
+        },
+        h3: {
+          fontSize: "3xl",
+          fontWeight: "700",
+          color: "grey900",
+        },
+        h4: {
+          fontSize: "2xl",
+          fontWeight: "700",
+          color: "grey900",
+        },
+        h5: {
+          fontSize: "xl",
+          fontWeight: "700",
+          color: "grey900",
+        },
+        h6: {
+          fontSize: "lg",
+          fontWeight: "400",
+          color: "grey900",
+        },
+        body: {
+          fontSize: "md",
+          lineHeight: "20px",
+        },
+        caption: {
+          fontSize: "sm",
+          lineHeight: "16px",
+        },
+        tiny: {
+          fontSize: "xs",
+          lineHeight: "14px",
+        },
+      },
     },
   },
 };

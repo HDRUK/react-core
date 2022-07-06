@@ -1,4 +1,9 @@
-export type CardProps = React.ComponentProps<"div">;
-export type CardHeaderProps = React.ComponentProps<"div">;
-export type CardBodyProps = React.ComponentProps<"div">;
-export type CardFooterProps = React.ComponentProps<"div">;
+import { ComponentProps } from "react";
+import { ComponentStyleProps, HeightStyleProps } from "../../types";
+
+export type CardProps = ComponentProps<"div"> &
+  ComponentStyleProps &
+  HeightStyleProps;
+export type CardHeaderProps = ComponentProps<"div">;
+export type CardBodyProps = ComponentProps<"div">;
+export type CardFooterProps = ComponentProps<"div">;

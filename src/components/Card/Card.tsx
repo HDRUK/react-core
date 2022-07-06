@@ -4,10 +4,9 @@ import { cx } from "@emotion/css";
 
 import * as styles from "./Card.styles";
 import useCommonStyles from "../../hooks/useCommonStyles";
-import { ComponentStyleProps, HeightStyleProps } from "../../types";
 import { CardProps } from "./Card.types";
 
-const Card: React.FC<CardProps & ComponentStyleProps & HeightStyleProps> = ({
+const Card: React.FC<CardProps> = ({
   children,
   mt,
   mb,

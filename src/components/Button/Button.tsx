@@ -5,9 +5,8 @@ import { cx } from "@emotion/css";
 import { ButtonProps } from "./Button.types";
 import * as styles from "./Button.styles";
 import useCommonStyles from "../../hooks/useCommonStyles";
-import { ComponentStyleProps } from "../../types";
 
-const Button: React.FC<ButtonProps & ComponentStyleProps> = ({
+const Button: React.FC<ButtonProps> = ({
   variant,
   children,
   size,

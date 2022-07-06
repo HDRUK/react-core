@@ -61,16 +61,16 @@ export interface ThemeFontSizes {
   "5xl": string;
 }
 
-export interface ThemeColors {
-  [key: string]: string;
-}
+export type ThemeColors = Record<string, string>;
 
 export interface ThemeComponents {
   Button: any;
   Card: any;
   CardHeader: any;
   CardFooter: any;
+  Dimmer: any;
   Icon: any;
+  Typography: any;
 }
 
 export interface Theme {

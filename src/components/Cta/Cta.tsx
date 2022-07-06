@@ -4,7 +4,7 @@ import { jsx } from "@emotion/react";
 import * as styles from "./Cta.styles";
 import { CtaProps } from "./Cta.types";
 import useCommonStyles from "../../hooks/useCommonStyles";
-import { CommonSizes, MarginStyleProps, ThemeFontSizes } from "../../types";
+import { CommonSizes, ThemeFontSizes } from "../../types";
 import { IconSizes } from "../Icon/Icon.types";
 
 const iconSizes: Record<CommonSizes, IconSizes> = {
@@ -19,7 +19,7 @@ const fontSizes: Record<CommonSizes, keyof ThemeFontSizes> = {
   large: "2xl",
 };
 
-const Cta: React.FC<CtaProps & MarginStyleProps> = ({
+const Cta: React.FC<CtaProps> = ({
   color,
   children,
   mt,
@@ -45,6 +45,7 @@ const Cta: React.FC<CtaProps & MarginStyleProps> = ({
   return (
     <button
       {...outerProps}
+      className={cx(className, "ui-Cta")}
       css={[
         commonStyles,
         styles.root({
@@ -54,7 +55,6 @@ const Cta: React.FC<CtaProps & MarginStyleProps> = ({
           iconSize: iconSizes[size],
         }),
       ]}
-      className={cx("ui-Cta", className)}
     >
       {iconLeft} {children} {iconRight}
     </button>
@@ -62,11 +62,7 @@ const Cta: React.FC<CtaProps & MarginStyleProps> = ({
 };
 
 Cta.defaultProps = {
-  iconLeft: undefined,
-  iconRight: undefined,
   size: "medium",
-  fill: "inherit",
-  color: "inherit",
   onClick: () => {},
 };
 
