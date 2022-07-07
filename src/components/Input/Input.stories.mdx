@@ -1,0 +1,34 @@
+import { useState } from "react";
+import SVG from "react-inlinesvg";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+
+import Input from "./Input";
+import { Card, CardBody } from "../Card";
+import Icon from "../Icon";
+
+import tickIcon from "../../images/icons/search.svg";
+import userIcon from "../../images/icons/star.svg";
+
+<Meta title="Molecules/Input" component={Input} />
+
+<Canvas>
+  <Story name="Basic">
+    {(props) => {
+      return (
+        <Card>
+          <CardBody>
+            <Input
+              {...props}
+              iconLeft={
+                <Icon svg={<SVG src={tickIcon} />} stroke="purple700" />
+              }
+              iconRight={
+                <Icon svg={<SVG src={userIcon} />} stroke="purple700" />
+              }
+            />
+          </CardBody>
+        </Card>
+      );
+    }}
+  </Story>
+</Canvas>

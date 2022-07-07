@@ -46,7 +46,7 @@ const Typography: React.FC<TypographyProps> = ({
 
   return (
     <Component
-      className={cx("ui-Typography", className)}
+      className={cx(className, "ui-Typography")}
       css={[commonStyles, styles.root({ variant, color, tag: Component })]}
     >
       {children}
