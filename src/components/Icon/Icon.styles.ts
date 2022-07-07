@@ -1,5 +1,8 @@
 import { css, Theme } from "@emotion/react";
-import { getComponentSize, getComponentStylesFromTheme } from "../../theme";
+import {
+  getComponentSizeStyles,
+  getComponentStylesFromTheme,
+} from "../../theme";
 import { IconStyleProps } from "./Icon.types";
 
 export const root =
@@ -10,8 +13,8 @@ export const root =
       justify-content: center;
       align-items: center;
       flex-shrink: 0;
-      height: ${getComponentSize("Icon", size, theme)};
-      width: ${getComponentSize("Icon", size, theme)};
+      height: ${getComponentSizeStyles("Icon", size, theme)};
+      width: ${getComponentSizeStyles("Icon", size, theme)};
 
       ${getComponentStylesFromTheme({ stroke, color, fill }, theme)}
 

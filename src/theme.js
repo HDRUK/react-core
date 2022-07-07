@@ -98,14 +98,14 @@ export const getComponentStylesFromTheme = (props, theme) => {
   return styles.join("\n");
 };
 
-export const getComponentVariant = (component, variant, theme) => {
+export const getComponentVariantStyles = (component, variant, theme) => {
   return getComponentStylesFromTheme(
     theme.components[component].variants[variant],
     theme
   );
 };
 
-export const getComponentSize = (component, size, theme) => {
+export const getComponentSizeStyles = (component, size, theme) => {
   const themeSize = theme.components[component].sizes[size];
 
   if (typeof themeSize === "string") {
@@ -119,13 +119,17 @@ export const getComponentSize = (component, size, theme) => {
 };
 
 export const getComponentGlobals = (component, theme) => {
+  return theme.components[component].globals;
+};
+
+export const getComponentGlobalStyles = (component, theme) => {
   return getComponentStylesFromTheme(
-    theme.components[component].globals,
+    getComponentGlobals(component, theme),
     theme
   );
 };
 
-export const getComponentFontSize = (fontSize, theme) => {
+export const getComponentFontSizeStyle = (fontSize, theme) => {
   return getComponentStylesFromTheme({ fontSize }, theme);
 };
 
@@ -285,8 +289,45 @@ export const DEFAULT_THEME = {
         backgroundColor: "rgba(0,0,0,0.15)",
       },
     },
+    Error: {
+      globals: {
+        color: "red700",
+      },
+    },
     Icon: {
       sizes: THEME_FONT_SIZES,
+    },
+    Input: {
+      sizes: {
+        small: {
+          height: "30px",
+        },
+        default: {
+          height: "40px",
+        },
+        large: {
+          height: "50px",
+        },
+      },
+      variants: {
+        primary: {
+          background: "white",
+          borderColor: "grey400",
+          disabledBorderColor: "grey400",
+          focusBorderColor: "green400",
+        },
+        secondary: {
+          background: "grey100",
+          borderColor: "grey100",
+          disabledBorderColor: "grey100",
+          focusBorderColor: "green400",
+        },
+      },
+    },
+    Label: {
+      globals: {
+        disabledColor: "grey500",
+      },
     },
     Typography: {
       variants: {

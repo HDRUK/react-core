@@ -1,28 +1,71 @@
 import { css, Theme } from "@emotion/react";
-import { getSize } from "../../theme";
+import {
+  getColorStyle,
+  getComponentVariantStyles,
+  getSize,
+  getSpacingStyle,
+} from "../../theme";
 import { InputStyleProps } from "./Input.types";
 
 export const root =
-  ({ offsetLeft = 0, offsetRight = 0 }: InputStyleProps) =>
-  (theme: Theme) => {
-    return css`
+  ({
+    offsetLeft = 0,
+    offsetRight = 0,
+    variant,
+    disabled,
+    error,
+  }: InputStyleProps) =>
+  (theme: Theme) =>
+    css`
       position: relative;
 
+      label {
+        display: block;
+        ${disabled && getColorStyle("color", "grey500", theme)}
+        ${getSpacingStyle("margin-bottom", 2, theme)};
+      }
+
       input {
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 4px;
+        height: 40px;
+
+        ${getComponentVariantStyles("Input", variant, theme)}
+
+        ${error && getColorStyle("border-color", "red700", theme)}
+
+        &:focus,
+        &.focus,
+        &:focus-within,
+        &:focus-visible {
+          outline: none;
+
+          ${error && getColorStyle("border-color", "red700", theme)}
+        }
+
+        &: {
+          disabled
+        }
+
         width: 100%;
-        padding: ${getSize(2, theme)} 0;
-        padding-left: calc(${offsetLeft}px + ${getSize(5, theme)});
-        padding-right: calc(${offsetRight}px + ${getSize(5, theme)});
+        padding-left: calc(${offsetLeft}px + ${getSize(
+      offsetLeft ? 5 : 3,
+      theme
+    )});
+        padding-right: calc(${offsetRight}px + ${getSize(
+      offsetRight ? 5 : 3,
+      theme
+    )});
         box-sizing: border-box;
       }
 
       .ui-Icon,
       svg {
-        height: calc(1em + 4px);
-        width: calc(1em + 4px);
+        height: 20px;
+        width: 20px;
       }
     `;
-  };
 
 export const icon = (theme: Theme) => css`
   position: absolute;
@@ -33,14 +76,12 @@ export const icon = (theme: Theme) => css`
   height: 100%;
 `;
 
-export const iconLeft = () => (theme: Theme) => {
-  return css`
+export const iconLeft = () => (theme: Theme) =>
+  css`
     left: ${getSize(3, theme)};
   `;
-};
 
-export const iconRight = () => (theme: Theme) => {
-  return css`
+export const iconRight = () => (theme: Theme) =>
+  css`
     right: ${getSize(3, theme)};
   `;
-};

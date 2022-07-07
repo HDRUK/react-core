@@ -12,19 +12,32 @@ import userIcon from "../../images/icons/star.svg";
 <Meta title="Molecules/Input" component={Input} />
 
 <Canvas>
-  <Story name="Basic">
+  <Story name="Variants">
     {(props) => {
       return (
         <Card>
           <CardBody>
+            <Input {...props} mb={4} label="Primary" />
+            <Input {...props} mb={4} label="Primary (disabled)" disabled />
             <Input
               {...props}
-              iconLeft={
-                <Icon svg={<SVG src={tickIcon} />} stroke="purple700" />
-              }
-              iconRight={
-                <Icon svg={<SVG src={userIcon} />} stroke="purple700" />
-              }
+              mb={10}
+              label="Primary (error)"
+              error="This field is required"
+            />
+            <Input {...props} variant="secondary" label="Secondary" mb={4} />
+            <Input
+              {...props}
+              variant="secondary"
+              label="Secondary (disabled)"
+              mb={4}
+              disabled
+            />
+            <Input
+              {...props}
+              variant="secondary"
+              label="Secondary (error)"
+              error="This field is required"
             />
           </CardBody>
         </Card>

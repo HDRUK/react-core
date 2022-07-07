@@ -1,6 +1,6 @@
 import { css, Theme } from "@emotion/react";
 import {
-  getComponentSize,
+  getComponentSizeStyles,
   getComponentStylesFromTheme,
   getSize,
 } from "../../theme";
@@ -9,7 +9,7 @@ import { CtaStyleProps } from "./Cta.types";
 export const root =
   ({ color, fill, fontSize, iconSize }: CtaStyleProps) =>
   (theme: Theme) => {
-    const size = getComponentSize("Icon", iconSize, theme);
+    const size = getComponentSizeStyles("Icon", iconSize, theme);
 
     return css`
       gap: ${getSize(2, theme)};

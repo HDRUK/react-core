@@ -1,0 +1,18 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+
+import Error from "./Error";
+import { Card, CardBody } from "../Card";
+
+<Meta title="Atoms/Error" component={Error} />
+
+<Canvas>
+  <Story name="Basic">
+    {(props) => (
+      <Card>
+        <CardBody>
+          <Error>This field is required</Error>
+        </CardBody>
+      </Card>
+    )}
+  </Story>
+</Canvas>

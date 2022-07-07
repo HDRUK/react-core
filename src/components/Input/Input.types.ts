@@ -1,11 +1,19 @@
 import { ComponentProps, ReactElement } from "react";
+import { ComponentStyleProps } from "../../types";
 
-export interface InputProps extends ComponentProps<"input"> {
+export type InputVariants = "primary" | "secondary";
+export interface InputProps
+  extends Omit<ComponentProps<"input">, "width">,
+    ComponentStyleProps {
+  variant: InputVariants;
+  error?: ReactElement;
+  label?: ReactElement;
   iconLeft?: ReactElement;
-  iconRight: ReactElement;
+  iconRight?: ReactElement;
 }
 
-export interface InputStyleProps {
+export interface InputStyleProps
+  extends Pick<InputProps, "variant" | "disabled" | "error"> {
   offsetLeft?: number;
   offsetRight?: number;
 }

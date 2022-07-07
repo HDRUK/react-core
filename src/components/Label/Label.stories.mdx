@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+
+import Label from "./Label";
+import { Card, CardBody } from "../Card";
+
+<Meta title="Atoms/Label" component={Label} />
+
+<Canvas>
+  <Story name="Basic">
+    {(props) => (
+      <Card>
+        <CardBody>
+          <Label {...props} mb={4}>
+            Label
+          </Label>
+          <Label {...props} disabled>
+            Label (disabled)
+          </Label>
+        </CardBody>
+      </Card>
+    )}
+  </Story>
+</Canvas>

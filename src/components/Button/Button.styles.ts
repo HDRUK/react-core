@@ -1,5 +1,5 @@
 import { css, Theme } from "@emotion/react";
-import { getComponentSize, getComponentVariant } from "../../theme";
+import { getComponentSizeStyles, getComponentVariantStyles } from "../../theme";
 import { getSize } from "../../theme";
 import { ButtonStyleProps } from "./Button.types";
 
@@ -31,8 +31,8 @@ export const root =
   (theme: Theme) =>
     css`
       ${mixins.button()}
-      ${getComponentVariant("Button", variant, theme)}
-      ${getComponentSize("Button", size, theme)}
+      ${getComponentVariantStyles("Button", variant, theme)}
+      ${getComponentSizeStyles("Button", size, theme)}
 
       border-radius: 4px;
       gap: ${getSize(1.5, theme)};

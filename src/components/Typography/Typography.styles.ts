@@ -1,5 +1,5 @@
 import { css, Theme } from "@emotion/react";
-import { getColorStyle, getComponentVariant } from "../../theme";
+import { getColorStyle, getComponentVariantStyles } from "../../theme";
 import { TypographyStyleProps } from "./Typography.types";
 
 export const root =
@@ -8,6 +8,6 @@ export const root =
     return css`
       ${tag === "span" && "display: inline-block;"}
       ${getColorStyle("color", color, theme)}
-      ${getComponentVariant("Typography", variant, theme)};
+      ${getComponentVariantStyles("Typography", variant, theme)};
     `;
   };

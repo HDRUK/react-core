@@ -1,5 +1,5 @@
 import { css, Theme } from "@emotion/react";
-import { getComponentGlobals } from "../../theme";
+import { getComponentGlobalStyles } from "../../theme";
 import { DimmerStyleProps } from "./Dimmer.types";
 
 export const root =
@@ -29,6 +29,6 @@ export const root =
                 padding-top: 137px;
             `}
 
-            ${getComponentGlobals("Dimmer", theme)}
+            ${getComponentGlobalStyles("Dimmer", theme)}
     `;
   };

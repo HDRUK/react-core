@@ -69,7 +69,10 @@ export interface ThemeComponents {
   CardHeader: any;
   CardFooter: any;
   Dimmer: any;
+  Error: any;
   Icon: any;
+  Input: any;
+  Label: any;
   Typography: any;
 }
 
