@@ -1,11 +1,12 @@
+/** @jsxImportSource @emotion/react */
 import { cx } from "@emotion/css";
 import { jsx } from "@emotion/react";
 import React from "react";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import { BoxProps } from "./Box.types";
 
-const Box: React.FC<BoxProps> = ({
-  as = "div",
+const Box = ({
+  as,
   children,
   className,
   m,
@@ -28,9 +29,12 @@ const Box: React.FC<BoxProps> = ({
   justifyContent,
   flexGrow,
   position,
-  css,
+  top,
+  left,
+  right,
+  bottom,
   ...outerProps
-}) => {
+}: BoxProps) => {
   const commonStyles = useCommonStyles({
     m,
     mt,
@@ -52,16 +56,23 @@ const Box: React.FC<BoxProps> = ({
     justifyContent,
     flexGrow,
     position,
+    top,
+    left,
+    right,
+    bottom,
   });
 
-  return React.createElement(
-    as,
-    {
-      ...outerProps,
-      className: cx("ui-Box", className, commonStyles),
-      css,
-    },
-    children
+  const Component: keyof JSX.IntrinsicElements = (as ||
+    "div") as keyof JSX.IntrinsicElements;
+
+  return (
+    <Component
+      {...outerProps}
+      className={cx(className, "ui-Box")}
+      css={commonStyles}
+    >
+      {children}
+    </Component>
   );
 };
 

@@ -6,7 +6,7 @@ import useCommonStyles from "../../hooks/useCommonStyles";
 import { TypographyProps } from "./Typography.types";
 import * as styles from "./Typography.styles";
 
-const Typography: React.FC<TypographyProps> = ({
+const Typography = ({
   children,
   color,
   className,
@@ -20,7 +20,7 @@ const Typography: React.FC<TypographyProps> = ({
   maxWidth,
   variant,
   as,
-}) => {
+}: TypographyProps) => {
   const commonStyles = useCommonStyles({
     mt,
     mb,

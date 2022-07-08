@@ -6,6 +6,7 @@ export interface InputProps
   extends Omit<ComponentProps<"input">, "width">,
     ComponentStyleProps {
   variant: InputVariants;
+  description?: ReactElement;
   error?: ReactElement;
   label?: ReactElement;
   iconLeft?: ReactElement;

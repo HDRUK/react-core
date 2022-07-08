@@ -6,7 +6,7 @@ import { ButtonProps } from "./Button.types";
 import * as styles from "./Button.styles";
 import useCommonStyles from "../../hooks/useCommonStyles";
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   variant,
   children,
   size,
@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   iconRight,
   className,
   ...outerProps
-}) => {
+}: ButtonProps) => {
   const commonStyles = useCommonStyles({
     mt,
     mr,

@@ -26,6 +26,7 @@ export const root =
 
       ${contentAlignment === "top" &&
       `
+      align-items: flex-start;
                 padding-top: 137px;
             `}
 

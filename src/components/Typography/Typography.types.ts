@@ -26,7 +26,7 @@ export interface TypographyProps
     | "caption"
     | "tiny";
   as: keyof JSX.IntrinsicElements;
-  color: Theme["colors"];
+  color: keyof Theme["colors"];
 }
 
 export interface TypographyStyleProps

@@ -7,16 +7,17 @@ import { InputProps } from "./Input.types";
 import { useEffect, useRef } from "react";
 import useDOMAttributes from "../../hooks/useDOMAttributes/useDOMAttributes";
 import useCommonStyles from "../../hooks/useCommonStyles";
-import Error from "../Error";
 import Label from "../Label";
+import Message from "../Message";
 
-const Input: React.FC<InputProps> = ({
+const Input = ({
   className,
   iconLeft,
   iconRight,
   variant,
   label,
   disabled,
+  description,
   error,
   id,
   mt,
@@ -25,7 +26,7 @@ const Input: React.FC<InputProps> = ({
   mr,
   m,
   ...outerProps
-}) => {
+}: InputProps) => {
   const iconLeftRef = useRef(null);
   const iconRightRef = useRef(null);
 
@@ -57,6 +58,7 @@ const Input: React.FC<InputProps> = ({
       ]}
     >
       {label && <Label htmlFor={id}>{label}</Label>}
+      {description && <Message mb={2}>{description}</Message>}
       {iconLeft && (
         <span css={[styles.icon, styles.iconLeft]} ref={iconLeftRef}>
           {iconLeft}
@@ -68,7 +70,11 @@ const Input: React.FC<InputProps> = ({
           {iconRight}
         </span>
       )}
-      {error && <Error mt={2}>{error}</Error>}
+      {error && (
+        <Message variant="error" mt={2}>
+          {error}
+        </Message>
+      )}
     </div>
   );
 };

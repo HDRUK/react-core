@@ -1,0 +1,14 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+
+<Meta title="Hooks/useDOMAttributes" />
+
+```js
+const {
+  attributes: { offsetWidth },
+  update,
+} = useDOMAttributes(["offsetWidth"]);
+
+React.useEffect(() => {
+  update(ref.current);
+}, [ref]);
+```

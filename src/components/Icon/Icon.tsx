@@ -2,11 +2,10 @@
 import { cx } from "@emotion/css";
 import { jsx } from "@emotion/react";
 import useCommonStyles from "../../hooks/useCommonStyles";
-import { MarginStyleProps } from "../../types";
 import * as styles from "./Icon.styles";
 import { IconProps } from "./Icon.types";
 
-const Icon: React.FC<IconProps> = ({
+const Icon = ({
   svg,
   size,
   color,
@@ -19,7 +18,7 @@ const Icon: React.FC<IconProps> = ({
   mt,
   m,
   ...outerProps
-}) => {
+}: IconProps) => {
   const commonStyles = useCommonStyles({ mt, mb, ml, mr, m });
 
   return (

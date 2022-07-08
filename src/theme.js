@@ -47,6 +47,10 @@ export const getCommonStyles = (props, theme) => {
     justifyContent,
     flexGrow,
     position,
+    top,
+    bottom,
+    left,
+    right,
   } = props;
 
   return `
@@ -68,6 +72,10 @@ export const getCommonStyles = (props, theme) => {
     ${getCommonStyle("justify-content", justifyContent)}
     ${getCommonStyle("flex-grow", flexGrow)}
     ${getCommonStyle("position", position)}
+    ${getCommonStyle("top", top)}
+    ${getCommonStyle("bottom", bottom)}
+    ${getCommonStyle("left", left)}
+    ${getCommonStyle("right", right)}
 	`;
 };
 
@@ -289,9 +297,17 @@ export const DEFAULT_THEME = {
         backgroundColor: "rgba(0,0,0,0.15)",
       },
     },
-    Error: {
+    Message: {
       globals: {
-        color: "red700",
+        fontSize: "sm",
+      },
+      variants: {
+        error: {
+          color: "red700",
+        },
+        description: {
+          color: "grey700",
+        },
       },
     },
     Icon: {

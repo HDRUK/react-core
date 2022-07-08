@@ -4,12 +4,12 @@ import { cx } from "@emotion/css";
 import * as styles from "./Dimmer.styles";
 import { DimmerProps } from "./Dimmer.types";
 
-const Dimmer: React.FC<DimmerProps> = ({
+const Dimmer = ({
   children,
   className,
   contentAlignment,
   ...outerProps
-}) => {
+}: DimmerProps) => {
   return (
     <div
       {...outerProps}

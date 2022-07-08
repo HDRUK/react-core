@@ -4,11 +4,11 @@ import { cx } from "@emotion/css";
 import * as styles from "./Card.styles";
 import { CardFooterProps } from "./Card.types";
 
-const CardFooter: React.FC<CardFooterProps> = ({
+const CardFooter = ({
   className,
   children,
   ...outerProps
-}) => {
+}: CardFooterProps) => {
   return (
     <div
       {...outerProps}

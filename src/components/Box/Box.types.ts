@@ -1,7 +1,7 @@
 import { CommonStyleProps } from "../../types";
 
 export interface BoxProps extends CommonStyleProps {
-  as?: string;
+  as?: JSX.IntrinsicElements;
   children?: React.ReactNode;
   className?: string;
   css?: any;

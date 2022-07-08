@@ -6,7 +6,7 @@ import * as styles from "./Card.styles";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import { CardProps } from "./Card.types";
 
-const Card: React.FC<CardProps> = ({
+const Card = ({
   children,
   mt,
   mb,
@@ -21,7 +21,7 @@ const Card: React.FC<CardProps> = ({
   maxHeight,
   className,
   ...outerProps
-}) => {
+}: CardProps) => {
   const commonStyles = useCommonStyles({
     mt,
     mb,

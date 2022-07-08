@@ -5,7 +5,7 @@ import useCommonStyles from "../../hooks/useCommonStyles";
 import * as styles from "./Label.styles";
 import { LabelProps } from "./Label.types";
 
-const Label: React.FC<LabelProps> = ({
+const Label = ({
   className,
   children,
   disabled,
@@ -18,7 +18,7 @@ const Label: React.FC<LabelProps> = ({
   minWidth,
   maxWidth,
   ...outerProps
-}) => {
+}: LabelProps) => {
   const commonStyles = useCommonStyles({
     mt,
     mb,

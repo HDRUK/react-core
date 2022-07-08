@@ -24,9 +24,19 @@ export interface CommonStyleProps {
   height?: string;
   minHeight?: string;
   maxHeight?: string;
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
 }
 
 export type ComponentStyleProps = MarginStyleProps & WidthStyleProps;
+
+export type ComponentMarginProps = MarginStyleProps;
+
+export type ComponentWidthProps = WidthStyleProps;
+
+export type ComponentHeightProps = HeightStyleProps;
 
 export interface MarginStyleProps {
   m?: number;
@@ -69,7 +79,7 @@ export interface ThemeComponents {
   CardHeader: any;
   CardFooter: any;
   Dimmer: any;
-  Error: any;
+  Message: any;
   Icon: any;
   Input: any;
   Label: any;

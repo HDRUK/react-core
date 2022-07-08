@@ -4,11 +4,11 @@ import { cx } from "@emotion/css";
 import * as styles from "./Card.styles";
 import { CardHeaderProps } from "./Card.types";
 
-const CardHeader: React.FC<CardHeaderProps> = ({
+const CardHeader = ({
   className,
   children,
   ...outerProps
-}) => {
+}: CardHeaderProps) => {
   return (
     <div
       {...outerProps}

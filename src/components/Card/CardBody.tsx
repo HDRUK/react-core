@@ -4,11 +4,7 @@ import { cx } from "@emotion/css";
 import * as styles from "./Card.styles";
 import { CardBodyProps } from "./Card.types.js";
 
-const CardBody: React.FC<CardBodyProps> = ({
-  className,
-  children,
-  ...outerProps
-}) => {
+const CardBody = ({ className, children, ...outerProps }: CardBodyProps) => {
   return (
     <div
       {...outerProps}

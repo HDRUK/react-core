@@ -1,0 +1,36 @@
+import { useState, useCallback } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+
+import Modal from "./Modal";
+import Button from "../Button";
+import ModalHeader from "./ModalHeader";
+import ModalBody from "./ModalBody";
+import ModalFooter from "./ModalFooter";
+
+<Meta title="Organisms/Modal" component={Modal} />
+
+<Canvas>
+  <Story name="Basic">
+    {(props) => {
+      const [open, setOpen] = useState(true);
+      const handleClose = useCallback(() => {
+        setOpen(false);
+      }, []);
+      return (
+        <>
+          <Modal {...props} open={open} dismissable onClose={handleClose}>
+            <ModalHeader>Header</ModalHeader>
+            <ModalBody>Body</ModalBody>
+            <ModalFooter>
+              <Button variant="tertiary" mr={2}>
+                Cancel
+              </Button>
+              <Button>Submit</Button>
+            </ModalFooter>
+          </Modal>
+          {!open && <div>Modal closed</div>}
+        </>
+      );
+    }}
+  </Story>
+</Canvas>

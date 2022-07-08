@@ -2,10 +2,10 @@
 import { cx } from "@emotion/css";
 import { jsx } from "@emotion/react";
 import useCommonStyles from "../../hooks/useCommonStyles";
-import * as styles from "./Error.styles";
-import { ErrorProps } from "./Error.types";
+import * as styles from "./Message.styles";
+import { MessageProps } from "./Message.types";
 
-const Error: React.FC<ErrorProps> = ({
+const Message = ({
   className,
   children,
   ml,
@@ -16,8 +16,9 @@ const Error: React.FC<ErrorProps> = ({
   width,
   minWidth,
   maxWidth,
+  variant,
   ...outerProps
-}) => {
+}: MessageProps) => {
   const commonStyles = useCommonStyles({
     mt,
     mb,
@@ -32,12 +33,16 @@ const Error: React.FC<ErrorProps> = ({
   return (
     <div
       {...outerProps}
-      className={cx("ui-Error", className)}
-      css={[commonStyles, styles.root]}
+      className={cx("ui-Message", className)}
+      css={[commonStyles, styles.root({ variant })]}
     >
       {children}
     </div>
   );
 };
 
-export default Error;
+Message.defaultProps = {
+  variant: "description",
+};
+
+export default Message;

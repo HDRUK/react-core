@@ -1,16 +1,19 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 
-import Error from "./Error";
+import Message from "./Message";
 import { Card, CardBody } from "../Card";
 
-<Meta title="Atoms/Error" component={Error} />
+<Meta title="Atoms/Message" component={Message} />
 
 <Canvas>
   <Story name="Basic">
     {(props) => (
       <Card>
         <CardBody>
-          <Error>This field is required</Error>
+          <Message variant="error" mb={4}>
+            This is an error message
+          </Message>
+          <Message>This descriptive message</Message>
         </CardBody>
       </Card>
     )}

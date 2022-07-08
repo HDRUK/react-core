@@ -1,9 +1,9 @@
 import { ComponentProps } from "react";
-import { ComponentStyleProps, HeightStyleProps } from "../../types";
+import { ComponentStyleProps, ComponentHeightProps } from "../../types";
 
 export type CardProps = ComponentProps<"div"> &
   ComponentStyleProps &
-  HeightStyleProps;
+  ComponentHeightProps;
 export type CardHeaderProps = ComponentProps<"div">;
 export type CardBodyProps = ComponentProps<"div">;
 export type CardFooterProps = ComponentProps<"div">;

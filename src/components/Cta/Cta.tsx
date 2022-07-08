@@ -19,7 +19,7 @@ const fontSizes: Record<CommonSizes, keyof ThemeFontSizes> = {
   large: "2xl",
 };
 
-const Cta: React.FC<CtaProps> = ({
+const Cta = ({
   color,
   children,
   mt,
@@ -33,7 +33,7 @@ const Cta: React.FC<CtaProps> = ({
   fill,
   size,
   ...outerProps
-}) => {
+}: CtaProps) => {
   const commonStyles = useCommonStyles({
     mt,
     mr,
@@ -63,7 +63,6 @@ const Cta: React.FC<CtaProps> = ({
 
 Cta.defaultProps = {
   size: "medium",
-  onClick: () => {},
 };
 
 export default Cta;

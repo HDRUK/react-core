@@ -9,11 +9,8 @@ const useDOMAttributes = (validAttributes: (keyof HTMLElement)[]) => {
     (element) => {
       let updatedAttributes = { ...attributes };
 
-      console.log("attributes", element, attributes);
-
       validAttributes.forEach((value: keyof HTMLElement) => {
         if (element) {
-          console.log("attributes[value]", attributes[value]);
           if (attributes[value] === undefined) {
             updatedAttributes[value] = element[value] as number;
           } else if (attributes[value] !== element[value]) {
@@ -25,7 +22,6 @@ const useDOMAttributes = (validAttributes: (keyof HTMLElement)[]) => {
       console.log(updatedAttributes, attributes);
 
       if (!isEqual(updatedAttributes, attributes)) {
-        console.log(updatedAttributes);
         setAttributes(updatedAttributes);
       }
     },

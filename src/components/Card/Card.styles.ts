@@ -4,7 +4,6 @@ import { getComponentGlobalStyles, getSize } from "../../theme";
 export const root = () => (theme: Theme) => {
   return css`
     word-break: break-word;
-    width: 100%;
     position: relative;
 
     ${getComponentGlobalStyles("Card", theme)}
