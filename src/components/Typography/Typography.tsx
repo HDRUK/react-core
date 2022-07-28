@@ -32,7 +32,7 @@ const Typography = ({
     maxWidth,
   });
 
-  let Component: keyof JSX.IntrinsicElements = as;
+  let Component: keyof JSX.IntrinsicElements | undefined = as;
 
   if (!as) {
     if (variant === "body") {
@@ -44,14 +44,14 @@ const Typography = ({
     }
   }
 
-  return (
+  return Component ? (
     <Component
       className={cx(className, "ui-Typography")}
       css={[commonStyles, styles.root({ variant, color, tag: Component })]}
     >
       {children}
     </Component>
-  );
+  ) : null;
 };
 
 Typography.defaultProps = {

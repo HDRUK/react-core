@@ -17,12 +17,6 @@ export const mixins = {
         &:disabled {
           cursor: default;
         }
-
-        .ui-Icon,
-        svg {
-            height: 1em;
-            width: 1em;
-        }
 `,
 };
 

@@ -20,7 +20,6 @@ export const getStyle = (propParts, value, theme) => {
   const styleProp = propParts.join("-").toLowerCase();
 
   if (styleProp === "font-size") {
-    console.log("theme.font.size[value]", value, theme.font);
     return `${styleProp}: ${theme.font.size[value]};`;
   }
 
@@ -42,6 +41,9 @@ export const getCommonStyles = (props, theme) => {
     width,
     maxWidth,
     minWidth,
+    height,
+    minHeight,
+    maxHeight,
     display,
     alignItems,
     justifyContent,
@@ -51,9 +53,13 @@ export const getCommonStyles = (props, theme) => {
     bottom,
     left,
     right,
+    overflow,
+    gap,
+    backgroundColor,
   } = props;
 
   return `
+  ${getColorStyle("background-color", backgroundColor, theme)}
   ${getSpacingStyle("margin", m, theme)}
 		${getSpacingStyle("margin-left", ml, theme)}
 		${getSpacingStyle("margin-right", mr, theme)}
@@ -64,9 +70,13 @@ export const getCommonStyles = (props, theme) => {
 		${getSpacingStyle("padding-right", pr, theme)}
 		${getSpacingStyle("padding-bottom", pb, theme)}
 		${getSpacingStyle("padding-top", pt, theme)}
+    ${getSpacingStyle("gap", gap, theme)}
 		${getCommonStyle("width", width)}
 		${getCommonStyle("max-width", maxWidth)}
 		${getCommonStyle("min-width", minWidth)}
+    ${getCommonStyle("height", height)}
+		${getCommonStyle("max-Height", maxHeight)}
+		${getCommonStyle("min-Height", minHeight)}
     ${getCommonStyle("display", display)}
 		${getCommonStyle("align-items", alignItems)}
     ${getCommonStyle("justify-content", justifyContent)}
@@ -76,6 +86,7 @@ export const getCommonStyles = (props, theme) => {
     ${getCommonStyle("bottom", bottom)}
     ${getCommonStyle("left", left)}
     ${getCommonStyle("right", right)}
+    ${getCommonStyle("overflow", overflow)}
 	`;
 };
 
@@ -184,9 +195,10 @@ export const THEME_BUTTON = {
     small: {
       fontSize: "md",
       padding: "8px 12px",
+      height: "34px",
     },
-    medium: { fontSize: "md", padding: "11px 16px" },
-    large: { fontSize: "lg", padding: "14px 20px" },
+    medium: { fontSize: "md", padding: "8px 16px", height: "40px" },
+    large: { fontSize: "lg", padding: "10px 20px", height: "46px" },
   },
   variants: {
     primary: {
@@ -297,17 +309,14 @@ export const DEFAULT_THEME = {
         backgroundColor: "rgba(0,0,0,0.15)",
       },
     },
-    Message: {
+    FileSelectorButton: {
       globals: {
-        fontSize: "sm",
+        fill: "purple500",
       },
-      variants: {
-        error: {
-          color: "red700",
-        },
-        description: {
-          color: "grey700",
-        },
+    },
+    FileSelectorListing: {
+      globals: {
+        actionsFill: "purple500",
       },
     },
     Icon: {
@@ -343,6 +352,19 @@ export const DEFAULT_THEME = {
     Label: {
       globals: {
         disabledColor: "grey500",
+      },
+    },
+    Message: {
+      globals: {
+        fontSize: "sm",
+      },
+      variants: {
+        error: {
+          color: "red700",
+        },
+        description: {
+          color: "grey700",
+        },
       },
     },
     Typography: {

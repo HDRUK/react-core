@@ -9,14 +9,14 @@ import { IconSizes } from "../Icon/Icon.types";
 
 const iconSizes: Record<CommonSizes, IconSizes> = {
   small: "sm",
-  medium: "lg",
-  large: "2xl",
+  medium: "xl",
+  large: "3xl",
 };
 
 const fontSizes: Record<CommonSizes, keyof ThemeFontSizes> = {
   small: "xs",
   medium: "md",
-  large: "2xl",
+  large: "xl",
 };
 
 const Cta = ({

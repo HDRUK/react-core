@@ -4,7 +4,17 @@ import SVG from "react-inlinesvg";
 import Icon from "./Icon";
 import { Card, CardBody } from "../Card";
 
-import userIcon from "../../images/icons/star.svg";
+import closeIcon from "../../images/icons/close.svg";
+import jsonIcon from "../../images/icons/json.svg";
+import searchIcon from "../../images/icons/search.svg";
+import starIcon from "../../images/icons/star.svg";
+import checkIcon from "../../images/icons/check.svg";
+import uploadIcon from "../../images/icons/upload.svg";
+import successIcon from "../../images/icons/success.svg";
+import padlockIcon from "../../images/icons/padlock.svg";
+import projectIcon from "../../images/icons/project.svg";
+import pencilIcon from "../../images/icons/pencil.svg";
+import paperIcon from "../../images/icons/paper.svg";
 
 <Meta
   title="Atoms/Icon"
@@ -18,6 +28,29 @@ import userIcon from "../../images/icons/star.svg";
 />
 
 <Canvas>
+  <Story name="List">
+    {(props) => (
+      <Card>
+        <CardBody>
+          {[
+            closeIcon,
+            jsonIcon,
+            searchIcon,
+            starIcon,
+            checkIcon,
+            uploadIcon,
+            successIcon,
+            padlockIcon,
+            pencilIcon,
+            projectIcon,
+            paperIcon,
+          ].map((icon) => (
+            <Icon svg={<SVG src={icon} />} mr={2} size="xl" />
+          ))}
+        </CardBody>
+      </Card>
+    )}
+  </Story>
   <Story name="Sizes">
     {(props) => (
       <Card>
@@ -34,12 +67,7 @@ import userIcon from "../../images/icons/star.svg";
             "4xl",
             "5xl",
           ].map((size) => (
-            <Icon
-              svg={<SVG src={userIcon} />}
-              size={size}
-              mr={2}
-              stroke="grey800"
-            />
+            <Icon svg={<SVG src={starIcon} />} size={size} mr={2} />
           ))}
         </CardBody>
       </Card>

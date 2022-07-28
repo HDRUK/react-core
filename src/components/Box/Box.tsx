@@ -22,6 +22,7 @@ const Box = ({
   width,
   minWidth,
   maxWidth,
+  height,
   minHeight,
   maxHeight,
   display,
@@ -33,6 +34,9 @@ const Box = ({
   left,
   right,
   bottom,
+  overflow,
+  gap,
+  backgroundColor,
   ...outerProps
 }: BoxProps) => {
   const commonStyles = useCommonStyles({
@@ -49,6 +53,7 @@ const Box = ({
     width,
     minWidth,
     maxWidth,
+    height,
     minHeight,
     maxHeight,
     display,
@@ -60,6 +65,9 @@ const Box = ({
     left,
     right,
     bottom,
+    overflow,
+    gap,
+    backgroundColor,
   });
 
   const Component: keyof JSX.IntrinsicElements = (as ||

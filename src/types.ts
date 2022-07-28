@@ -3,6 +3,7 @@ export type CommonVariants = "primary" | "secondary" | "tertiary";
 export type CommonSizes = "small" | "medium" | "large";
 
 export interface CommonStyleProps {
+  overflow?: string;
   display?: string;
   alignItems?: string;
   justifyContent?: string;
@@ -28,6 +29,8 @@ export interface CommonStyleProps {
   bottom?: string;
   left?: string;
   right?: string;
+  gap?: number;
+  backgroundColor?: string;
 }
 
 export type ComponentStyleProps = MarginStyleProps & WidthStyleProps;

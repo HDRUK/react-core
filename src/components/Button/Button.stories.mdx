@@ -4,7 +4,7 @@ import SVG from "react-inlinesvg";
 import Button from "./Button";
 import { Card, CardBody } from "../Card";
 
-import tickIcon from "../../images/icons/search.svg";
+import searchIcon from "../../images/icons/search.svg";
 import userIcon from "../../images/icons/star.svg";
 
 <Meta
@@ -79,11 +79,7 @@ import userIcon from "../../images/icons/star.svg";
       <Card>
         <CardBody>
           <div>
-            <Button
-              {...props}
-              mb={4}
-              iconLeft={<SVG src={userIcon} stroke="white" />}
-            >
+            <Button {...props} mb={4} iconLeft={<SVG src={searchIcon} />}>
               Icon left
             </Button>
           </div>
@@ -91,7 +87,7 @@ import userIcon from "../../images/icons/star.svg";
             <Button
               {...props}
               mb={4}
-              iconRight={<SVG src={userIcon} stroke="white" />}
+              iconRight={<SVG src={userIcon} fill="white" />}
             >
               Icon right
             </Button>
@@ -99,8 +95,8 @@ import userIcon from "../../images/icons/star.svg";
           <div>
             <Button
               {...props}
-              iconLeft={<SVG src={tickIcon} stroke="white" />}
-              iconRight={<SVG src={userIcon} stroke="white" />}
+              iconLeft={<SVG src={searchIcon} />}
+              iconRight={<SVG src={userIcon} />}
             >
               Icon left and right
             </Button>
