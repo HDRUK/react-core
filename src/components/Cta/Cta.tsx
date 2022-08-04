@@ -27,6 +27,8 @@ const Cta = ({
   ml,
   mr,
   m,
+  mx,
+  my,
   iconLeft,
   iconRight,
   className,
@@ -40,6 +42,8 @@ const Cta = ({
     ml,
     mb,
     m,
+    mx,
+    my,
   });
 
   return (

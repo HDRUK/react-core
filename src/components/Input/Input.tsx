@@ -25,12 +25,14 @@ const Input = ({
   ml,
   mr,
   m,
+  mx,
+  my,
   ...outerProps
 }: InputProps) => {
   const iconLeftRef = useRef(null);
   const iconRightRef = useRef(null);
 
-  const commonStyles = useCommonStyles({ mt, mb, ml, mr, m });
+  const commonStyles = useCommonStyles({ mt, mb, ml, mr, m, mx, my });
 
   const {
     update: updateLeft,

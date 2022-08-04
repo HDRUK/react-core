@@ -1,4 +1,4 @@
-import isNil from "lodash/isNil";
+import isNil from "lodash-es/isNil";
 
 export const getSize = (value, { base: { increment, unit } }) => {
   return `${value * increment}${unit}`;
@@ -38,6 +38,10 @@ export const getCommonStyles = (props, theme) => {
     pt,
     pb,
     pl,
+    mx,
+    my,
+    px,
+    py,
     width,
     maxWidth,
     minWidth,
@@ -61,15 +65,15 @@ export const getCommonStyles = (props, theme) => {
   return `
   ${getColorStyle("background-color", backgroundColor, theme)}
   ${getSpacingStyle("margin", m, theme)}
-		${getSpacingStyle("margin-left", ml, theme)}
-		${getSpacingStyle("margin-right", mr, theme)}
-		${getSpacingStyle("margin-bottom", mb, theme)}
-		${getSpacingStyle("margin-top", mt, theme)}
-    ${getSpacingStyle("padding", p, theme)}
-    ${getSpacingStyle("padding-left", pl, theme)}
-		${getSpacingStyle("padding-right", pr, theme)}
-		${getSpacingStyle("padding-bottom", pb, theme)}
-		${getSpacingStyle("padding-top", pt, theme)}
+  ${getSpacingStyle("margin-left", ml || mx, theme)}
+  ${getSpacingStyle("margin-right", mr || mx, theme)}
+  ${getSpacingStyle("margin-bottom", mb || my, theme)}
+  ${getSpacingStyle("margin-top", mt || my, theme)}
+      ${getSpacingStyle("padding", p, theme)}
+      ${getSpacingStyle("padding-left", pl || px, theme)}
+  ${getSpacingStyle("padding-right", pr || px, theme)}
+  ${getSpacingStyle("padding-bottom", pb || py, theme)}
+  ${getSpacingStyle("padding-top", pt || py, theme)}
     ${getSpacingStyle("gap", gap, theme)}
 		${getCommonStyle("width", width)}
 		${getCommonStyle("max-width", maxWidth)}

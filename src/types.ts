@@ -12,11 +12,15 @@ export interface CommonStyleProps {
   pb?: number;
   pt?: number;
   pr?: number;
+  py?: number;
+  px?: number;
   m?: number;
   ml?: number;
   mb?: number;
   mt?: number;
   mr?: number;
+  mx?: number;
+  my?: number;
   flexGrow?: string;
   position?: string;
   width?: string;
@@ -47,6 +51,8 @@ export interface MarginStyleProps {
   mb?: number;
   mt?: number;
   mr?: number;
+  mx?: number;
+  my?: number;
 }
 
 export interface WidthStyleProps {

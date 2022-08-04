@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { intersection } from "lodash";
+import intersection from "lodash-es/intersection";
 
 expect.extend({
   toContainClass(received, list) {

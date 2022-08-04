@@ -17,9 +17,11 @@ const Icon = ({
   mb,
   mt,
   m,
+  mx,
+  my,
   ...outerProps
 }: IconProps) => {
-  const commonStyles = useCommonStyles({ mt, mb, ml, mr, m });
+  const commonStyles = useCommonStyles({ mt, mb, ml, mr, m, mx, my });
 
   return (
     <span

@@ -1,4 +1,4 @@
-import { isEqual } from "lodash";
+import isEqual from "lodash-es/isEqual";
 import { useCallback, useState } from "react";
 import { DomAttributes } from "./useDOMAttributes.types";
 
@@ -7,7 +7,7 @@ const useDOMAttributes = (validAttributes: (keyof HTMLElement)[]) => {
 
   const update = useCallback(
     (element) => {
-      let updatedAttributes = { ...attributes };
+      const updatedAttributes = { ...attributes };
 
       validAttributes.forEach((value: keyof HTMLElement) => {
         if (element) {
@@ -18,8 +18,6 @@ const useDOMAttributes = (validAttributes: (keyof HTMLElement)[]) => {
           }
         }
       });
-
-      console.log(updatedAttributes, attributes);
 
       if (!isEqual(updatedAttributes, attributes)) {
         setAttributes(updatedAttributes);
