@@ -24,6 +24,7 @@ export interface TypographyProps
     | "h6"
     | "body"
     | "caption"
+    | "small"
     | "tiny";
   color?: keyof Theme["colors"];
   as?: keyof JSX.IntrinsicElements;

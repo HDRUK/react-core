@@ -15,5 +15,4 @@ export interface CtaProps
 
 export type CtaStyleProps = Pick<CtaProps, "color" | "fill"> & {
   fontSize: keyof ThemeFontSizes;
-  iconSize: IconSizes;
 };

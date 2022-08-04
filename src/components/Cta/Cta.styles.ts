@@ -7,10 +7,8 @@ import {
 import { CtaStyleProps } from "./Cta.types";
 
 export const root =
-  ({ color, fill, fontSize, iconSize }: CtaStyleProps) =>
+  ({ color, fill, fontSize }: CtaStyleProps) =>
   (theme: Theme) => {
-    const size = getComponentSizeStyles("Icon", iconSize, theme);
-
     return css`
       gap: ${getSize(2, theme)};
       background: none;
@@ -29,12 +27,6 @@ export const root =
 
       &:hover {
         cursor: pointer;
-      }
-
-      .ui-Icon,
-      svg {
-        width: ${size};
-        height: ${size};
       }
     `;
   };

@@ -41,7 +41,11 @@ const Typography = ({
   if (!as) {
     if (variant === "body") {
       Component = "p";
-    } else if (variant === "caption" || variant === "tiny") {
+    } else if (
+      variant === "caption" ||
+      variant === "small" ||
+      variant === "tiny"
+    ) {
       Component = "span";
     } else {
       Component = variant;

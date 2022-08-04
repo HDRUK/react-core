@@ -7,12 +7,6 @@ import useCommonStyles from "../../hooks/useCommonStyles";
 import { CommonSizes, ThemeFontSizes } from "../../types";
 import { IconSizes } from "../Icon/Icon.types";
 
-const iconSizes: Record<CommonSizes, IconSizes> = {
-  small: "sm",
-  medium: "xl",
-  large: "3xl",
-};
-
 const fontSizes: Record<CommonSizes, keyof ThemeFontSizes> = {
   small: "xs",
   medium: "md",
@@ -56,7 +50,6 @@ const Cta = ({
           color,
           fill,
           fontSize: fontSizes[size],
-          iconSize: iconSizes[size],
         }),
       ]}
     >

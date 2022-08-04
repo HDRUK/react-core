@@ -1,6 +1,17 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 
-import Typography, { H1, H2, H3, H4, H5, H6, P } from "./";
+import Typography, {
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  P,
+  Caption,
+  Small,
+  Tiny,
+} from "./";
 import { Card, CardBody } from "../Card";
 
 <Meta
@@ -41,14 +52,19 @@ import { Card, CardBody } from "../Card";
             Body
           </P>
           <div>
-            <Typography {...props} variant="caption" mb={2}>
+            <Caption {...props} mb={2}>
               Caption
-            </Typography>
+            </Caption>
           </div>
           <div>
-            <Typography {...props} variant="tiny" mb={2}>
+            <Small {...props} mb={2}>
+              Small
+            </Small>
+          </div>
+          <div>
+            <Tiny {...props} mb={2}>
               Tiny
-            </Typography>
+            </Tiny>
           </div>
         </CardBody>
       </Card>

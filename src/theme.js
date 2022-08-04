@@ -181,9 +181,9 @@ export const THEME_INPUT = {
 };
 
 export const THEME_FONT_SIZES = {
-  xxs: "8px",
-  xs: "10px",
-  sm: "12px",
+  xxs: "10px",
+  xs: "12px",
+  sm: "13px",
   md: "14px",
   default: "14px",
   lg: "16px",
@@ -411,8 +411,12 @@ export const DEFAULT_THEME = {
           fontSize: "sm",
           lineHeight: "16px",
         },
-        tiny: {
+        small: {
           fontSize: "xs",
+          lineHeight: "14px",
+        },
+        tiny: {
+          fontSize: "xxs",
           lineHeight: "14px",
         },
       },
