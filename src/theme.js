@@ -60,6 +60,7 @@ export const getCommonStyles = (props, theme) => {
     overflow,
     gap,
     backgroundColor,
+    flexShrink,
   } = props;
 
   return `
@@ -85,6 +86,7 @@ export const getCommonStyles = (props, theme) => {
 		${getCommonStyle("align-items", alignItems)}
     ${getCommonStyle("justify-content", justifyContent)}
     ${getCommonStyle("flex-grow", flexGrow)}
+    ${getCommonStyle("flex-shrink", flexShrink)}
     ${getCommonStyle("position", position)}
     ${getCommonStyle("top", top)}
     ${getCommonStyle("bottom", bottom)}

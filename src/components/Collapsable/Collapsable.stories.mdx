@@ -1,0 +1,50 @@
+import { useState } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { Card, CardBody } from "../Card";
+import Button from "../Button";
+import Collapsable from "./Collapsable";
+
+<Meta title="Molecules/Collapsable" component={Collapsable} />
+
+<Canvas>
+  <Story name="Vertical">
+    {(props) => {
+      const [open, setOpen] = useState(false);
+      const handleOpen = () => {
+        setOpen(!open);
+      };
+      return (
+        <Card>
+          <CardBody>
+            <Collapsable
+              toggle={<Button onClick={handleOpen}>Show more</Button>}
+              open={open}
+              initialHeight="1em"
+            >
+              asdasd asdasd asdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd asdasdasdasd
+              asdasdasdasd asdasd
+            </Collapsable>
+          </CardBody>
+        </Card>
+      );
+    }}
+  </Story>
+</Canvas>

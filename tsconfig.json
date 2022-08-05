@@ -16,8 +16,8 @@
     "paths": {
       "components": ["src/components/*"],
       "hooks": ["src/hooks/*"]
-    }
+    },
+    "types": ["src/components/Button/Button.types.ts"]
   },
-  "exclude": ["node_modules", "dist"],
-  "types": ["typePatches"]
+  "exclude": ["node_modules", "dist"]
 }

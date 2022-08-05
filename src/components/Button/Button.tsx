@@ -2,9 +2,9 @@
 import { jsx } from "@emotion/react";
 import React from "react";
 import { cx } from "@emotion/css";
-import { ButtonProps } from "./Button.types";
 import * as styles from "./Button.styles";
 import useCommonStyles from "../../hooks/useCommonStyles";
+import { ButtonProps } from "./index";
 
 const Button = ({
   variant,
