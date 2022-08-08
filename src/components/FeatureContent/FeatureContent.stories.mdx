@@ -1,0 +1,24 @@
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+
+import FeatureContent from "./FeatureContent";
+
+<Meta title="Organisms/FeatureContent" component={FeatureContent} />
+
+<Canvas>
+  <Story name="Basic">
+    {(props) => {
+      return (
+        <div>
+          <FeatureContent
+            media={
+              <img src="https://www.cameraegg.org/wp-content/uploads/2015/06/canon-powershot-g3-x-sample-images-1.jpg" />
+            }
+          >
+            XYZ
+          </FeatureContent>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>

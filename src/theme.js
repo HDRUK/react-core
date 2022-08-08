@@ -61,6 +61,7 @@ export const getCommonStyles = (props, theme) => {
     gap,
     backgroundColor,
     flexShrink,
+    flexBasis,
   } = props;
 
   return `
@@ -87,6 +88,7 @@ export const getCommonStyles = (props, theme) => {
     ${getCommonStyle("justify-content", justifyContent)}
     ${getCommonStyle("flex-grow", flexGrow)}
     ${getCommonStyle("flex-shrink", flexShrink)}
+    ${getCommonStyle("flex-basis", flexBasis)}
     ${getCommonStyle("position", position)}
     ${getCommonStyle("top", top)}
     ${getCommonStyle("bottom", bottom)}
@@ -303,16 +305,28 @@ export const DEFAULT_THEME = {
         borderColor: "grey200",
         fontSize: "xl",
         fontWeight: "500",
+        padding: "24px",
+      },
+    },
+    CardBody: {
+      globals: {
+        padding: "24px",
       },
     },
     CardFooter: {
       globals: {
         borderColor: "grey200",
+        padding: "16px",
       },
     },
     Dimmer: {
       globals: {
         backgroundColor: "rgba(0,0,0,0.15)",
+      },
+    },
+    FeatureContent: {
+      globals: {
+        offset: "2px",
       },
     },
     FileSelectorButton: {

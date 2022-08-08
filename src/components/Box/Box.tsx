@@ -42,6 +42,7 @@ const Box = ({
   gap,
   backgroundColor,
   flexShrink,
+  flexBasis,
   ...outerProps
 }: BoxProps) => {
   const commonStyles = useCommonStyles({
@@ -78,6 +79,7 @@ const Box = ({
     gap,
     backgroundColor,
     flexShrink,
+    flexBasis,
   });
 
   const Component: keyof JSX.IntrinsicElements = (as ||

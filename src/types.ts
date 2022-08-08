@@ -23,6 +23,7 @@ export interface CommonStyleProps {
   my?: number;
   flexGrow?: string;
   flexShrink?: string;
+  flexBasis?: string;
   position?: string;
   width?: string;
   minWidth?: string;
@@ -87,9 +88,14 @@ export interface ThemeComponents {
   Button: any;
   Card: any;
   CardHeader: any;
+  CardBody: any;
   CardFooter: any;
+  Cta: any;
   Dimmer: any;
+  FeatureContent: any;
+  FileSelector: any;
   Message: any;
+  Modal: any;
   Icon: any;
   Input: any;
   Label: any;
