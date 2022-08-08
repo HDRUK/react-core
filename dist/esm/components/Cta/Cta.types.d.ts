@@ -1,7 +1,6 @@
 import { Theme } from "@emotion/react";
 import { ComponentProps, ReactElement } from "react";
 import { CommonSizes, ComponentMarginProps, ThemeFontSizes } from "../../types";
-import { IconSizes } from "../Icon/Icon.types";
 export interface CtaProps extends Omit<ComponentProps<"button">, "color" | "fill">, ComponentMarginProps {
     size: CommonSizes;
     iconLeft?: ReactElement;
@@ -11,5 +10,4 @@ export interface CtaProps extends Omit<ComponentProps<"button">, "color" | "fill
 }
 export declare type CtaStyleProps = Pick<CtaProps, "color" | "fill"> & {
     fontSize: keyof ThemeFontSizes;
-    iconSize: IconSizes;
 };

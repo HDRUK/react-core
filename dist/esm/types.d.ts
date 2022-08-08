@@ -20,6 +20,7 @@ export interface CommonStyleProps {
     mx?: number;
     my?: number;
     flexGrow?: string;
+    flexShrink?: string;
     position?: string;
     width?: string;
     minWidth?: string;

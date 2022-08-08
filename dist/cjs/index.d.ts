@@ -1,8 +1,9 @@
 export { default as Box } from "./components/Box";
 export { default as Button } from "./components/Button";
+export { default as Collapsable } from "./components/Collapsable";
 export { default as Cta } from "./components/Cta";
 export { default as Dimmer } from "./components/Dimmer";
-export { default as FileSelector } from "./components/Button";
+export { default as FileSelector } from "./components/FileSelector";
 export { default as Icon } from "./components/Icon";
 export { default as Input } from "./components/Input";
 export { default as Label } from "./components/Label";
