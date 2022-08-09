@@ -62,6 +62,11 @@ export const getCommonStyles = (props, theme) => {
     backgroundColor,
     flexShrink,
     flexBasis,
+    gridTemplateColumns,
+    gridTemplateRows,
+    gridTemplateAreas,
+    gridColumn,
+    direction,
   } = props;
 
   return `
@@ -95,6 +100,12 @@ export const getCommonStyles = (props, theme) => {
     ${getCommonStyle("left", left)}
     ${getCommonStyle("right", right)}
     ${getCommonStyle("overflow", overflow)}
+
+    ${getCommonStyle("grid-template-columns", gridTemplateColumns)}
+    ${getCommonStyle("grid-template-rows", gridTemplateRows)}
+    ${getCommonStyle("grid-template-areas", gridTemplateAreas)}
+    ${getCommonStyle("grid-column", gridColumn)}
+    ${getCommonStyle("direction", direction)}
 	`;
 };
 
@@ -324,9 +335,14 @@ export const DEFAULT_THEME = {
         backgroundColor: "rgba(0,0,0,0.15)",
       },
     },
-    FeatureContent: {
+    FeatureContentHorizontal: {
       globals: {
-        offset: "2px",
+        cardOffset: "-22px",
+      },
+    },
+    FeatureContentVertical: {
+      globals: {
+        cardOffset: "-12px",
       },
     },
     FileSelectorButton: {

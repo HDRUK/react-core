@@ -2,16 +2,18 @@ import { css, Theme } from "@emotion/react";
 import { getComponentGlobals } from "../../theme";
 
 export const media = (theme: Theme) => {
-  const padding = getComponentGlobals("CardBody", theme).padding;
-  const offset = getComponentGlobals("FeatureContent", theme).offset;
-  const calcOffset = `calc(-${padding} + ${offset})`;
+  const cardOffset = getComponentGlobals(
+    "FeatureContentHorizontal",
+    theme
+  ).cardOffset;
 
   return css`
-    top: ${calcOffset};
-    bottom: ${calcOffset};
+    max-width: 100%;
+    top: ${cardOffset};
+    bottom: ${cardOffset};
     width: 100%;
     position: absolute;
-    right: ${calcOffset};
+    right: ${cardOffset};
     line-height: 0;
     overflow: hidden;
 

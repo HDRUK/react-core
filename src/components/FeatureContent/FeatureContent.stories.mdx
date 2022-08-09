@@ -2,21 +2,42 @@ import { useState } from "react";
 import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 
 import FeatureContent from "./FeatureContent";
+import FeatureContentHeader from "./FeatureContentHeader";
+import FeatureContentBody from "./FeatureContentBody";
 
 <Meta title="Organisms/FeatureContent" component={FeatureContent} />
 
 <Canvas>
-  <Story name="Basic">
+  <Story name="Horizontal">
     {(props) => {
       return (
         <div>
           <FeatureContent
+            variant="horizontal"
+            header="Cohort Discovery"
+            body="Search based on characteristics such as disease, age, and location. Queries are made on the actual dataset, not just metadata. Available on a limited number of datasets with more added monthly."
             media={
               <img src="https://www.cameraegg.org/wp-content/uploads/2015/06/canon-powershot-g3-x-sample-images-1.jpg" />
             }
-          >
-            XYZ
-          </FeatureContent>
+            mb={6}
+          />
+        </div>
+      );
+    }}
+  </Story>
+  <Story name="Vertical">
+    {(props) => {
+      return (
+        <div>
+          <FeatureContent
+            variant="vertical"
+            header="Cohort Discovery"
+            body="Search based on characteristics such as disease, age, and location. Queries are made on the actual dataset, not just metadata. Available on a limited number of datasets with more added monthly."
+            media={
+              <img src="https://www.cameraegg.org/wp-content/uploads/2015/06/canon-powershot-g3-x-sample-images-1.jpg" />
+            }
+            mb={6}
+          />
         </div>
       );
     }}

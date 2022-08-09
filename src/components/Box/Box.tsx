@@ -43,6 +43,11 @@ const Box = ({
   backgroundColor,
   flexShrink,
   flexBasis,
+  gridTemplateColumns,
+  gridTemplateRows,
+  gridTemplateAreas,
+  gridColumn,
+  direction,
   ...outerProps
 }: BoxProps) => {
   const commonStyles = useCommonStyles({
@@ -80,6 +85,11 @@ const Box = ({
     backgroundColor,
     flexShrink,
     flexBasis,
+    gridTemplateColumns,
+    gridTemplateRows,
+    gridTemplateAreas,
+    gridColumn,
+    direction,
   });
 
   const Component: keyof JSX.IntrinsicElements = (as ||

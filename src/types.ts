@@ -37,6 +37,11 @@ export interface CommonStyleProps {
   right?: string;
   gap?: number;
   backgroundColor?: string;
+  gridTemplateColumns?: string;
+  gridTemplateRows?: string;
+  gridTemplateAreas?: string;
+  gridColumn?: string;
+  direction?: string;
 }
 
 export type ComponentStyleProps = MarginStyleProps & WidthStyleProps;
@@ -92,7 +97,8 @@ export interface ThemeComponents {
   CardFooter: any;
   Cta: any;
   Dimmer: any;
-  FeatureContent: any;
+  FeatureContentHorizontal: any;
+  FeatureContentVertical: any;
   FileSelector: any;
   Message: any;
   Modal: any;
