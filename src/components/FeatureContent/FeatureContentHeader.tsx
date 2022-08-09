@@ -7,11 +7,7 @@ const FeatureContentHeader = ({
   children,
   ...outerProps
 }: FeatureContentHeaderProps) => {
-  return (
-    <H5 {...outerProps} mb={2}>
-      {children}
-    </H5>
-  );
+  return <H5 {...outerProps}>{children}</H5>;
 };
 
 export default FeatureContentHeader;

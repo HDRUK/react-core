@@ -4,6 +4,8 @@ import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 import FeatureContent from "./FeatureContent";
 import FeatureContentHeader from "./FeatureContentHeader";
 import FeatureContentBody from "./FeatureContentBody";
+import Button from "../Button";
+import Box from "../Box";
 
 <Meta title="Organisms/FeatureContent" component={FeatureContent} />
 
@@ -19,7 +21,16 @@ import FeatureContentBody from "./FeatureContentBody";
             media={
               <img src="https://www.cameraegg.org/wp-content/uploads/2015/06/canon-powershot-g3-x-sample-images-1.jpg" />
             }
-            mb={6}
+            actions={
+              <>
+                <Box mb={3}>
+                  <a href="#">Learn more</a>
+                </Box>
+                <Button variant="secondary">
+                  Search using Cohort Discovery
+                </Button>
+              </>
+            }
           />
         </div>
       );
@@ -36,7 +47,14 @@ import FeatureContentBody from "./FeatureContentBody";
             media={
               <img src="https://www.cameraegg.org/wp-content/uploads/2015/06/canon-powershot-g3-x-sample-images-1.jpg" />
             }
-            mb={6}
+            actions={
+              <>
+                <Button variant="secondary" mb={3}>
+                  Search using Cohort Discovery
+                </Button>
+                <a href="#">Learn more</a>
+              </>
+            }
           />
         </div>
       );

@@ -7,11 +7,13 @@ import * as styles from "./FeatureContent.styles";
 import { FeatureContentHorizontalProps } from "./FeatureContentHorizontal.types";
 import FeatureContentBody from "../FeatureContent/FeatureContentBody";
 import FeatureContentHeader from "../FeatureContent/FeatureContentHeader";
+import FeatureContentActions from "components/FeatureContent/FeatureContentActions";
 
 const FeatureContentHorizontal = ({
   media,
   header,
   body,
+  actions,
   ...outerProps
 }: FeatureContentHorizontalProps) => {
   return (
@@ -22,9 +24,14 @@ const FeatureContentHorizontal = ({
           gridTemplateColumns="1fr 200px"
           gridTemplateRows="1fr"
         >
-          <Box m={-2} gridColumn="1">
-            {header && <FeatureContentHeader>{header}</FeatureContentHeader>}
-            <FeatureContentBody>{body}</FeatureContentBody>
+          <Box m={-2} gridColumn="1" css={styles.root}>
+            {header && (
+              <FeatureContentHeader mb={3}>{header}</FeatureContentHeader>
+            )}
+            {body && <FeatureContentBody mb={3}>{body}</FeatureContentBody>}
+            {actions && (
+              <FeatureContentActions>{actions}</FeatureContentActions>
+            )}
           </Box>
           {media && (
             <Box

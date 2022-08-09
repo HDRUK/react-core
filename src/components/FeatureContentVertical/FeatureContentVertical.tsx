@@ -6,20 +6,29 @@ import * as styles from "./FeatureContentVertical.styles";
 import { FeatureContentVerticalProps } from "./FeatureContentVertical.types";
 import FeatureContentBody from "../FeatureContent/FeatureContentBody";
 import FeatureContentHeader from "../FeatureContent/FeatureContentHeader";
+import FeatureContentActions from "components/FeatureContent/FeatureContentActions";
 
 const FeatureContentVertical = ({
   media,
   header,
   body,
+  actions,
   ...outerProps
 }: FeatureContentVerticalProps) => {
   return (
     <Card {...outerProps} maxWidth="284px">
       <CardBody>
         <div css={styles.root}>
-          {header && <FeatureContentHeader>{header}</FeatureContentHeader>}
+          {header && (
+            <FeatureContentHeader mb={3}>{header}</FeatureContentHeader>
+          )}
           <div css={styles.media}>{media}</div>
-          <FeatureContentBody>{body}</FeatureContentBody>
+          {body && <FeatureContentBody mb={4}>{body}</FeatureContentBody>}
+          {actions && (
+            <FeatureContentActions textAlign="center">
+              {actions}
+            </FeatureContentActions>
+          )}
         </div>
       </CardBody>
     </Card>

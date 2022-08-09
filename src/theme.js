@@ -67,6 +67,7 @@ export const getCommonStyles = (props, theme) => {
     gridTemplateAreas,
     gridColumn,
     direction,
+    textAlign,
   } = props;
 
   return `
@@ -100,12 +101,12 @@ export const getCommonStyles = (props, theme) => {
     ${getCommonStyle("left", left)}
     ${getCommonStyle("right", right)}
     ${getCommonStyle("overflow", overflow)}
-
     ${getCommonStyle("grid-template-columns", gridTemplateColumns)}
     ${getCommonStyle("grid-template-rows", gridTemplateRows)}
     ${getCommonStyle("grid-template-areas", gridTemplateAreas)}
     ${getCommonStyle("grid-column", gridColumn)}
     ${getCommonStyle("direction", direction)}
+    ${getCommonStyle("text-align", textAlign)}
 	`;
 };
 

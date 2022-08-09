@@ -1,6 +1,14 @@
 import { css, Theme } from "@emotion/react";
 import { getComponentGlobals } from "../../theme";
 
+export const root = (theme: Theme) => {
+  return css`
+    > :last-child {
+      margin-bottom: 0;
+    }
+  `;
+};
+
 export const media = (theme: Theme) => {
   const cardOffset = getComponentGlobals(
     "FeatureContentHorizontal",

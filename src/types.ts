@@ -42,6 +42,7 @@ export interface CommonStyleProps {
   gridTemplateAreas?: string;
   gridColumn?: string;
   direction?: string;
+  textAlign?: string;
 }
 
 export type ComponentStyleProps = MarginStyleProps & WidthStyleProps;

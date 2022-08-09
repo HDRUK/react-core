@@ -9,6 +9,10 @@ export const root = (theme: Theme) => {
 
   return css`
     margin: ${cardOffset};
+
+    > last-child {
+      margin-bottom: 0;
+    }
   `;
 };
 

@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from "@emotion/react";
 import Box from "components/Box";
-import { FeatureContentBodyProps } from "./FeatureContent.types";
+import { FeatureContentActionsProps } from "./FeatureContent.types";
 
-const FeatureContentBody = ({
+const FeatureContentActions = ({
   children,
   ...outerProps
-}: FeatureContentBodyProps) => {
+}: FeatureContentActionsProps) => {
   return <Box {...outerProps}>{children}</Box>;
 };
 
-export default FeatureContentBody;
+export default FeatureContentActions;
