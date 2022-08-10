@@ -21,6 +21,7 @@ export interface CommonStyleProps {
     my?: number;
     flexGrow?: string;
     flexShrink?: string;
+    flexBasis?: string;
     position?: string;
     width?: string;
     minWidth?: string;
@@ -34,6 +35,13 @@ export interface CommonStyleProps {
     right?: string;
     gap?: number;
     backgroundColor?: string;
+    gridTemplateColumns?: string;
+    gridTemplateRows?: string;
+    gridTemplateAreas?: string;
+    gridColumn?: string;
+    direction?: string;
+    textAlign?: string;
+    flexDirection?: string;
 }
 export declare type ComponentStyleProps = MarginStyleProps & WidthStyleProps;
 export declare type ComponentMarginProps = MarginStyleProps;
@@ -75,12 +83,19 @@ export interface ThemeComponents {
     Button: any;
     Card: any;
     CardHeader: any;
+    CardBody: any;
     CardFooter: any;
+    Cta: any;
     Dimmer: any;
+    FeatureContentHorizontal: any;
+    FeatureContentVertical: any;
+    FileSelector: any;
     Message: any;
+    Modal: any;
     Icon: any;
     Input: any;
     Label: any;
+    Tag: any;
     Typography: any;
 }
 export interface Theme {
