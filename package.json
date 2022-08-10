@@ -67,6 +67,7 @@
   },
   "devDependencies": {
     "@emotion/css": "^11.9.0",
+    "@emotion/eslint-plugin": "^11.10.0",
     "@emotion/react": "^11.9.3",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.1",
