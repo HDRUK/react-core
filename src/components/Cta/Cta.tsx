@@ -1,10 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { cx } from "@emotion/css";
-import * as styles from "./Cta.styles";
-import { CtaProps } from "./Cta.types";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import { CommonSizes, ThemeFontSizes } from "../../types";
-import { IconSizes } from "../Icon/Icon.types";
+import * as styles from "./Cta.styles";
+import { CtaProps } from "./Cta.types";
 
 const fontSizes: Record<CommonSizes, keyof ThemeFontSizes> = {
   small: "xs",

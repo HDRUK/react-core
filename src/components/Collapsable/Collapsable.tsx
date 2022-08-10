@@ -35,7 +35,7 @@ const Collapsable = ({
       {...outerProps}
       display="flex"
       className={cx(className, "ui-Collapsable")}
-      css={[commonStyles, styles.root()]}
+      css={[commonStyles]}
     >
       <Box
         css={[

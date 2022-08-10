@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 import { cx } from "@emotion/css";
 import React, { useCallback, useEffect, useState } from "react";
 

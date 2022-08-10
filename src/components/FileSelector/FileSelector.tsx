@@ -1,19 +1,19 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
+
 import { cx } from "@emotion/css";
-import React, { useCallback, useEffect, useRef, useState } from "react";
 import { filesize } from "humanize";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-import FileSelectorButton from "./FileSelectorButton";
-import { FileSelectorProps } from "./FileSelector.types";
 import * as styles from "./FileSelector.styles";
+import { FileSelectorProps } from "./FileSelector.types";
+import FileSelectorButton from "./FileSelectorButton";
 
-import Typography, { H5 } from "../Typography";
-import Box from "../Box";
-import Icon from "../Icon";
-import Caption from "../Typography/Caption";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import { ReactComponent as UploadIcon } from "../../images/icons/upload.svg";
+import Box from "../Box";
+import Icon from "../Icon";
+import Typography, { H5 } from "../Typography";
+import Caption from "../Typography/Caption";
 
 const FileSelector = ({
   listing,

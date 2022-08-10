@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the FeatureContentHorizontal component When it is rendered Then should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-FeatureContentHorizontal ui-Card css-jc6qth-Card"
+    role="article"
+  >
+    <div
+      class="ui-CardBody css-4iti4b-CardBody"
+    >
+      <div
+        class="ui-Box css-d3bhw6-Box"
+      >
+        <div
+          class="ui-Box css-1qn5etn-FeatureContentHorizontal"
+        >
+          <div
+            class="ui-Box css-1ugkmi8-Box"
+          >
+            <h5
+              class="ui-Typography css-yngmzh-Typography"
+            >
+              Header
+            </h5>
+            <div
+              class="ui-Box css-prxizy-Box"
+            >
+              Body
+            </div>
+          </div>
+          <div
+            class="ui-Box css-ldgub-Box"
+          >
+            <button
+              class="ui-Button css-ys1wv8-Button"
+              type="button"
+            >
+               View 
+            </button>
+          </div>
+        </div>
+        <div
+          class="ui-Box css-1qu53lx-Box"
+        >
+          <div
+            class="css-fxd6jv-FeatureContentHorizontal"
+          >
+            Image
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

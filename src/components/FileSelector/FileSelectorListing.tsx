@@ -1,15 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 
-import { FileSelectorListingProps } from "./FileSelector.types";
 import * as styles from "./FileSelector.styles";
+import { FileSelectorListingProps } from "./FileSelector.types";
 
-import Icon from "../Icon";
 import Box from "../Box";
+import Icon from "../Icon";
 
-import { ReactComponent as RemoveIcon } from "../../images/icons/close.svg";
 import { ReactComponent as JsonIcon } from "../../images/icons/json.svg";
-import FileSelectorButton from "./FileSelectorButton";
 
 const FileSelectorListing = ({
   onRemove,

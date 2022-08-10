@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
+
 import { cx } from "@emotion/css";
 import CardHeader from "../Card/CardHeader";
 import { CardHeaderProps } from "../Card/Card.types";

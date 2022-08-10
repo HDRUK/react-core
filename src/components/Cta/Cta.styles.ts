@@ -1,9 +1,5 @@
 import { css, Theme } from "@emotion/react";
-import {
-  getComponentSizeStyles,
-  getComponentStylesFromTheme,
-  getSize,
-} from "../../theme";
+import { getComponentStylesFromTheme, getSize } from "../../theme";
 import { CtaStyleProps } from "./Cta.types";
 
 export const root =

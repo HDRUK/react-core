@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { cx } from "@emotion/css";
-import { jsx } from "@emotion/react";
+
 import useCommonStyles from "../../hooks/useCommonStyles";
 import * as styles from "./Label.styles";
 import { LabelProps } from "./Label.types";

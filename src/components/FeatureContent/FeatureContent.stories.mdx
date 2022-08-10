@@ -6,6 +6,7 @@ import FeatureContentHeader from "./FeatureContentHeader";
 import FeatureContentBody from "./FeatureContentBody";
 import Button from "../Button";
 import Box from "../Box";
+import { P } from "../Typography";
 
 <Meta title="Organisms/FeatureContent" component={FeatureContent} />
 
@@ -17,19 +18,22 @@ import Box from "../Box";
           <FeatureContent
             variant="horizontal"
             header="Cohort Discovery"
-            body="Search based on characteristics such as disease, age, and location. Queries are made on the actual dataset, not just metadata. Available on a limited number of datasets with more added monthly."
+            body={
+              <>
+                <P mb={2}>
+                  Search based on characteristics such as disease, age, and
+                  location. Queries are made on the actual dataset, not just
+                  metadata. Available on a limited number of datasets with more
+                  added monthly.
+                </P>
+                <a href="#">Learn more</a>
+              </>
+            }
             media={
               <img src="https://www.cameraegg.org/wp-content/uploads/2015/06/canon-powershot-g3-x-sample-images-1.jpg" />
             }
             actions={
-              <>
-                <Box mb={3}>
-                  <a href="#">Learn more</a>
-                </Box>
-                <Button variant="secondary">
-                  Search using Cohort Discovery
-                </Button>
-              </>
+              <Button variant="secondary">Search using Cohort Discovery</Button>
             }
           />
         </div>

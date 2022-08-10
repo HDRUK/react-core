@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 
 import Button from "../Button";
 import { FileSelectorButtonProps } from "./FileSelector.types";

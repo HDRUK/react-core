@@ -67,7 +67,7 @@ export const root =
       }
     `;
 
-export const icon = (theme: Theme) => css`
+export const icon = () => css`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

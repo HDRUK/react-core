@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
 import { cx } from "@emotion/css";
 import * as styles from "./Button.styles";
 import useCommonStyles from "../../hooks/useCommonStyles";

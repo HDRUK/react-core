@@ -47,6 +47,7 @@ const Box = ({
   gridColumn,
   direction,
   textAlign,
+  flexDirection,
   ...outerProps
 }: BoxProps) => {
   const commonStyles = useCommonStyles({
@@ -90,6 +91,7 @@ const Box = ({
     gridColumn,
     direction,
     textAlign,
+    flexDirection,
   });
 
   const Component: keyof JSX.IntrinsicElements = (as ||

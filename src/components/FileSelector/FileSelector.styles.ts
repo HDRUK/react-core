@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, Theme } from "@emotion/react";
 import { getColorStyle, getSpacingStyle } from "../../theme";
 
 export const root = () => css`
@@ -29,7 +29,7 @@ export const root = () => css`
   }
 `;
 
-export const table = (theme) => {
+export const table = (theme: Theme) => {
   return css`
     width: 100%;
     border-collapse: collapse;

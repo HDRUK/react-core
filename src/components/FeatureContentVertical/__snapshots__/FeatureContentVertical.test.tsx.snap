@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the FeatureContentVertical component When it is rendered Then should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-FeatureContentVertical ui-Card css-2v8asq-Card"
+    role="article"
+  >
+    <div
+      class="ui-CardBody css-4iti4b-CardBody"
+    >
+      <div
+        class="css-1g4h4q5-FeatureContentVertical"
+      >
+        <h5
+          class="ui-Typography css-yngmzh-Typography"
+        >
+          Header
+        </h5>
+        <div
+          class="css-wvev0n-FeatureContentVertical"
+        >
+          Image
+        </div>
+        <div
+          class="ui-Box css-30redr-Box"
+        >
+          Body
+        </div>
+        <div
+          class="ui-Box css-1m03czi-Box"
+        >
+          <button
+            class="ui-Button css-ys1wv8-Button"
+            type="button"
+          >
+             View 
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

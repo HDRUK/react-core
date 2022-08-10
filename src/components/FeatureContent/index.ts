@@ -1,3 +1,3 @@
-import FeatureContentHorizontal from "./FeatureContentHorizontal";
+import FeatureContent from "./FeatureContent";
 
-export default FeatureContentHorizontal;
+export default FeatureContent;

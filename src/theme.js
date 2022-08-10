@@ -68,6 +68,7 @@ export const getCommonStyles = (props, theme) => {
     gridColumn,
     direction,
     textAlign,
+    flexDirection,
   } = props;
 
   return `
@@ -94,6 +95,7 @@ export const getCommonStyles = (props, theme) => {
     ${getCommonStyle("justify-content", justifyContent)}
     ${getCommonStyle("flex-grow", flexGrow)}
     ${getCommonStyle("flex-shrink", flexShrink)}
+    ${getCommonStyle("flex-direction", flexDirection)}
     ${getCommonStyle("flex-basis", flexBasis)}
     ${getCommonStyle("position", position)}
     ${getCommonStyle("top", top)}
