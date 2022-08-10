@@ -7,8 +7,18 @@ import FeatureContentBody from "./FeatureContentBody";
 import Button from "../Button";
 import Box from "../Box";
 import { P } from "../Typography";
+import Tag from "../Tag";
 
-<Meta title="Organisms/FeatureContent" component={FeatureContent} />
+<Meta
+  title="Organisms/FeatureContent"
+  component={FeatureContent}
+  parameters={{
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=2159%3A218630",
+    },
+  }}
+/>
 
 <Canvas>
   <Story name="Horizontal">
@@ -17,7 +27,14 @@ import { P } from "../Typography";
         <div>
           <FeatureContent
             variant="horizontal"
-            header="Cohort Discovery"
+            header={
+              <>
+                Cohort Discovery{" "}
+                <Tag variant="success" ml={2}>
+                  Beta
+                </Tag>
+              </>
+            }
             body={
               <>
                 <P mb={2}>
@@ -46,7 +63,14 @@ import { P } from "../Typography";
         <div>
           <FeatureContent
             variant="vertical"
-            header="Cohort Discovery"
+            header={
+              <>
+                Cohort Discovery{" "}
+                <Tag variant="success" ml={2}>
+                  Beta
+                </Tag>
+              </>
+            }
             body="Search based on characteristics such as disease, age, and location. Queries are made on the actual dataset, not just metadata. Available on a limited number of datasets with more added monthly."
             media={
               <img src="https://www.cameraegg.org/wp-content/uploads/2015/06/canon-powershot-g3-x-sample-images-1.jpg" />

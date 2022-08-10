@@ -274,6 +274,7 @@ export const DEFAULT_THEME = {
     inherit: "inherit",
     purple500: "#475DA7",
     platinum50: "#E3F4FB",
+    platinum600: "#4E95C8",
     platinum700: "#4682B4",
     green50: "#E2F3F0",
     green200: "#8CD1BF",
@@ -403,6 +404,42 @@ export const DEFAULT_THEME = {
         },
         description: {
           color: "grey700",
+        },
+      },
+    },
+    Tag: {
+      sizes: {
+        small: {
+          fontSize: "xs",
+          padding: "2px 4px",
+        },
+        medium: {
+          fontSize: "sm",
+          padding: "2px 8px",
+          height: "18px",
+        },
+        large: {
+          fontSize: "lg",
+          padding: "4px 12px",
+          height: "22px",
+        },
+      },
+      variants: {
+        success: {
+          background: "green400",
+          color: "white",
+        },
+        info: {
+          background: "platinum600",
+          color: "white",
+        },
+        warning: {
+          background: "yellow700",
+          color: "white",
+        },
+        danger: {
+          background: "red700",
+          color: "white",
         },
       },
     },
