@@ -1,12 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { Card, CardBody } from "components/Card";
+import { Card, CardBody } from "../Card";
 
 import * as styles from "./FeatureContentVertical.styles";
 import { FeatureContentVerticalProps } from "./FeatureContentVertical.types";
 import FeatureContentBody from "../FeatureContent/FeatureContentBody";
 import FeatureContentHeader from "../FeatureContent/FeatureContentHeader";
-import FeatureContentActions from "components/FeatureContent/FeatureContentActions";
+import FeatureContentActions from "../FeatureContent/FeatureContentActions";
 
 const FeatureContentVertical = ({
   media,
@@ -16,7 +15,11 @@ const FeatureContentVertical = ({
   ...outerProps
 }: FeatureContentVerticalProps) => {
   return (
-    <Card {...outerProps} maxWidth="284px">
+    <Card
+      {...outerProps}
+      maxWidth="284px"
+      className="ui-FeatureContentVertical"
+    >
       <CardBody>
         <div css={styles.root}>
           {header && (

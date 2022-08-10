@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { cx } from "@emotion/css";
-import { jsx } from "@emotion/react";
 import * as styles from "./Collapsable.styles";
 import { CollapsableProps } from "./Collapsable.types";
 import useCommonStyles from "../../hooks/useCommonStyles";

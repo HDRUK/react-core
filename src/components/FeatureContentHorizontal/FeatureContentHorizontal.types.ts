@@ -1,4 +1,4 @@
-import { FeatureContentProps } from "components/FeatureContent/FeatureContent.types";
+import { FeatureContentProps } from "../FeatureContent/FeatureContent.types";
 
 export type FeatureContentHorizontalProps = Omit<
   FeatureContentProps,

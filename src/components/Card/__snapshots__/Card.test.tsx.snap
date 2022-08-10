@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Given the Card component should match the snapshot 1`] = `
+exports[`Given the Card component When it is rendered Then should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="ui-Card css-1izvi8c-Card"
+    class="ui-Card css-1o8f96b-Card"
     role="article"
   >
     <div
-      class="cardHeader ui-CardHeader css-ng95ul-CardHeader"
+      class="cardHeader ui-CardHeader css-1t93nm7-CardHeader"
     >
       Header
     </div>
@@ -17,7 +17,7 @@ exports[`Given the Card component should match the snapshot 1`] = `
       Body
     </div>
     <div
-      class="cardFooter ui-CardFooter css-qh5rze-CardFooter"
+      class="cardFooter ui-CardFooter css-s03n6j-CardFooter"
     >
       Footer
     </div>

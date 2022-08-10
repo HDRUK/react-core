@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from "react";
 import { ThemeProvider } from "@emotion/react";
 import { render, RenderOptions } from "@testing-library/react";

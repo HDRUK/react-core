@@ -1,7 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { cx } from "@emotion/css";
-import { jsx } from "@emotion/react";
-import React from "react";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import { BoxProps } from "./Box.types";
 

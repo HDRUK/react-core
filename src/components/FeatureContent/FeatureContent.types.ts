@@ -1,14 +1,14 @@
-import { BoxProps } from "components/Box/Box.types";
-import { CardProps } from "components/Card/Card.types";
-import { TypographyProps } from "components/Typography/Typography.types";
-import { ReactElement } from "react";
+import { BoxProps } from "../Box/Box.types";
+import { CardProps } from "../Card/Card.types";
+import { TypographyProps } from "../Typography/Typography.types";
+import { ReactNode } from "react";
 
 export type FeatureContentProps = {
-  media: ReactElement;
-  header: ReactElement;
-  body: ReactElement;
-  actions: ReactElement;
+  media: ReactNode;
   variant: "vertical" | "horizontal";
+  header?: ReactNode;
+  body?: ReactNode;
+  actions?: ReactNode;
 } & CardProps;
 
 export type FeatureContentHorizontalProps = Omit<

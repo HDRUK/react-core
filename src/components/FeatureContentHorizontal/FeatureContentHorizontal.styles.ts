@@ -1,7 +1,7 @@
 import { css, Theme } from "@emotion/react";
 import { getComponentGlobals } from "../../theme";
 
-export const root = (theme: Theme) => {
+export const root = () => {
   return css`
     > :last-child {
       margin-bottom: 0;

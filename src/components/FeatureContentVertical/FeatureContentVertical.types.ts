@@ -1,3 +1,3 @@
-import { FeatureContentProps } from "components/FeatureContent/FeatureContent.types";
+import { FeatureContentProps } from "../FeatureContent/FeatureContent.types";
 
 export type FeatureContentVerticalProps = Omit<FeatureContentProps, "variant">;

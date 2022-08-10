@@ -1,7 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { cx } from "@emotion/css";
-import { jsx } from "@emotion/react";
-import React from "react";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import { TypographyProps } from "./Typography.types";
 import * as styles from "./Typography.styles";

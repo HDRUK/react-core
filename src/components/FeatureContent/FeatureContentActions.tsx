@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import Box from "components/Box";
+import Box from "../Box";
 import { FeatureContentActionsProps } from "./FeatureContent.types";
 
 const FeatureContentActions = ({

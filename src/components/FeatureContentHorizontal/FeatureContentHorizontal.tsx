@@ -1,13 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import Box from "components/Box";
-import { Card, CardBody } from "components/Card";
+import Box from "../Box";
+import { Card, CardBody } from "../Card";
 
-import * as styles from "./FeatureContent.styles";
+import * as styles from "./FeatureContentHorizontal.styles";
 import { FeatureContentHorizontalProps } from "./FeatureContentHorizontal.types";
 import FeatureContentBody from "../FeatureContent/FeatureContentBody";
 import FeatureContentHeader from "../FeatureContent/FeatureContentHeader";
-import FeatureContentActions from "components/FeatureContent/FeatureContentActions";
+import FeatureContentActions from "../FeatureContent/FeatureContentActions";
 
 const FeatureContentHorizontal = ({
   media,
@@ -17,7 +16,11 @@ const FeatureContentHorizontal = ({
   ...outerProps
 }: FeatureContentHorizontalProps) => {
   return (
-    <Card maxWidth="500px" {...outerProps}>
+    <Card
+      maxWidth="500px"
+      {...outerProps}
+      className="ui-FeatureContentHorizontal"
+    >
       <CardBody>
         <Box
           display="grid"

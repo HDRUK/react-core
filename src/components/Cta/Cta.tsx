@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { cx } from "@emotion/css";
-import { jsx } from "@emotion/react";
 import * as styles from "./Cta.styles";
 import { CtaProps } from "./Cta.types";
 import useCommonStyles from "../../hooks/useCommonStyles";

@@ -3,7 +3,7 @@ import intersection from "lodash-es/intersection";
 
 expect.extend({
   toContainClass(received, list) {
-    const classNames = [...received.classList];
+    const classNames = received.classList ? [...received.classList] : [];
 
     const pass = Array.isArray(list)
       ? intersection(classNames, list).length === list.length

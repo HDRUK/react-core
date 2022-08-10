@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 import { cx } from "@emotion/css";
 import * as styles from "./Dimmer.styles";
 import { DimmerProps } from "./Dimmer.types";

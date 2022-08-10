@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
-import { H5 } from "components/Typography";
+import { H5 } from "../Typography";
 import { FeatureContentHeaderProps } from "./FeatureContent.types";
 
 const FeatureContentHeader = ({

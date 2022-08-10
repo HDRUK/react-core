@@ -9,35 +9,37 @@ import { renderWithProviders } from "../../testUtils";
 let wrapper: RenderResult;
 
 describe("Given the Card component", () => {
-  beforeEach(() => {
-    wrapper = renderWithProviders(
-      <Card>
-        <CardHeader className="cardHeader">Header</CardHeader>
-        <CardBody className="cardBody">Body</CardBody>
-        <CardFooter className="cardFooter">Footer</CardFooter>
-      </Card>
-    );
-  });
+  describe("When it is rendered", () => {
+    beforeEach(() => {
+      wrapper = renderWithProviders(
+        <Card>
+          <CardHeader className="cardHeader">Header</CardHeader>
+          <CardBody className="cardBody">Body</CardBody>
+          <CardFooter className="cardFooter">Footer</CardFooter>
+        </Card>
+      );
+    });
 
-  it("should match the snapshot", async () => {
-    expect(wrapper.asFragment()).toMatchSnapshot();
-  });
+    it("Then should match the snapshot", async () => {
+      expect(wrapper.asFragment()).toMatchSnapshot();
+    });
 
-  it("should have the correct header class", async () => {
-    const cardHeader = await screen.findByText(/Header/);
+    it("Then should have the correct header class", async () => {
+      const cardHeader = await screen.findByText(/Header/);
 
-    expect(cardHeader).toContainClass("cardHeader");
-  });
+      expect(cardHeader).toContainClass("cardHeader");
+    });
 
-  it("should have the correct body class", async () => {
-    const cardBody = await screen.findByText(/Body/);
+    it("Then should have the correct body class", async () => {
+      const cardBody = await screen.findByText(/Body/);
 
-    expect(cardBody).toContainClass("cardBody");
-  });
+      expect(cardBody).toContainClass("cardBody");
+    });
 
-  it("should have the correct footer class", async () => {
-    const cardFooter = await screen.findByText(/Footer/);
+    it("Then should have the correct footer class", async () => {
+      const cardFooter = await screen.findByText(/Footer/);
 
-    expect(cardFooter).toContainClass("cardFooter");
+      expect(cardFooter).toContainClass("cardFooter");
+    });
   });
 });

@@ -1,9 +1,5 @@
 import { css, Theme } from "@emotion/react";
-import {
-  getComponentGlobalStyles,
-  getComponentGlobals,
-  getSize,
-} from "../../theme";
+import { getComponentGlobalStyles } from "../../theme";
 
 export const root = () => (theme: Theme) => {
   return css`

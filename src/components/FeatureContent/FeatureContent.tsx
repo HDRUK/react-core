@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from "@emotion/react";
 
 import { FeatureContentProps } from "./FeatureContent.types";
 import FeatureContentHorizontal from "../FeatureContentHorizontal";
@@ -12,6 +11,10 @@ const FeatureContent = ({ variant, ...outerProps }: FeatureContentProps) => {
       {variant === "vertical" && <FeatureContentVertical {...outerProps} />}
     </>
   );
+};
+
+FeatureContent.defaultProps = {
+  variant: "vertical",
 };
 
 export default FeatureContent;
