@@ -8,6 +8,7 @@ export { default as Icon } from "./components/Icon";
 export { default as Input } from "./components/Input";
 export { default as Label } from "./components/Label";
 export { default as Message } from "./components/Message";
+export { default as Tag } from "./components/Tag";
 export { default as Typography } from "./components/Typography";
 export { default as H1 } from "./components/Typography/H1";
 export { default as H2 } from "./components/Typography/H2";

@@ -4,7 +4,7 @@ import { CommonVariants, CommonSizes, ComponentStyleProps } from "../../types";
 export interface ButtonProps
   extends ComponentProps<"button">,
     ComponentStyleProps {
-  variant: CommonVariants;
+  variant: CommonVariants | "primaryAlt" | "secondaryAlt";
   size: CommonSizes;
   iconLeft?: ReactElement;
   iconRight?: ReactElement;

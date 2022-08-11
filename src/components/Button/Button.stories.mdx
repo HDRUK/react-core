@@ -3,6 +3,7 @@ import SVG from "react-inlinesvg";
 
 import Button from "./Button";
 import { Card, CardBody } from "../Card";
+import Box from "../Box";
 
 import searchIcon from "../../images/icons/search.svg";
 import userIcon from "../../images/icons/star.svg";
@@ -23,22 +24,42 @@ import userIcon from "../../images/icons/star.svg";
     {(props) => (
       <Card>
         <CardBody>
-          <div>
-            <Button {...props} mb={4} mr={2}>
-              Primary
-            </Button>
-            <Button {...props} mb={4} disabled>
-              Primary (disabled)
-            </Button>
-          </div>
-          <div>
-            <Button {...props} variant="secondary" mb={4} mr={2}>
-              Secondary
-            </Button>
-            <Button {...props} variant="secondary" mb={4} disabled>
-              Secondary (disabled)
-            </Button>
-          </div>
+          <Box display="flex" gap={20} mb={10}>
+            <div>
+              <Button {...props} mr={2}>
+                Primary
+              </Button>
+              <Button {...props} disabled>
+                Primary (disabled)
+              </Button>
+            </div>
+            <div>
+              <Button {...props} mr={2} variant="primaryAlt">
+                Primary alt
+              </Button>
+              <Button {...props} disabled variant="primaryAlt">
+                Primary alt (disabled)
+              </Button>
+            </div>
+          </Box>
+          <Box display="flex" gap={20} mb={10}>
+            <div>
+              <Button {...props} variant="secondary" mr={2}>
+                Secondary
+              </Button>
+              <Button {...props} variant="secondary" disabled>
+                Secondary (disabled)
+              </Button>
+            </div>
+            <div>
+              <Button {...props} variant="secondaryAlt" mb={4} mr={2}>
+                Secondary alt
+              </Button>
+              <Button {...props} variant="secondaryAlt" mb={4} disabled>
+                Secondary alt (disabled)
+              </Button>
+            </div>
+          </Box>
           <div>
             <Button {...props} variant="tertiary" mr={2}>
               Tertiary
