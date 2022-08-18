@@ -441,12 +441,12 @@ export const DEFAULT_THEME = {
         medium: {
           fontSize: "sm",
           padding: "2px 8px",
-          height: "18px",
+          height: "22px",
         },
         large: {
           fontSize: "lg",
           padding: "4px 12px",
-          height: "22px",
+          height: "30px",
         },
       },
       variants: {

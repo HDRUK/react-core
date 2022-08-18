@@ -10,6 +10,7 @@ export const root =
       align-items: center;
       border-radius: 3px;
       line-height: 1em;
+      box-sizing: border-box;
 
       ${getComponentSizeStyles("Tag", size, theme)}
       ${getComponentVariantStyles("Tag", variant, theme)}

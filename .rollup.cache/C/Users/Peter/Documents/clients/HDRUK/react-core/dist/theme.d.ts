@@ -99,7 +99,7 @@ export namespace THEME_BUTTON {
             export const fill: string;
         }
         export { primary_1 as primary };
-        export namespace secondary_1 {
+        export namespace primaryAlt {
             const background_3: string;
             export { background_3 as background };
             const hoverBackground_1: string;
@@ -112,16 +112,14 @@ export namespace THEME_BUTTON {
             export { hoverBorderColor_1 as hoverBorderColor };
             const disabledBorderColor_1: string;
             export { disabledBorderColor_1 as disabledBorderColor };
+            const disabledColor_1: string;
+            export { disabledColor_1 as disabledColor };
             const color_1: string;
             export { color_1 as color };
             const fill_1: string;
             export { fill_1 as fill };
-            export const hoverColor: string;
-            const disabledColor_1: string;
-            export { disabledColor_1 as disabledColor };
         }
-        export { secondary_1 as secondary };
-        export namespace tertiary {
+        export namespace secondary_1 {
             const background_4: string;
             export { background_4 as background };
             const hoverBackground_2: string;
@@ -132,14 +130,56 @@ export namespace THEME_BUTTON {
             export { borderColor_4 as borderColor };
             const hoverBorderColor_2: string;
             export { hoverBorderColor_2 as hoverBorderColor };
+            const disabledBorderColor_2: string;
+            export { disabledBorderColor_2 as disabledBorderColor };
             const color_2: string;
             export { color_2 as color };
             const fill_2: string;
             export { fill_2 as fill };
-            const disabledBorderColor_2: string;
-            export { disabledBorderColor_2 as disabledBorderColor };
+            export const hoverColor: string;
             const disabledColor_2: string;
             export { disabledColor_2 as disabledColor };
+        }
+        export { secondary_1 as secondary };
+        export namespace secondaryAlt {
+            const background_5: string;
+            export { background_5 as background };
+            const hoverBackground_3: string;
+            export { hoverBackground_3 as hoverBackground };
+            const disabledBackground_3: string;
+            export { disabledBackground_3 as disabledBackground };
+            const borderColor_5: string;
+            export { borderColor_5 as borderColor };
+            const hoverBorderColor_3: string;
+            export { hoverBorderColor_3 as hoverBorderColor };
+            const disabledBorderColor_3: string;
+            export { disabledBorderColor_3 as disabledBorderColor };
+            const disabledColor_3: string;
+            export { disabledColor_3 as disabledColor };
+            const color_3: string;
+            export { color_3 as color };
+            const fill_3: string;
+            export { fill_3 as fill };
+        }
+        export namespace tertiary {
+            const background_6: string;
+            export { background_6 as background };
+            const hoverBackground_4: string;
+            export { hoverBackground_4 as hoverBackground };
+            const disabledBackground_4: string;
+            export { disabledBackground_4 as disabledBackground };
+            const borderColor_6: string;
+            export { borderColor_6 as borderColor };
+            const hoverBorderColor_4: string;
+            export { hoverBorderColor_4 as hoverBorderColor };
+            const color_4: string;
+            export { color_4 as color };
+            const fill_4: string;
+            export { fill_4 as fill };
+            const disabledBorderColor_4: string;
+            export { disabledBorderColor_4 as disabledBorderColor };
+            const disabledColor_4: string;
+            export { disabledColor_4 as disabledColor };
         }
     }
     export { variants_1 as variants };
@@ -161,11 +201,14 @@ export namespace DEFAULT_THEME {
         const platinum600: string;
         const platinum700: string;
         const green50: string;
+        const green100: string;
         const green200: string;
+        const green300: string;
         const green400: string;
         const grey500: string;
         const green600: string;
         const green700: string;
+        const green900: string;
         const grey: string;
         const grey100: string;
         const grey200: string;
@@ -201,8 +244,8 @@ export namespace DEFAULT_THEME {
         }
         export namespace CardHeader {
             export namespace globals_1 {
-                const borderColor_5: string;
-                export { borderColor_5 as borderColor };
+                const borderColor_7: string;
+                export { borderColor_7 as borderColor };
                 const fontSize_3: string;
                 export { fontSize_3 as fontSize };
                 export const fontWeight: string;
@@ -220,8 +263,8 @@ export namespace DEFAULT_THEME {
         }
         export namespace CardFooter {
             export namespace globals_3 {
-                const borderColor_6: string;
-                export { borderColor_6 as borderColor };
+                const borderColor_8: string;
+                export { borderColor_8 as borderColor };
                 const padding_5: string;
                 export { padding_5 as padding };
             }
@@ -249,8 +292,8 @@ export namespace DEFAULT_THEME {
         }
         export namespace FileSelectorButton {
             export namespace globals_7 {
-                const fill_3: string;
-                export { fill_3 as fill };
+                const fill_5: string;
+                export { fill_5 as fill };
             }
             export { globals_7 as globals };
         }
@@ -284,22 +327,22 @@ export namespace DEFAULT_THEME {
             export { sizes_2 as sizes };
             export namespace variants_2 {
                 export namespace primary_2 {
-                    const background_5: string;
-                    export { background_5 as background };
-                    const borderColor_7: string;
-                    export { borderColor_7 as borderColor };
-                    const disabledBorderColor_3: string;
-                    export { disabledBorderColor_3 as disabledBorderColor };
+                    const background_7: string;
+                    export { background_7 as background };
+                    const borderColor_9: string;
+                    export { borderColor_9 as borderColor };
+                    const disabledBorderColor_5: string;
+                    export { disabledBorderColor_5 as disabledBorderColor };
                     export const focusBorderColor: string;
                 }
                 export { primary_2 as primary };
                 export namespace secondary_2 {
-                    const background_6: string;
-                    export { background_6 as background };
-                    const borderColor_8: string;
-                    export { borderColor_8 as borderColor };
-                    const disabledBorderColor_4: string;
-                    export { disabledBorderColor_4 as disabledBorderColor };
+                    const background_8: string;
+                    export { background_8 as background };
+                    const borderColor_10: string;
+                    export { borderColor_10 as borderColor };
+                    const disabledBorderColor_6: string;
+                    export { disabledBorderColor_6 as disabledBorderColor };
                     const focusBorderColor_1: string;
                     export { focusBorderColor_1 as focusBorderColor };
                 }
@@ -309,8 +352,8 @@ export namespace DEFAULT_THEME {
         }
         export namespace Label {
             export namespace globals_9 {
-                const disabledColor_3: string;
-                export { disabledColor_3 as disabledColor };
+                const disabledColor_5: string;
+                export { disabledColor_5 as disabledColor };
             }
             export { globals_9 as globals };
         }
@@ -322,12 +365,12 @@ export namespace DEFAULT_THEME {
             export { globals_10 as globals };
             export namespace variants_3 {
                 namespace error {
-                    const color_3: string;
-                    export { color_3 as color };
+                    const color_5: string;
+                    export { color_5 as color };
                 }
                 namespace description {
-                    const color_4: string;
-                    export { color_4 as color };
+                    const color_6: string;
+                    export { color_6 as color };
                 }
             }
             export { variants_3 as variants };
@@ -363,28 +406,28 @@ export namespace DEFAULT_THEME {
             export { sizes_3 as sizes };
             export namespace variants_4 {
                 namespace success {
-                    const background_7: string;
-                    export { background_7 as background };
-                    const color_5: string;
-                    export { color_5 as color };
-                }
-                namespace info {
-                    const background_8: string;
-                    export { background_8 as background };
-                    const color_6: string;
-                    export { color_6 as color };
-                }
-                namespace warning {
                     const background_9: string;
                     export { background_9 as background };
                     const color_7: string;
                     export { color_7 as color };
                 }
-                namespace danger {
+                namespace info {
                     const background_10: string;
                     export { background_10 as background };
                     const color_8: string;
                     export { color_8 as color };
+                }
+                namespace warning {
+                    const background_11: string;
+                    export { background_11 as background };
+                    const color_9: string;
+                    export { color_9 as color };
+                }
+                namespace danger {
+                    const background_12: string;
+                    export { background_12 as background };
+                    const color_10: string;
+                    export { color_10 as color };
                 }
             }
             export { variants_4 as variants };
@@ -396,48 +439,48 @@ export namespace DEFAULT_THEME {
                     export { fontSize_8 as fontSize };
                     const fontWeight_1: string;
                     export { fontWeight_1 as fontWeight };
-                    const color_9: string;
-                    export { color_9 as color };
+                    const color_11: string;
+                    export { color_11 as color };
                 }
                 export namespace h2 {
                     const fontSize_9: string;
                     export { fontSize_9 as fontSize };
                     const fontWeight_2: string;
                     export { fontWeight_2 as fontWeight };
-                    const color_10: string;
-                    export { color_10 as color };
+                    const color_12: string;
+                    export { color_12 as color };
                 }
                 export namespace h3 {
                     const fontSize_10: string;
                     export { fontSize_10 as fontSize };
                     const fontWeight_3: string;
                     export { fontWeight_3 as fontWeight };
-                    const color_11: string;
-                    export { color_11 as color };
+                    const color_13: string;
+                    export { color_13 as color };
                 }
                 export namespace h4 {
                     const fontSize_11: string;
                     export { fontSize_11 as fontSize };
                     const fontWeight_4: string;
                     export { fontWeight_4 as fontWeight };
-                    const color_12: string;
-                    export { color_12 as color };
+                    const color_14: string;
+                    export { color_14 as color };
                 }
                 export namespace h5 {
                     const fontSize_12: string;
                     export { fontSize_12 as fontSize };
                     const fontWeight_5: string;
                     export { fontWeight_5 as fontWeight };
-                    const color_13: string;
-                    export { color_13 as color };
+                    const color_15: string;
+                    export { color_15 as color };
                 }
                 export namespace h6 {
                     const fontSize_13: string;
                     export { fontSize_13 as fontSize };
                     const fontWeight_6: string;
                     export { fontWeight_6 as fontWeight };
-                    const color_14: string;
-                    export { color_14 as color };
+                    const color_16: string;
+                    export { color_16 as color };
                 }
                 export namespace body {
                     const fontSize_14: string;
