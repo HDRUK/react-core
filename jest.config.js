@@ -6,6 +6,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     "public/(.*)": "<rootDir>/public/$1",
+    "^.+\\.svg$": "identity-obj-proxy",
   },
   modulePaths: ["<rootDir>/public"],
   coveragePathIgnorePatterns: [
@@ -14,7 +15,7 @@ module.exports = {
     "index.*",
     "types.ts",
   ],
-  collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
+  collectCoverageFrom: ["src/components/*.{js,jsx,ts,tsx}"],
   roots: ["<rootDir>", "<rootDir>/src"],
   transformIgnorePatterns: ["/node_modules/(?!lodash-es/.*)"],
   preset: "ts-jest/presets/js-with-ts",

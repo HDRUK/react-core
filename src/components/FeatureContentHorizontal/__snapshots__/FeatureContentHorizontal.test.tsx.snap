@@ -3,7 +3,7 @@
 exports[`Given the FeatureContentHorizontal component When it is rendered Then should match the snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="ui-FeatureContentHorizontal ui-Card css-jc6qth-Card"
+    class="ui-FeatureContentHorizontal ui-Card css-190dtii-Card"
     role="article"
   >
     <div
@@ -21,7 +21,11 @@ exports[`Given the FeatureContentHorizontal component When it is rendered Then s
             <h5
               class="ui-Typography css-yngmzh-Typography"
             >
-              Header
+              <div
+                class="ui-Box css-12ou0ad-Box"
+              >
+                Header
+              </div>
             </h5>
             <div
               class="ui-Box css-prxizy-Box"

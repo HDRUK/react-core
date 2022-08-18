@@ -332,6 +332,37 @@ export const DEFAULT_THEME = {
     none: "none",
   },
   components: {
+    Alert: {
+      globals: {
+        borderRadius: "4px",
+      },
+      variants: {
+        success: {
+          background: "green50",
+          color: "green400",
+          fill: "green400",
+          borderColor: "green400",
+        },
+        info: {
+          background: "platinum50",
+          color: "platinum700",
+          fill: "platinum700",
+          borderColor: "platinum700",
+        },
+        warning: {
+          background: "gold50",
+          color: "brown900",
+          fill: "yellow700",
+          borderColor: "yellow700",
+        },
+        danger: {
+          background: "red50",
+          color: "red700",
+          fill: "red700",
+          borderColor: "red700",
+        },
+      },
+    },
     Button: THEME_BUTTON,
     Card: {
       globals: {

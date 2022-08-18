@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the Alert component When it is rendered And it has an icon specified Then should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-Alert css-zbu0kw-Alert"
+  >
+    <div
+      class="css-183m98j-Alert"
+    >
+      Icon
+    </div>
+    <div
+      class="css-1wsnpfb-Alert"
+    >
+      Content
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Given the Alert component When it is rendered Then should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-Alert css-zbu0kw-Alert"
+  >
+    <div
+      class="css-183m98j-Alert"
+    >
+      <span
+        class="ui-Icon css-zkjjzt-Icon"
+      >
+        <reactcomponent
+          fill="inherit"
+        />
+      </span>
+    </div>
+    <div
+      class="css-1wsnpfb-Alert"
+    >
+      Content
+    </div>
+  </div>
+</DocumentFragment>
+`;
