@@ -16,11 +16,7 @@ const FeatureContentHorizontal = ({
   ...outerProps
 }: FeatureContentHorizontalProps) => {
   return (
-    <Card
-      maxWidth="500px"
-      {...outerProps}
-      className="ui-FeatureContentHorizontal"
-    >
+    <Card {...outerProps} className="ui-FeatureContentHorizontal">
       <CardBody>
         <Box
           display="grid"

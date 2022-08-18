@@ -15,11 +15,7 @@ const FeatureContentVertical = ({
   ...outerProps
 }: FeatureContentVerticalProps) => {
   return (
-    <Card
-      {...outerProps}
-      maxWidth="284px"
-      className="ui-FeatureContentVertical"
-    >
+    <Card {...outerProps} className="ui-FeatureContentVertical">
       <CardBody>
         <div css={styles.root}>
           {header && (
