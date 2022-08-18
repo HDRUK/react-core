@@ -1,102 +1,102 @@
 import { Theme } from "@emotion/react";
 import isNil from "lodash-es/isNil";
 import {
-  CommonStyleProps,
-  ThemeColors,
-  ThemeComponents,
-  ThemeFontSizes,
+	CommonStyleProps,
+	ThemeColors,
+	ThemeComponents,
+	ThemeFontSizes,
 } from "./types";
 
 export const getSize = (
-  value: number | undefined,
-  { base: { increment, unit } }: Theme
+	value: number | undefined,
+	{ base: { increment, unit } }: Theme
 ) => {
-  return !isNil(value) ? `${value * increment}${unit}` : "";
+	return !isNil(value) ? `${value * increment}${unit}` : "";
 };
 
 export const getColorStyle = (
-  prop: string,
-  value: keyof ThemeColors | undefined,
-  theme: Theme
+	prop: string,
+	value: keyof ThemeColors | undefined,
+	theme: Theme
 ) => {
-  return !isNil(value) ? getCommonStyle(prop, theme.colors[value]) : "";
+	return !isNil(value) ? getCommonStyle(prop, theme.colors[value]) : "";
 };
 
 export const getSpacingStyle = (
-  prop: string,
-  value: number | undefined,
-  theme: Theme
+	prop: string,
+	value: number | undefined,
+	theme: Theme
 ) => {
-  return !isNil(value) ? `${prop}: ${getSize(value, theme)};` : "";
+	return !isNil(value) ? `${prop}: ${getSize(value, theme)};` : "";
 };
 
 export const getCommonStyle = (
-  prop: string,
-  value: string | number | undefined
+	prop: string,
+	value: string | number | undefined
 ) => {
-  return !isNil(value) ? `${prop}: ${value};` : "";
+	return !isNil(value) ? `${prop}: ${value};` : "";
 };
 
 export const getStyle = (
-  propParts: string[],
-  value: keyof ThemeFontSizes,
-  theme: Theme
+	propParts: string[],
+	value: keyof ThemeFontSizes,
+	theme: Theme
 ) => {
-  const styleProp = propParts.join("-").toLowerCase();
+	const styleProp = propParts.join("-").toLowerCase();
 
-  if (styleProp === "font-size") {
-    return `${styleProp}: ${theme.font.size[value]};`;
-  }
+	if (styleProp === "font-size") {
+		return `${styleProp}: ${theme.font.size[value]};`;
+	}
 
-  return `${styleProp}: ${value};`;
+	return `${styleProp}: ${value};`;
 };
 
 export const getCommonStyles = (props: CommonStyleProps, theme: Theme) => {
-  const {
-    m,
-    ml,
-    mr,
-    mb,
-    mt,
-    p,
-    pr,
-    pt,
-    pb,
-    pl,
-    mx,
-    my,
-    px,
-    py,
-    width,
-    maxWidth,
-    minWidth,
-    height,
-    minHeight,
-    maxHeight,
-    display,
-    alignItems,
-    justifyContent,
-    flexGrow,
-    position,
-    top,
-    bottom,
-    left,
-    right,
-    overflow,
-    gap,
-    backgroundColor,
-    flexShrink,
-    flexBasis,
-    gridTemplateColumns,
-    gridTemplateRows,
-    gridTemplateAreas,
-    gridColumn,
-    direction,
-    textAlign,
-    flexDirection,
-  } = props;
+	const {
+		m,
+		ml,
+		mr,
+		mb,
+		mt,
+		p,
+		pr,
+		pt,
+		pb,
+		pl,
+		mx,
+		my,
+		px,
+		py,
+		width,
+		maxWidth,
+		minWidth,
+		height,
+		minHeight,
+		maxHeight,
+		display,
+		alignItems,
+		justifyContent,
+		flexGrow,
+		position,
+		top,
+		bottom,
+		left,
+		right,
+		overflow,
+		gap,
+		backgroundColor,
+		flexShrink,
+		flexBasis,
+		gridTemplateColumns,
+		gridTemplateRows,
+		gridTemplateAreas,
+		gridColumn,
+		direction,
+		textAlign,
+		flexDirection,
+	} = props;
 
-  return `
+	return `
   ${getColorStyle("background-color", backgroundColor, theme)}
   ${getSpacingStyle("margin", m, theme)}
   ${getSpacingStyle("margin-left", ml || mx, theme)}
@@ -138,478 +138,517 @@ export const getCommonStyles = (props: CommonStyleProps, theme: Theme) => {
 };
 
 export const getComponentStylesFromTheme = (props: any, theme: Theme) => {
-  const styles = Object.keys(props).map((prop) => {
-    const propParts = prop.replace(/([a-z])([A-Z])/g, "$1,$2").split(",");
-    const isColor = Object.keys(theme.colors).includes(props[prop]);
-    const value = isColor ? theme.colors[props[prop]] : props[prop];
-    const pseudoSelector = propParts[0];
+	const styles = Object.keys(props).map((prop) => {
+		const propParts = prop.replace(/([a-z])([A-Z])/g, "$1,$2").split(",");
+		const isColor = Object.keys(theme.colors).includes(props[prop]);
+		const value = isColor ? theme.colors[props[prop]] : props[prop];
+		const pseudoSelector = propParts[0];
 
-    if (
-      pseudoSelector === "hover" ||
-      pseudoSelector === "disabled" ||
-      pseudoSelector === "focus"
-    ) {
-      propParts.shift();
+		if (
+			pseudoSelector === "hover" ||
+			pseudoSelector === "disabled" ||
+			pseudoSelector === "focus"
+		) {
+			propParts.shift();
 
-      return `
+			return `
                 :${pseudoSelector} {
                    ${getStyle(propParts, value, theme)}
                 }
             `;
-    }
+		}
 
-    return getStyle(propParts, value, theme);
-  });
+		return getStyle(propParts, value, theme);
+	});
 
-  return styles.join("\n");
+	return styles.join("\n");
 };
 
 export const getComponentVariantStyles = (
-  component: keyof ThemeComponents,
-  variant: string,
-  theme: Theme
+	component: keyof ThemeComponents,
+	variant: string,
+	theme: Theme
 ) => {
-  return getComponentStylesFromTheme(
-    theme.components[component].variants[variant],
-    theme
-  );
+	return getComponentStylesFromTheme(
+		theme.components[component].variants[variant],
+		theme
+	);
 };
 
 export const getComponentSizeStyles = (
-  component: keyof ThemeComponents,
-  size: string,
-  theme: Theme
+	component: keyof ThemeComponents,
+	size: string,
+	theme: Theme
 ) => {
-  const themeSize = theme.components[component].sizes[size];
+	const themeSize = theme.components[component].sizes[size];
 
-  if (typeof themeSize === "string") {
-    return themeSize;
-  }
+	if (typeof themeSize === "string") {
+		return themeSize;
+	}
 
-  return getComponentStylesFromTheme(
-    theme.components[component].sizes[size],
-    theme
-  );
+	return getComponentStylesFromTheme(
+		theme.components[component].sizes[size],
+		theme
+	);
 };
 
 export const getComponentGlobals = (
-  component: keyof ThemeComponents,
-  theme: Theme
+	component: keyof ThemeComponents,
+	theme: Theme
 ) => {
-  return theme.components[component].globals;
+	return theme.components[component].globals;
 };
 
 export const getComponentGlobalStyles = (
-  component: keyof ThemeComponents,
-  theme: Theme
+	component: keyof ThemeComponents,
+	theme: Theme
 ) => {
-  return getComponentStylesFromTheme(
-    getComponentGlobals(component, theme),
-    theme
-  );
+	return getComponentStylesFromTheme(
+		getComponentGlobals(component, theme),
+		theme
+	);
 };
 
 export const getComponentFontSizeStyle = (
-  fontSize: ThemeFontSizes,
-  theme: Theme
+	fontSize: ThemeFontSizes,
+	theme: Theme
 ) => {
-  return getComponentStylesFromTheme({ fontSize }, theme);
+	return getComponentStylesFromTheme({ fontSize }, theme);
 };
 
 export const THEME_INPUT = {
-  sizes: {
-    small: {
-      height: "30px",
-    },
-    default: {
-      height: "40px",
-    },
-    large: {
-      height: "50px",
-    },
-  },
-  variants: {
-    primary: {
-      background: "white",
-      borderColor: "grey200",
-    },
-    secondary: {
-      background: "grey100",
-      borderColor: "grey100",
-    },
-  },
+	sizes: {
+		small: {
+			height: "30px",
+		},
+		default: {
+			height: "40px",
+		},
+		large: {
+			height: "50px",
+		},
+	},
+	variants: {
+		primary: {
+			background: "white",
+			borderColor: "grey200",
+		},
+		secondary: {
+			background: "grey100",
+			borderColor: "grey100",
+		},
+	},
 };
 
 export const THEME_FONT_SIZES: ThemeFontSizes = {
-  xxs: "10px",
-  xs: "12px",
-  sm: "13px",
-  md: "14px",
-  lg: "16px",
-  xl: "20px",
-  "2xl": "24px",
-  "3xl": "28px",
-  "4xl": "32px",
-  "5xl": "40px",
+	xxs: "10px",
+	xs: "12px",
+	sm: "13px",
+	md: "14px",
+	lg: "16px",
+	xl: "20px",
+	"2xl": "24px",
+	"3xl": "28px",
+	"4xl": "32px",
+	"5xl": "40px",
+};
+
+export const THEME_ICON_BUTTON = {
+	variants: {
+		primary: {
+			background: "white",
+			hoverBackground: "purple500",
+			borderColor: "purple500",
+		},
+		secondary: {
+			background: "white",
+			hoverBackground: "green400",
+			borderColor: "green400",
+		},
+		tertiary: {
+			background: "white",
+			hoverBackground: "grey200",
+			borderColor: "grey200",
+		},
+	},
+};
+
+export const THEME_ICON_BUTTON_ICON = {
+	variants: {
+		primary: {
+			fill: "purple500",
+			hoverFill: "white",
+		},
+		secondary: {
+			fill: "green400",
+			hoverFill: "white",
+		},
+		tertiary: {
+			fill: "grey200",
+			hoverFill: "white",
+		},
+	},
 };
 
 export const THEME_BUTTON = {
-  globals: {
-    borderRadius: "4px",
-  },
-  sizes: {
-    small: {
-      fontSize: "md",
-      padding: "8px 12px",
-      height: "34px",
-    },
-    medium: { fontSize: "md", padding: "8px 16px", height: "40px" },
-    large: { fontSize: "lg", padding: "10px 20px", height: "46px" },
-  },
-  variants: {
-    primary: {
-      background: "purple500",
-      hoverBackground: "purple700",
-      disabledBackground: "purple100",
-      borderColor: "purple500",
-      hoverBorderColor: "purple700",
-      disabledBorderColor: "purple100",
-      disabledColor: "purple200",
-      color: "white",
-      fill: "white",
-    },
-    primaryAlt: {
-      background: "green700",
-      hoverBackground: "green900",
-      disabledBackground: "green100",
-      borderColor: "green700",
-      hoverBorderColor: "green900",
-      disabledBorderColor: "green100",
-      disabledColor: "green300",
-      color: "white",
-      fill: "white",
-    },
-    secondary: {
-      background: "white",
-      hoverBackground: "green400",
-      disabledBackground: "white",
-      borderColor: "green400",
-      hoverBorderColor: "green400",
-      disabledBorderColor: "green200",
-      color: "grey800",
-      fill: "grey800",
-      hoverColor: "white",
-      disabledColor: "grey500",
-    },
-    secondaryAlt: {
-      background: "white",
-      hoverBackground: "white",
-      disabledBackground: "white",
-      borderColor: "white",
-      hoverBorderColor: "white",
-      disabledBorderColor: "white",
-      disabledColor: "grey300",
-      color: "grey800",
-      fill: "grey800",
-    },
-    tertiary: {
-      background: "grey200",
-      hoverBackground: "grey300",
-      disabledBackground: "grey200",
-      borderColor: "grey200",
-      hoverBorderColor: "grey300",
-      color: "grey800",
-      fill: "grey800",
-      disabledBorderColor: "grey200",
-      disabledColor: "grey500",
-    },
-  },
+	globals: {
+		borderRadius: "4px",
+	},
+	sizes: {
+		small: {
+			fontSize: "md",
+			padding: "8px 12px",
+			height: "34px",
+		},
+		medium: { fontSize: "md", padding: "8px 16px", height: "40px" },
+		large: { fontSize: "lg", padding: "10px 20px", height: "46px" },
+	},
+	variants: {
+		primary: {
+			background: "purple500",
+			hoverBackground: "purple700",
+			disabledBackground: "purple100",
+			borderColor: "purple500",
+			hoverBorderColor: "purple700",
+			disabledBorderColor: "purple100",
+			disabledColor: "purple200",
+			color: "white",
+			fill: "white",
+		},
+		primaryAlt: {
+			background: "green700",
+			hoverBackground: "green900",
+			disabledBackground: "green100",
+			borderColor: "green700",
+			hoverBorderColor: "green900",
+			disabledBorderColor: "green100",
+			disabledColor: "green300",
+			color: "white",
+			fill: "white",
+		},
+		secondary: {
+			background: "white",
+			hoverBackground: "green400",
+			disabledBackground: "white",
+			borderColor: "green400",
+			hoverBorderColor: "green400",
+			disabledBorderColor: "green200",
+			color: "grey800",
+			fill: "grey800",
+			hoverColor: "white",
+			disabledColor: "grey500",
+		},
+		secondaryAlt: {
+			background: "white",
+			hoverBackground: "white",
+			disabledBackground: "white",
+			borderColor: "white",
+			hoverBorderColor: "white",
+			disabledBorderColor: "white",
+			disabledColor: "grey300",
+			color: "grey800",
+			fill: "grey800",
+		},
+		tertiary: {
+			background: "grey200",
+			hoverBackground: "grey300",
+			disabledBackground: "grey200",
+			borderColor: "grey200",
+			hoverBorderColor: "grey300",
+			color: "grey800",
+			fill: "grey800",
+			disabledBorderColor: "grey200",
+			disabledColor: "grey500",
+		},
+	},
 };
 
 export const DEFAULT_THEME: Theme = {
-  base: {
-    increment: 4,
-    unit: "px",
-  },
-  font: {
-    size: THEME_FONT_SIZES,
-  },
-  colors: {
-    white: "#fff",
-    transparent: "transparent",
-    inherit: "inherit",
-    purple500: "#475DA7",
-    platinum50: "#E3F4FB",
-    platinum600: "#4E95C8",
-    platinum700: "#4682B4",
-    green50: "#E2F3F0",
-    green100: "#B8E2D8",
-    green200: "#8CD1BF",
-    green300: "#61BEA6",
-    green400: "#3DB28C",
-    grey500: "#B3B8BD",
-    green600: "#329276",
-    green700: "#2c8267",
-    green900: "#1C553F",
-    grey: "#F6F7F8",
-    grey100: "#F6F7F8",
-    grey200: "#EEE",
-    grey300: "#E2E2E2",
-    grey400: "#D0D3D4",
-    grey600: "#868E96",
-    grey700: "#53575A",
-    grey700Alt: "#848E97",
-    grey800: "#3C3C3B",
-    grey900: "#262626",
-    red50: "#FFECF1",
-    red600: "#EF3F4B",
-    red700: "#DC3645",
-    purple: "#475da7",
-    purple100: "#C6CEE5",
-    purple200: "#A2AED3",
-    purple700: "#384B91",
-    teal: "#3db28c",
-    yellow700: "#F0BB24",
-    yellow50: "#FDFCE6",
-    brown900: "#856505",
-    gold50: "#FFF8E1",
-    none: "none",
-  },
-  components: {
-    Alert: {
-      globals: {
-        borderRadius: "4px",
-      },
-      variants: {
-        success: {
-          background: "green50",
-          color: "green400",
-          fill: "green400",
-          borderColor: "green400",
-        },
-        info: {
-          background: "platinum50",
-          color: "platinum700",
-          fill: "platinum700",
-          borderColor: "platinum700",
-        },
-        description: {
-          background: "grey200",
-          color: "grey700",
-          fill: "grey700",
-          borderColor: "grey700",
-        },
-        warning: {
-          background: "gold50",
-          color: "brown900",
-          fill: "yellow700",
-          borderColor: "yellow700",
-        },
-        danger: {
-          background: "red50",
-          color: "red700",
-          fill: "red700",
-          borderColor: "red700",
-        },
-      },
-    },
-    Button: THEME_BUTTON,
-    Card: {
-      globals: {
-        boxShadow: "1px 1px 3px 0 rgb(0 0 0 / 9%)",
-        backgroundColor: "white",
-        borderRadius: "2px",
-      },
-    },
-    CardHeader: {
-      globals: {
-        borderColor: "grey200",
-        fontSize: "xl",
-        fontWeight: "500",
-        padding: "24px",
-      },
-    },
-    CardBody: {
-      globals: {
-        padding: "24px",
-      },
-    },
-    CardFooter: {
-      globals: {
-        borderColor: "grey200",
-        padding: "16px",
-      },
-    },
-    Cta: {},
-    Dimmer: {
-      globals: {
-        backgroundColor: "rgba(0,0,0,0.15)",
-      },
-    },
-    FeatureContentHorizontal: {
-      globals: {
-        cardOffset: "-22px",
-      },
-    },
-    FeatureContentVertical: {
-      globals: {
-        cardOffset: "-12px",
-      },
-    },
-    FileSelector: {},
-    FileSelectorButton: {
-      globals: {
-        fill: "purple500",
-      },
-    },
-    FileSelectorListing: {
-      globals: {
-        actionsFill: "purple500",
-      },
-    },
-    Icon: {
-      sizes: THEME_FONT_SIZES,
-    },
-    Input: {
-      sizes: {
-        small: {
-          height: "30px",
-        },
-        default: {
-          height: "40px",
-        },
-        large: {
-          height: "50px",
-        },
-      },
-      variants: {
-        primary: {
-          background: "white",
-          borderColor: "grey400",
-          disabledBorderColor: "grey400",
-          focusBorderColor: "green400",
-        },
-        secondary: {
-          background: "grey100",
-          borderColor: "grey100",
-          disabledBorderColor: "grey100",
-          focusBorderColor: "green400",
-        },
-      },
-    },
-    Label: {
-      globals: {
-        disabledColor: "grey500",
-      },
-    },
-    Message: {
-      globals: {
-        fontSize: "sm",
-      },
-      variants: {
-        success: {
-          color: "green400",
-        },
-        info: {
-          color: "platinum700",
-        },
-        warning: {
-          color: "brown900",
-        },
-        danger: {
-          color: "red700",
-        },
-        description: {
-          color: "grey700",
-        },
-      },
-    },
-    Modal: {},
-    Tag: {
-      sizes: {
-        small: {
-          fontSize: "xs",
-          padding: "2px 4px",
-        },
-        medium: {
-          fontSize: "sm",
-          padding: "2px 8px",
-          height: "22px",
-        },
-        large: {
-          fontSize: "lg",
-          padding: "4px 12px",
-          height: "30px",
-        },
-      },
-      variants: {
-        success: {
-          background: "green400",
-          color: "white",
-        },
-        info: {
-          background: "platinum600",
-          color: "white",
-        },
-        warning: {
-          background: "yellow700",
-          color: "white",
-        },
-        danger: {
-          background: "red700",
-          color: "white",
-        },
-      },
-    },
-    Typography: {
-      variants: {
-        h1: {
-          fontSize: "5xl",
-          fontWeight: "700",
-          color: "grey900",
-        },
-        h2: {
-          fontSize: "4xl",
-          fontWeight: "700",
-          color: "grey900",
-        },
-        h3: {
-          fontSize: "3xl",
-          fontWeight: "700",
-          color: "grey900",
-        },
-        h4: {
-          fontSize: "2xl",
-          fontWeight: "700",
-          color: "grey900",
-        },
-        h5: {
-          fontSize: "xl",
-          fontWeight: "700",
-          color: "grey900",
-        },
-        h6: {
-          fontSize: "lg",
-          fontWeight: "400",
-          color: "grey900",
-        },
-        body: {
-          fontSize: "md",
-          lineHeight: "20px",
-        },
-        caption: {
-          fontSize: "sm",
-          lineHeight: "16px",
-        },
-        small: {
-          fontSize: "xs",
-          lineHeight: "14px",
-        },
-        tiny: {
-          fontSize: "xxs",
-          lineHeight: "14px",
-        },
-      },
-    },
-  },
+	base: {
+		increment: 4,
+		unit: "px",
+	},
+	font: {
+		size: THEME_FONT_SIZES,
+	},
+	colors: {
+		white: "#fff",
+		transparent: "transparent",
+		inherit: "inherit",
+		purple500: "#475DA7",
+		platinum50: "#E3F4FB",
+		platinum600: "#4E95C8",
+		platinum700: "#4682B4",
+		green50: "#E2F3F0",
+		green100: "#B8E2D8",
+		green200: "#8CD1BF",
+		green300: "#61BEA6",
+		green400: "#3DB28C",
+		grey500: "#B3B8BD",
+		green600: "#329276",
+		green700: "#2c8267",
+		green900: "#1C553F",
+		grey: "#F6F7F8",
+		grey100: "#F6F7F8",
+		grey200: "#EEE",
+		grey300: "#E2E2E2",
+		grey400: "#D0D3D4",
+		grey600: "#868E96",
+		grey700: "#53575A",
+		grey700Alt: "#848E97",
+		grey800: "#3C3C3B",
+		grey900: "#262626",
+		red50: "#FFECF1",
+		red600: "#EF3F4B",
+		red700: "#DC3645",
+		purple: "#475da7",
+		purple100: "#C6CEE5",
+		purple200: "#A2AED3",
+		purple700: "#384B91",
+		teal: "#3db28c",
+		yellow700: "#F0BB24",
+		yellow50: "#FDFCE6",
+		brown900: "#856505",
+		gold50: "#FFF8E1",
+		none: "none",
+	},
+	components: {
+		Alert: {
+			globals: {
+				borderRadius: "4px",
+			},
+			variants: {
+				success: {
+					background: "green50",
+					color: "green400",
+					fill: "green400",
+					borderColor: "green400",
+				},
+				info: {
+					background: "platinum50",
+					color: "platinum700",
+					fill: "platinum700",
+					borderColor: "platinum700",
+				},
+				description: {
+					background: "grey200",
+					color: "grey700",
+					fill: "grey700",
+					borderColor: "grey700",
+				},
+				warning: {
+					background: "gold50",
+					color: "brown900",
+					fill: "yellow700",
+					borderColor: "yellow700",
+				},
+				danger: {
+					background: "red50",
+					color: "red700",
+					fill: "red700",
+					borderColor: "red700",
+				},
+			},
+		},
+		Button: THEME_BUTTON,
+		Card: {
+			globals: {
+				boxShadow: "1px 1px 3px 0 rgb(0 0 0 / 9%)",
+				backgroundColor: "white",
+				borderRadius: "2px",
+			},
+		},
+		CardHeader: {
+			globals: {
+				borderColor: "grey200",
+				fontSize: "xl",
+				fontWeight: "500",
+				padding: "24px",
+			},
+		},
+		CardBody: {
+			globals: {
+				padding: "24px",
+			},
+		},
+		CardFooter: {
+			globals: {
+				borderColor: "grey200",
+				padding: "16px",
+			},
+		},
+		Cta: {},
+		Dimmer: {
+			globals: {
+				backgroundColor: "rgba(0,0,0,0.15)",
+			},
+		},
+		FeatureContentHorizontal: {
+			globals: {
+				cardOffset: "-22px",
+			},
+		},
+		FeatureContentVertical: {
+			globals: {
+				cardOffset: "-12px",
+			},
+		},
+		FileSelector: {},
+		FileSelectorButton: {
+			globals: {
+				fill: "purple500",
+			},
+		},
+		FileSelectorListing: {
+			globals: {
+				actionsFill: "purple500",
+			},
+		},
+		Icon: {
+			sizes: THEME_FONT_SIZES,
+		},
+		IconButton: THEME_ICON_BUTTON,
+		IconButtonIcon: THEME_ICON_BUTTON_ICON,
+		Input: {
+			sizes: {
+				small: {
+					height: "30px",
+				},
+				default: {
+					height: "40px",
+				},
+				large: {
+					height: "50px",
+				},
+			},
+			variants: {
+				primary: {
+					background: "white",
+					borderColor: "grey400",
+					disabledBorderColor: "grey400",
+					focusBorderColor: "green400",
+				},
+				secondary: {
+					background: "grey100",
+					borderColor: "grey100",
+					disabledBorderColor: "grey100",
+					focusBorderColor: "green400",
+				},
+			},
+		},
+		Label: {
+			globals: {
+				disabledColor: "grey500",
+			},
+		},
+		Message: {
+			globals: {
+				fontSize: "sm",
+			},
+			variants: {
+				success: {
+					color: "green400",
+				},
+				info: {
+					color: "platinum700",
+				},
+				warning: {
+					color: "brown900",
+				},
+				danger: {
+					color: "red700",
+				},
+				description: {
+					color: "grey700",
+				},
+			},
+		},
+		Modal: {},
+		Tag: {
+			sizes: {
+				small: {
+					fontSize: "xs",
+					padding: "2px 4px",
+				},
+				medium: {
+					fontSize: "sm",
+					padding: "2px 8px",
+					height: "22px",
+				},
+				large: {
+					fontSize: "lg",
+					padding: "4px 12px",
+					height: "30px",
+				},
+			},
+			variants: {
+				success: {
+					background: "green400",
+					color: "white",
+				},
+				info: {
+					background: "platinum600",
+					color: "white",
+				},
+				warning: {
+					background: "yellow700",
+					color: "white",
+				},
+				danger: {
+					background: "red700",
+					color: "white",
+				},
+			},
+		},
+		Typography: {
+			variants: {
+				h1: {
+					fontSize: "5xl",
+					fontWeight: "700",
+					color: "grey900",
+				},
+				h2: {
+					fontSize: "4xl",
+					fontWeight: "700",
+					color: "grey900",
+				},
+				h3: {
+					fontSize: "3xl",
+					fontWeight: "700",
+					color: "grey900",
+				},
+				h4: {
+					fontSize: "2xl",
+					fontWeight: "700",
+					color: "grey900",
+				},
+				h5: {
+					fontSize: "xl",
+					fontWeight: "700",
+					color: "grey900",
+				},
+				h6: {
+					fontSize: "lg",
+					fontWeight: "400",
+					color: "grey900",
+				},
+				body: {
+					fontSize: "md",
+					lineHeight: "20px",
+				},
+				caption: {
+					fontSize: "sm",
+					lineHeight: "16px",
+				},
+				small: {
+					fontSize: "xs",
+					lineHeight: "14px",
+				},
+				tiny: {
+					fontSize: "xxs",
+					lineHeight: "14px",
+				},
+			},
+		},
+	},
 };
