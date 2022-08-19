@@ -91,7 +91,14 @@ export interface ThemeFontSizes {
 
 export type ThemeColors = Record<string, string>;
 
+export type MessageVariants =
+  | "success"
+  | "warning"
+  | "info"
+  | "danger"
+  | "description";
 export interface ThemeComponents {
+  Alert: any;
   Button: any;
   Card: any;
   CardHeader: any;
@@ -102,6 +109,8 @@ export interface ThemeComponents {
   FeatureContentHorizontal: any;
   FeatureContentVertical: any;
   FileSelector: any;
+  FileSelectorButton: any;
+  FileSelectorListing: any;
   Message: any;
   Modal: any;
   Icon: any;

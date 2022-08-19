@@ -1,10 +1,8 @@
 import { ComponentProps, ReactNode } from "react";
-import { ComponentStyleProps } from "../../types";
-
-export type AlertTypes = "success" | "warning" | "info" | "danger";
+import { ComponentStyleProps, MessageVariants } from "../../types";
 
 export interface AlertProps extends ComponentProps<"div">, ComponentStyleProps {
-  variant: AlertTypes;
+  variant: MessageVariants;
   icon?: ReactNode;
   autoclose?: boolean;
   autocloseDuration?: number;

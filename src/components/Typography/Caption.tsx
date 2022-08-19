@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "./Typography";
 import { TypographyProps } from "./Typography.types";
 
-const Caption: React.FC<Omit<TypographyProps, "variant">> = (props) => (
+const Caption = (props: Omit<TypographyProps, "variant">) => (
   <Typography {...props} variant="caption" />
 );
 

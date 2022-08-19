@@ -85,6 +85,9 @@ const Alert = ({
         {!icon && variant === "info" && (
           <Icon svg={<InfoIcon fill="inherit" />} size="xl" />
         )}
+        {!icon && variant === "description" && (
+          <Icon svg={<InfoIcon fill="inherit" />} size="xl" />
+        )}
       </div>
       <div css={styles.content}>{children}</div>
       {dismissable && (

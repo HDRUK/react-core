@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "./Typography";
 import { TypographyProps } from "./Typography.types";
 
-const H2: React.FC<Omit<TypographyProps, "variant">> = (props) => (
+const H2 = (props: Omit<TypographyProps, "variant">) => (
   <Typography {...props} variant="h2" />
 );
 

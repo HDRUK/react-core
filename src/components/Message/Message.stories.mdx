@@ -10,10 +10,15 @@ import { Card, CardBody } from "../Card";
     {(props) => (
       <Card>
         <CardBody>
-          <Message variant="error" mb={4}>
-            This is an error message
-          </Message>
-          <Message>This descriptive message</Message>
+          {["success", "info", "warning", "danger", "description"].map(
+            (variant) => (
+              <div>
+                <Message variant={variant} mb={4}>
+                  This is an {variant} message
+                </Message>
+              </div>
+            )
+          )}
         </CardBody>
       </Card>
     )}

@@ -1,22 +1,47 @@
+import { Theme } from "@emotion/react";
 import isNil from "lodash-es/isNil";
+import {
+  CommonStyleProps,
+  ThemeColors,
+  ThemeComponents,
+  ThemeFontSizes,
+} from "./types";
 
-export const getSize = (value, { base: { increment, unit } }) => {
-  return `${value * increment}${unit}`;
+export const getSize = (
+  value: number | undefined,
+  { base: { increment, unit } }: Theme
+) => {
+  return !isNil(value) ? `${value * increment}${unit}` : "";
 };
 
-export const getColorStyle = (prop, value, theme) => {
-  return getCommonStyle(prop, theme.colors[value]);
+export const getColorStyle = (
+  prop: string,
+  value: keyof ThemeColors | undefined,
+  theme: Theme
+) => {
+  return !isNil(value) ? getCommonStyle(prop, theme.colors[value]) : "";
 };
 
-export const getSpacingStyle = (prop, value, theme) => {
-  return typeof value === "number" ? `${prop}: ${getSize(value, theme)};` : "";
+export const getSpacingStyle = (
+  prop: string,
+  value: number | undefined,
+  theme: Theme
+) => {
+  return !isNil(value) ? `${prop}: ${getSize(value, theme)};` : "";
 };
 
-export const getCommonStyle = (prop, value) => {
+export const getCommonStyle = (
+  prop: string,
+  value: string | number | undefined
+) => {
   return !isNil(value) ? `${prop}: ${value};` : "";
 };
 
-export const getStyle = (propParts, value, theme) => {
+export const getStyle = (
+  propParts: string[],
+  value: keyof ThemeFontSizes,
+  theme: Theme
+) => {
   const styleProp = propParts.join("-").toLowerCase();
 
   if (styleProp === "font-size") {
@@ -26,7 +51,7 @@ export const getStyle = (propParts, value, theme) => {
   return `${styleProp}: ${value};`;
 };
 
-export const getCommonStyles = (props, theme) => {
+export const getCommonStyles = (props: CommonStyleProps, theme: Theme) => {
   const {
     m,
     ml,
@@ -112,7 +137,7 @@ export const getCommonStyles = (props, theme) => {
 	`;
 };
 
-export const getComponentStylesFromTheme = (props, theme) => {
+export const getComponentStylesFromTheme = (props: any, theme: Theme) => {
   const styles = Object.keys(props).map((prop) => {
     const propParts = prop.replace(/([a-z])([A-Z])/g, "$1,$2").split(",");
     const isColor = Object.keys(theme.colors).includes(props[prop]);
@@ -139,14 +164,22 @@ export const getComponentStylesFromTheme = (props, theme) => {
   return styles.join("\n");
 };
 
-export const getComponentVariantStyles = (component, variant, theme) => {
+export const getComponentVariantStyles = (
+  component: keyof ThemeComponents,
+  variant: string,
+  theme: Theme
+) => {
   return getComponentStylesFromTheme(
     theme.components[component].variants[variant],
     theme
   );
 };
 
-export const getComponentSizeStyles = (component, size, theme) => {
+export const getComponentSizeStyles = (
+  component: keyof ThemeComponents,
+  size: string,
+  theme: Theme
+) => {
   const themeSize = theme.components[component].sizes[size];
 
   if (typeof themeSize === "string") {
@@ -159,18 +192,27 @@ export const getComponentSizeStyles = (component, size, theme) => {
   );
 };
 
-export const getComponentGlobals = (component, theme) => {
+export const getComponentGlobals = (
+  component: keyof ThemeComponents,
+  theme: Theme
+) => {
   return theme.components[component].globals;
 };
 
-export const getComponentGlobalStyles = (component, theme) => {
+export const getComponentGlobalStyles = (
+  component: keyof ThemeComponents,
+  theme: Theme
+) => {
   return getComponentStylesFromTheme(
     getComponentGlobals(component, theme),
     theme
   );
 };
 
-export const getComponentFontSizeStyle = (fontSize, theme) => {
+export const getComponentFontSizeStyle = (
+  fontSize: ThemeFontSizes,
+  theme: Theme
+) => {
   return getComponentStylesFromTheme({ fontSize }, theme);
 };
 
@@ -198,12 +240,11 @@ export const THEME_INPUT = {
   },
 };
 
-export const THEME_FONT_SIZES = {
+export const THEME_FONT_SIZES: ThemeFontSizes = {
   xxs: "10px",
   xs: "12px",
   sm: "13px",
   md: "14px",
-  default: "14px",
   lg: "16px",
   xl: "20px",
   "2xl": "24px",
@@ -213,6 +254,9 @@ export const THEME_FONT_SIZES = {
 };
 
 export const THEME_BUTTON = {
+  globals: {
+    borderRadius: "4px",
+  },
   sizes: {
     small: {
       fontSize: "md",
@@ -282,7 +326,7 @@ export const THEME_BUTTON = {
   },
 };
 
-export const DEFAULT_THEME = {
+export const DEFAULT_THEME: Theme = {
   base: {
     increment: 4,
     unit: "px",
@@ -349,6 +393,12 @@ export const DEFAULT_THEME = {
           fill: "platinum700",
           borderColor: "platinum700",
         },
+        description: {
+          background: "grey200",
+          color: "grey700",
+          fill: "grey700",
+          borderColor: "grey700",
+        },
         warning: {
           background: "gold50",
           color: "brown900",
@@ -390,6 +440,7 @@ export const DEFAULT_THEME = {
         padding: "16px",
       },
     },
+    Cta: {},
     Dimmer: {
       globals: {
         backgroundColor: "rgba(0,0,0,0.15)",
@@ -405,6 +456,7 @@ export const DEFAULT_THEME = {
         cardOffset: "-12px",
       },
     },
+    FileSelector: {},
     FileSelectorButton: {
       globals: {
         fill: "purple500",
@@ -455,7 +507,16 @@ export const DEFAULT_THEME = {
         fontSize: "sm",
       },
       variants: {
-        error: {
+        success: {
+          color: "green400",
+        },
+        info: {
+          color: "platinum700",
+        },
+        warning: {
+          color: "brown900",
+        },
+        danger: {
           color: "red700",
         },
         description: {
@@ -463,6 +524,7 @@ export const DEFAULT_THEME = {
         },
       },
     },
+    Modal: {},
     Tag: {
       sizes: {
         small: {

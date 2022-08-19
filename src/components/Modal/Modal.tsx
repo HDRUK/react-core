@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { cx } from "@emotion/css";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { Card } from "../Card";
 import Dimmer from "../Dimmer";
@@ -9,7 +9,7 @@ import { ReactComponent as CloseIcon } from "../../images/icons/close.svg";
 import Box from "../Box";
 import { ModalProps } from "./Modal.types";
 
-const Modal: React.FC<ModalProps> = ({
+const Modal = ({
   children,
   className,
   dismissable,
@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({
   contentAlignment,
   onClose,
   ...outerProps
-}) => {
+}: ModalProps) => {
   const [show, setShow] = useState(true);
 
   const handleClose = useCallback(() => {

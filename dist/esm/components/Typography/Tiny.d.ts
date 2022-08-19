@@ -1,4 +1,3 @@
-import React from "react";
 import { TypographyProps } from "./Typography.types";
-declare const Tiny: React.FC<Omit<TypographyProps, "variant">>;
+declare const Tiny: (props: Omit<TypographyProps, "variant">) => JSX.Element;
 export default Tiny;

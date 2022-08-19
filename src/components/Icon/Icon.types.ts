@@ -1,24 +1,12 @@
 import { Theme } from "@emotion/react";
 import { ComponentProps, ReactElement } from "react";
-import { ComponentMarginProps } from "../../types";
+import { ComponentMarginProps, ThemeFontSizes } from "../../types";
 
-export type IconSizes =
-  | "xxs"
-  | "xs"
-  | "sm"
-  | "md"
-  | "lg"
-  | "xl"
-  | "2xl"
-  | "3xl"
-  | "4xl"
-  | "5xl"
-  | "contained";
 export interface IconProps
   extends Omit<ComponentProps<"span">, "color" | "fill" | "stroke">,
     ComponentMarginProps {
   svg: ReactElement;
-  size: IconSizes;
+  size: keyof ThemeFontSizes;
   color?: keyof Theme["colors"];
   fill?: keyof Theme["colors"];
   stroke?: keyof Theme["colors"];

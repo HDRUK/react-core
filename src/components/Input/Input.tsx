@@ -73,7 +73,7 @@ const Input = ({
         </span>
       )}
       {error && (
-        <Message variant="error" mt={2}>
+        <Message variant="danger" mt={2}>
           {error}
         </Message>
       )}

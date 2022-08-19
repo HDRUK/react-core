@@ -1,3 +1,4 @@
+export { default as Alert } from "./components/Alert";
 export { default as Box } from "./components/Box";
 export { default as Button } from "./components/Button";
 export { default as Collapsable } from "./components/Collapsable";

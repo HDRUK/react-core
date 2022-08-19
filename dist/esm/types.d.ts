@@ -80,6 +80,7 @@ export interface ThemeFontSizes {
 }
 export declare type ThemeColors = Record<string, string>;
 export interface ThemeComponents {
+    Alert: any;
     Button: any;
     Card: any;
     CardHeader: any;
@@ -90,6 +91,8 @@ export interface ThemeComponents {
     FeatureContentHorizontal: any;
     FeatureContentVertical: any;
     FileSelector: any;
+    FileSelectorButton: any;
+    FileSelectorListing: any;
     Message: any;
     Modal: any;
     Icon: any;

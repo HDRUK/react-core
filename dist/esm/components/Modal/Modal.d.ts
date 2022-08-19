@@ -1,4 +1,10 @@
-import React from "react";
 import { ModalProps } from "./Modal.types";
-declare const Modal: React.FC<ModalProps>;
+declare const Modal: {
+    ({ children, className, dismissable, open, contentAlignment, onClose, ...outerProps }: ModalProps): import("@emotion/react/jsx-runtime").JSX.Element | null;
+    defaultProps: {
+        dismissable: boolean;
+        width: string;
+        contentAlignment: string;
+    };
+};
 export default Modal;
