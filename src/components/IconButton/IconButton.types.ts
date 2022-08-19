@@ -1,12 +1,15 @@
 import { ComponentProps, ReactElement } from "react";
-import { CommonVariants, ComponentStyleProps } from "../../types";
-import { IconSizes } from "../Icon/Icon.types";
+import {
+	CommonVariants,
+	ComponentStyleProps,
+	ThemeFontSizes,
+} from "../../types";
 
 export interface IconButtonProps
 	extends ComponentProps<"button">,
 		ComponentStyleProps {
 	variant: CommonVariants;
-	size: IconSizes;
+	size: keyof ThemeFontSizes;
 	svg: ReactElement;
 }
 
