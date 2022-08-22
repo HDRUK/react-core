@@ -1,5 +1,9 @@
 import { css, Theme } from "@emotion/react";
-import { getComponentSizeStyles, getComponentVariantStyles } from "../../theme";
+import {
+	getComponentSizeStyles,
+	getComponentVariantStyles,
+	getSubComponentVariantStyles,
+} from "../../theme";
 import { IconButtonStyleProps } from "./IconButton.types";
 
 export const root =
@@ -19,6 +23,6 @@ export const icon =
 	({ variant, size }: IconButtonStyleProps) =>
 	(theme: Theme) =>
 		css`
-			${getComponentVariantStyles("IconButtonIcon", variant, theme)}
+			${getSubComponentVariantStyles("IconButton", "Icon", variant, theme)}
 			padding: calc(${getComponentSizeStyles("Icon", size, theme)} * 2/3);
 		`;

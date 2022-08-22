@@ -175,6 +175,18 @@ export const getComponentVariantStyles = (
 	);
 };
 
+export const getSubComponentVariantStyles = (
+	component: keyof ThemeComponents,
+	subComponent: keyof ThemeComponents,
+	variant: string,
+	theme: Theme
+) => {
+	return getComponentStylesFromTheme(
+		theme.components[component].elements[subComponent].variants[variant],
+		theme
+	);
+};
+
 export const getComponentSizeStyles = (
 	component: keyof ThemeComponents,
 	size: string,
@@ -271,21 +283,22 @@ export const THEME_ICON_BUTTON = {
 			borderColor: "grey400",
 		},
 	},
-};
-
-export const THEME_ICON_BUTTON_ICON = {
-	variants: {
-		primary: {
-			fill: "purple500",
-			hoverFill: "white",
-		},
-		secondary: {
-			fill: "green400",
-			hoverFill: "white",
-		},
-		tertiary: {
-			fill: "grey400",
-			hoverFill: "white",
+	elements: {
+		Icon: {
+			variants: {
+				primary: {
+					fill: "purple500",
+					hoverFill: "white",
+				},
+				secondary: {
+					fill: "green400",
+					hoverFill: "white",
+				},
+				tertiary: {
+					fill: "grey400",
+					hoverFill: "white",
+				},
+			},
 		},
 	},
 };
@@ -508,7 +521,6 @@ export const DEFAULT_THEME: Theme = {
 			sizes: THEME_FONT_SIZES,
 		},
 		IconButton: THEME_ICON_BUTTON,
-		IconButtonIcon: THEME_ICON_BUTTON_ICON,
 		Input: {
 			sizes: {
 				small: {
