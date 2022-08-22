@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
-import { ComponentStyleProps } from "../../types";
+import { ComponentStyleProps, MessageVariants } from "../../types";
 export interface MessageProps extends Omit<ComponentProps<"div">, "color">, ComponentStyleProps {
-    variant: "error" | "description";
+    variant: MessageVariants;
 }
 export declare type MessageStyleProps = Pick<MessageProps, "variant">;

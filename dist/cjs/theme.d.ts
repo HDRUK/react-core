@@ -36,7 +36,45 @@ export declare const THEME_INPUT: {
     };
 };
 export declare const THEME_FONT_SIZES: ThemeFontSizes;
+export declare const THEME_ICON_BUTTON: {
+    variants: {
+        primary: {
+            background: string;
+            hoverBackground: string;
+            borderColor: string;
+        };
+        secondary: {
+            background: string;
+            hoverBackground: string;
+            borderColor: string;
+        };
+        tertiary: {
+            background: string;
+            hoverBackground: string;
+            borderColor: string;
+        };
+    };
+};
+export declare const THEME_ICON_BUTTON_ICON: {
+    variants: {
+        primary: {
+            fill: string;
+            hoverFill: string;
+        };
+        secondary: {
+            fill: string;
+            hoverFill: string;
+        };
+        tertiary: {
+            fill: string;
+            hoverFill: string;
+        };
+    };
+};
 export declare const THEME_BUTTON: {
+    globals: {
+        borderRadius: string;
+    };
     sizes: {
         small: {
             fontSize: string;
