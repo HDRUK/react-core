@@ -267,8 +267,8 @@ export const THEME_ICON_BUTTON = {
 		},
 		tertiary: {
 			background: "white",
-			hoverBackground: "grey200",
-			borderColor: "grey200",
+			hoverBackground: "grey400",
+			borderColor: "grey400",
 		},
 	},
 };
@@ -284,7 +284,7 @@ export const THEME_ICON_BUTTON_ICON = {
 			hoverFill: "white",
 		},
 		tertiary: {
-			fill: "grey200",
+			fill: "grey400",
 			hoverFill: "white",
 		},
 	},
