@@ -7,39 +7,39 @@ import { BackToTopProps } from "./BackToTop.types";
 import * as styles from "./BackToTop.styles";
 
 const BackToTop = ({
-	scrollOffset = 100,
-	size = "xs",
-	variant = "secondary",
+    scrollOffset = 100,
+    size = "xs",
+    variant = "secondary",
 }: BackToTopProps) => {
-	const [showButton, setShowButton] = useState(false);
+    const [showButton, setShowButton] = useState(false);
 
-	useEffect(() => {
-		window.addEventListener("scroll", () => {
-			toggleVisibility();
-		});
-	});
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            toggleVisibility();
+        });
+    });
 
-	const toggleVisibility = () => {
-		setShowButton(window.scrollY > scrollOffset);
-	};
+    const toggleVisibility = () => {
+        setShowButton(window.scrollY > scrollOffset);
+    };
 
-	const jumpToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
-	};
+    const jumpToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
 
-	return showButton ? (
-		<div css={styles.root()}>
-			<IconButton
-				onClick={jumpToTop}
-				variant={variant}
-				size={size}
-				svg={<ChevronUpIcon />}
-			/>
-		</div>
-	) : null;
+    return showButton ? (
+        <div css={styles.root()}>
+            <IconButton
+                onClick={jumpToTop}
+                variant={variant}
+                size={size}
+                svg={<ChevronUpIcon />}
+            />
+        </div>
+    ) : null;
 };
 
 export default BackToTop;

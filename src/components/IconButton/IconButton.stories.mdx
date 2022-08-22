@@ -7,48 +7,52 @@ import { Card, CardBody } from "../Card";
 import { ReactComponent as CloseIcon } from "../../images/icons/close.svg";
 
 <Meta
-	title="Atoms/IconButton"
-	component={IconButton}
-	parameters={{
-		design: {
-			type: "figma",
-			url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=726%3A8278",
-		},
-	}}
+    title="Atoms/IconButton"
+    component={IconButton}
+    parameters={{
+        design: {
+            type: "figma",
+            url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=726%3A8278",
+        },
+    }}
 />
 
 <Canvas>
-	<Story name="Sizes">
-		{(props) => (
-			<Card>
-				<CardBody>
-					{[
-						"xxs",
-						"xs",
-						"sm",
-						"md",
-						"lg",
-						"xl",
-						"2xl",
-						"3xl",
-						"4xl",
-						"5xl",
-					].map((size) => (
-						<IconButton svg={<CloseIcon />} size={size} mr={2} />
-					))}
-				</CardBody>
-			</Card>
-		)}
-	</Story>
-	<Story name="Variants">
-		{(props) => (
-			<Card>
-				<CardBody>
-					{["primary", "secondary", "tertiary"].map((variant) => (
-						<IconButton svg={<CloseIcon />} variant={variant} mr={2} />
-					))}
-				</CardBody>
-			</Card>
-		)}
-	</Story>
+    <Story name="Sizes">
+        {props => (
+            <Card>
+                <CardBody>
+                    {[
+                        "xxs",
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                        "2xl",
+                        "3xl",
+                        "4xl",
+                        "5xl",
+                    ].map(size => (
+                        <IconButton svg={<CloseIcon />} size={size} mr={2} />
+                    ))}
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+    <Story name="Variants">
+        {props => (
+            <Card>
+                <CardBody>
+                    {["primary", "secondary", "tertiary"].map(variant => (
+                        <IconButton
+                            svg={<CloseIcon />}
+                            variant={variant}
+                            mr={2}
+                        />
+                    ))}
+                </CardBody>
+            </Card>
+        )}
+    </Story>
 </Canvas>
