@@ -42,35 +42,23 @@ export declare const THEME_ICON_BUTTON: {
         primary: {
             background: string;
             hoverBackground: string;
+            fill: string;
+            hoverFill: string;
             borderColor: string;
         };
         secondary: {
             background: string;
             hoverBackground: string;
             borderColor: string;
+            fill: string;
+            hoverFill: string;
         };
         tertiary: {
             background: string;
             hoverBackground: string;
             borderColor: string;
-        };
-    };
-    elements: {
-        Icon: {
-            variants: {
-                primary: {
-                    fill: string;
-                    hoverFill: string;
-                };
-                secondary: {
-                    fill: string;
-                    hoverFill: string;
-                };
-                tertiary: {
-                    fill: string;
-                    hoverFill: string;
-                };
-            };
+            fill: string;
+            hoverFill: string;
         };
     };
 };
