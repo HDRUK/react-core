@@ -8,6 +8,7 @@ export declare const getStyle: (propParts: string[], value: keyof ThemeFontSizes
 export declare const getCommonStyles: (props: CommonStyleProps, theme: Theme) => string;
 export declare const getComponentStylesFromTheme: (props: any, theme: Theme) => string;
 export declare const getComponentVariantStyles: (component: keyof ThemeComponents, variant: string, theme: Theme) => string;
+export declare const getSubComponentVariantStyles: (component: keyof ThemeComponents, subComponent: keyof ThemeComponents, variant: string, theme: Theme) => string;
 export declare const getComponentSizeStyles: (component: keyof ThemeComponents, size: string, theme: Theme) => string;
 export declare const getComponentGlobals: (component: keyof ThemeComponents, theme: Theme) => any;
 export declare const getComponentGlobalStyles: (component: keyof ThemeComponents, theme: Theme) => string;
@@ -54,20 +55,22 @@ export declare const THEME_ICON_BUTTON: {
             borderColor: string;
         };
     };
-};
-export declare const THEME_ICON_BUTTON_ICON: {
-    variants: {
-        primary: {
-            fill: string;
-            hoverFill: string;
-        };
-        secondary: {
-            fill: string;
-            hoverFill: string;
-        };
-        tertiary: {
-            fill: string;
-            hoverFill: string;
+    elements: {
+        Icon: {
+            variants: {
+                primary: {
+                    fill: string;
+                    hoverFill: string;
+                };
+                secondary: {
+                    fill: string;
+                    hoverFill: string;
+                };
+                tertiary: {
+                    fill: string;
+                    hoverFill: string;
+                };
+            };
         };
     };
 };
