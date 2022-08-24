@@ -28,9 +28,7 @@ const IconButton = ({
     });
 
     return (
-        <button
-            css={[commonStyles, styles.root({ size, variant })]}
-            {...outerProps}>
+        <button css={[commonStyles, styles.root()]} {...outerProps}>
             <Icon
                 size={size}
                 css={[styles.icon({ size, variant })]}
