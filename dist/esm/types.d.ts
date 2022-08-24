@@ -98,7 +98,6 @@ export interface ThemeComponents {
     Modal: any;
     Icon: any;
     IconButton: any;
-    IconButtonIcon: any;
     Input: any;
     Label: any;
     Tag: any;
