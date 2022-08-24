@@ -79,6 +79,7 @@ export interface ThemeFontSizes {
     "5xl": string;
 }
 export declare type ThemeColors = Record<string, string>;
+export declare type MessageVariants = "success" | "warning" | "info" | "danger" | "description";
 export interface ThemeComponents {
     Alert: any;
     Button: any;
@@ -96,6 +97,7 @@ export interface ThemeComponents {
     Message: any;
     Modal: any;
     Icon: any;
+    IconButton: any;
     Input: any;
     Label: any;
     Tag: any;

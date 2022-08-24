@@ -42,6 +42,9 @@ export var getComponentStylesFromTheme = function (props, theme) {
 export var getComponentVariantStyles = function (component, variant, theme) {
     return getComponentStylesFromTheme(theme.components[component].variants[variant], theme);
 };
+export var getSubComponentVariantStyles = function (component, subComponent, variant, theme) {
+    return getComponentStylesFromTheme(theme.components[component].elements[subComponent].variants[variant], theme);
+};
 export var getComponentSizeStyles = function (component, size, theme) {
     var themeSize = theme.components[component].sizes[size];
     if (typeof themeSize === "string") {
@@ -93,15 +96,55 @@ export var THEME_FONT_SIZES = {
     "4xl": "32px",
     "5xl": "40px",
 };
+export var THEME_ICON_BUTTON = {
+    variants: {
+        primary: {
+            background: "white",
+            hoverBackground: "purple500",
+            borderColor: "purple500",
+        },
+        secondary: {
+            background: "white",
+            hoverBackground: "green400",
+            borderColor: "green400",
+        },
+        tertiary: {
+            background: "white",
+            hoverBackground: "grey400",
+            borderColor: "grey400",
+        },
+    },
+    elements: {
+        Icon: {
+            variants: {
+                primary: {
+                    fill: "purple500",
+                    hoverFill: "white",
+                },
+                secondary: {
+                    fill: "green400",
+                    hoverFill: "white",
+                },
+                tertiary: {
+                    fill: "grey400",
+                    hoverFill: "white",
+                },
+            },
+        },
+    },
+};
 export var THEME_BUTTON = {
+    globals: {
+        borderRadius: "4px",
+    },
     sizes: {
         small: {
-            fontSize: "md",
-            padding: "8px 12px",
-            height: "34px",
+            fontSize: "sm",
+            padding: "4px 6px",
+            height: "30px",
         },
-        medium: { fontSize: "md", padding: "8px 16px", height: "40px" },
-        large: { fontSize: "lg", padding: "10px 20px", height: "46px" },
+        medium: { fontSize: "md", padding: "8px 12px", height: "40px" },
+        large: { fontSize: "lg", padding: "12px 18px", height: "50px" },
     },
     variants: {
         primary: {
@@ -229,6 +272,12 @@ export var DEFAULT_THEME = {
                     fill: "platinum700",
                     borderColor: "platinum700",
                 },
+                description: {
+                    background: "grey200",
+                    color: "grey700",
+                    fill: "grey700",
+                    borderColor: "grey700",
+                },
                 warning: {
                     background: "gold50",
                     color: "brown900",
@@ -300,6 +349,7 @@ export var DEFAULT_THEME = {
         Icon: {
             sizes: THEME_FONT_SIZES,
         },
+        IconButton: THEME_ICON_BUTTON,
         Input: {
             sizes: {
                 small: {
@@ -337,7 +387,16 @@ export var DEFAULT_THEME = {
                 fontSize: "sm",
             },
             variants: {
-                error: {
+                success: {
+                    color: "green400",
+                },
+                info: {
+                    color: "platinum700",
+                },
+                warning: {
+                    color: "brown900",
+                },
+                danger: {
                     color: "red700",
                 },
                 description: {

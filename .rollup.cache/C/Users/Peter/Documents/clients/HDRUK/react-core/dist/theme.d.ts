@@ -8,6 +8,7 @@ export declare const getStyle: (propParts: string[], value: keyof ThemeFontSizes
 export declare const getCommonStyles: (props: CommonStyleProps, theme: Theme) => string;
 export declare const getComponentStylesFromTheme: (props: any, theme: Theme) => string;
 export declare const getComponentVariantStyles: (component: keyof ThemeComponents, variant: string, theme: Theme) => string;
+export declare const getSubComponentVariantStyles: (component: keyof ThemeComponents, subComponent: keyof ThemeComponents, variant: string, theme: Theme) => string;
 export declare const getComponentSizeStyles: (component: keyof ThemeComponents, size: string, theme: Theme) => string;
 export declare const getComponentGlobals: (component: keyof ThemeComponents, theme: Theme) => any;
 export declare const getComponentGlobalStyles: (component: keyof ThemeComponents, theme: Theme) => string;
@@ -36,7 +37,47 @@ export declare const THEME_INPUT: {
     };
 };
 export declare const THEME_FONT_SIZES: ThemeFontSizes;
+export declare const THEME_ICON_BUTTON: {
+    variants: {
+        primary: {
+            background: string;
+            hoverBackground: string;
+            borderColor: string;
+        };
+        secondary: {
+            background: string;
+            hoverBackground: string;
+            borderColor: string;
+        };
+        tertiary: {
+            background: string;
+            hoverBackground: string;
+            borderColor: string;
+        };
+    };
+    elements: {
+        Icon: {
+            variants: {
+                primary: {
+                    fill: string;
+                    hoverFill: string;
+                };
+                secondary: {
+                    fill: string;
+                    hoverFill: string;
+                };
+                tertiary: {
+                    fill: string;
+                    hoverFill: string;
+                };
+            };
+        };
+    };
+};
 export declare const THEME_BUTTON: {
+    globals: {
+        borderRadius: string;
+    };
     sizes: {
         small: {
             fontSize: string;
