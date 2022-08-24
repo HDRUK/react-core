@@ -13,8 +13,7 @@ export interface InputProps
     iconRight?: ReactNode;
 }
 
-export interface InputStyleProps
-    extends Pick<InputProps, "variant" | "disabled" | "error"> {
+export interface InputStyleProps extends Pick<InputProps, "variant" | "error"> {
     offsetLeft?: number;
     offsetRight?: number;
 }

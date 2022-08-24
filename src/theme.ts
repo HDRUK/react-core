@@ -522,6 +522,9 @@ export const DEFAULT_THEME: Theme = {
         },
         IconButton: THEME_ICON_BUTTON,
         Input: {
+            globals: {
+                borderRadius: "4px",
+            },
             sizes: {
                 small: {
                     height: "30px",

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ComponentProps, ReactElement } from "react";
 import { CommonVariants, CommonSizes, ComponentStyleProps } from "../../types";
 
 export interface ButtonProps
