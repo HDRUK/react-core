@@ -42,6 +42,7 @@ export const input =
         css`
             border-style: solid;
             border-width: 2px;
+            width: 100%;
 
             ${getComponentGlobalStyles("Input", theme)}
             ${getComponentVariantStyles("Input", variant, theme)}

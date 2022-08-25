@@ -17,69 +17,76 @@ import pencilIcon from "../../images/icons/pencil.svg";
 import paperIcon from "../../images/icons/paper.svg";
 import dangerIcon from "../../images/icons/danger.svg";
 import infoIcon from "../../images/icons/info.svg";
+import clearIcon from "../../images/icons/clear.svg";
 
 <Meta
-  title="Atoms/Icon"
-  component={Icon}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=726%3A8278",
-    },
-  }}
+    title="Atoms/Icon"
+    component={Icon}
+    parameters={{
+        design: {
+            type: "figma",
+            url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=726%3A8278",
+        },
+    }}
 />
 
 <Canvas>
-  <Story name="List">
-    {(props) => (
-      <Card>
-        <CardBody>
-          {[
-            closeIcon,
-            jsonIcon,
-            searchIcon,
-            starIcon,
-            checkIcon,
-            uploadIcon,
-            successIcon,
-            padlockIcon,
-            pencilIcon,
-            projectIcon,
-            paperIcon,
-          ].map((icon) => (
-            <Icon svg={<SVG src={icon} />} mr={2} size="xl" />
-          ))}
-          <Icon svg={<SVG src={dangerIcon} />} mr={2} size="xl" fill="red700" />
-          <Icon
-            svg={<SVG src={infoIcon} />}
-            mr={2}
-            size="xl"
-            fill="purple500"
-          />
-        </CardBody>
-      </Card>
-    )}
-  </Story>
-  <Story name="Sizes">
-    {(props) => (
-      <Card>
-        <CardBody>
-          {[
-            "xxs",
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-            "2xl",
-            "3xl",
-            "4xl",
-            "5xl",
-          ].map((size) => (
-            <Icon svg={<SVG src={starIcon} />} size={size} mr={2} />
-          ))}
-        </CardBody>
-      </Card>
-    )}
-  </Story>
+    <Story name="List">
+        {props => (
+            <Card>
+                <CardBody>
+                    {[
+                        closeIcon,
+                        jsonIcon,
+                        searchIcon,
+                        starIcon,
+                        checkIcon,
+                        uploadIcon,
+                        successIcon,
+                        padlockIcon,
+                        pencilIcon,
+                        projectIcon,
+                        paperIcon,
+                        clearIcon,
+                    ].map(icon => (
+                        <Icon svg={<SVG src={icon} />} mr={2} size="xl" />
+                    ))}
+                    <Icon
+                        svg={<SVG src={dangerIcon} />}
+                        mr={2}
+                        size="xl"
+                        fill="red700"
+                    />
+                    <Icon
+                        svg={<SVG src={infoIcon} />}
+                        mr={2}
+                        size="xl"
+                        fill="purple500"
+                    />
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+    <Story name="Sizes">
+        {props => (
+            <Card>
+                <CardBody>
+                    {[
+                        "xxs",
+                        "xs",
+                        "sm",
+                        "md",
+                        "lg",
+                        "xl",
+                        "2xl",
+                        "3xl",
+                        "4xl",
+                        "5xl",
+                    ].map(size => (
+                        <Icon svg={<SVG src={starIcon} />} size={size} mr={2} />
+                    ))}
+                </CardBody>
+            </Card>
+        )}
+    </Story>
 </Canvas>

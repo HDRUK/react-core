@@ -7,62 +7,90 @@ import { Card, CardBody } from "../Card";
 import Icon from "../Icon";
 import Box from "../Box";
 
-import tickIcon from "../../images/icons/search.svg";
-import userIcon from "../../images/icons/star.svg";
+import searchIcon from "../../images/icons/search.svg";
+import clearIcon from "../../images/icons/clear.svg";
 
 <Meta title="Molecules/Input" component={Input} />
 
 <Canvas>
-  <Story name="Variants">
-    {(props) => {
-      return (
-        <Card>
-          <CardBody>
-            <Box width="300px">
-              <Input {...props} mb={4} label="Primary" />
-              <Input {...props} mb={4} label="Primary (disabled)" disabled />
-              <Input
-                {...props}
-                mb={10}
-                label="Primary (error)"
-                error="This field is required"
-              />
-              <Input {...props} variant="secondary" label="Secondary" mb={4} />
-              <Input
-                {...props}
-                variant="secondary"
-                label="Secondary (disabled)"
-                mb={4}
-                disabled
-              />
-              <Input
-                {...props}
-                variant="secondary"
-                label="Secondary (error)"
-                error="This field is required"
-              />
-            </Box>
-          </CardBody>
-        </Card>
-      );
-    }}
-  </Story>
-  <Story name="Messages">
-    {(props) => {
-      return (
-        <Card>
-          <CardBody>
-            <Box width="300px">
-              <Input
-                {...props}
-                label="With messages"
-                error="This field is required"
-                description="Please make sure the below field is filled and no longer than 30 characters"
-              />
-            </Box>
-          </CardBody>
-        </Card>
-      );
-    }}
-  </Story>
+    <Story name="Variants">
+        {props => {
+            return (
+                <Card>
+                    <CardBody>
+                        <Box width="300px">
+                            <Input {...props} mb={4} label="Primary" />
+                            <Input
+                                {...props}
+                                mb={4}
+                                label="Primary (disabled)"
+                                disabled
+                            />
+                            <Input
+                                {...props}
+                                mb={10}
+                                label="Primary (error)"
+                                error="This field is required"
+                            />
+                            <Input
+                                {...props}
+                                variant="secondary"
+                                label="Secondary"
+                                mb={4}
+                            />
+                            <Input
+                                {...props}
+                                variant="secondary"
+                                label="Secondary (disabled)"
+                                mb={4}
+                                disabled
+                            />
+                            <Input
+                                {...props}
+                                variant="secondary"
+                                label="Secondary (error)"
+                                error="This field is required"
+                            />
+                        </Box>
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
+    <Story name="Messages">
+        {props => {
+            return (
+                <Card>
+                    <CardBody>
+                        <Box width="300px">
+                            <Input
+                                {...props}
+                                label="With messages"
+                                error="This field is required"
+                                description="Please make sure the below field is filled and no longer than 30 characters"
+                            />
+                        </Box>
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
+    <Story name="Icons">
+        {props => {
+            return (
+                <Card>
+                    <CardBody>
+                        <Box width="300px">
+                            <Input
+                                {...props}
+                                label="With icons"
+                                iconLeft={<SVG src={searchIcon} />}
+                                iconRight={<SVG src={clearIcon} />}
+                            />
+                        </Box>
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
 </Canvas>

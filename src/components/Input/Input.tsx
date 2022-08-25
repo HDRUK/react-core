@@ -9,6 +9,7 @@ import useDOMAttributes from "../../hooks/useDOMAttributes/useDOMAttributes";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import Label from "../Label";
 import Message from "../Message";
+import Box from "../Box";
 
 const Input = ({
     className,
@@ -69,22 +70,28 @@ const Input = ({
                 </Label>
             )}
             {description && <Message mb={2}>{description}</Message>}
-            {iconLeft && (
-                <span css={[styles.icon, styles.iconLeft]} ref={iconLeftRef}>
-                    {iconLeft}
-                </span>
-            )}
-            <input
-                {...outerProps}
-                id={id}
-                disabled={disabled}
-                css={[styles.input({ variant, error })]}
-            />
-            {iconRight && (
-                <span css={[styles.icon, styles.iconRight]} ref={iconRightRef}>
-                    {iconRight}
-                </span>
-            )}
+            <Box position="relative">
+                {iconLeft && (
+                    <span
+                        css={[styles.icon, styles.iconLeft]}
+                        ref={iconLeftRef}>
+                        {iconLeft}
+                    </span>
+                )}
+                <input
+                    {...outerProps}
+                    id={id}
+                    disabled={disabled}
+                    css={[styles.input({ variant, error })]}
+                />
+                {iconRight && (
+                    <span
+                        css={[styles.icon, styles.iconRight]}
+                        ref={iconRightRef}>
+                        {iconRight}
+                    </span>
+                )}
+            </Box>
             {error && (
                 <Message variant="danger" mt={2}>
                     {error}
