@@ -1,0 +1,91 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { useState } from "react";
+
+import Textarea from "./Textarea";
+
+import Box from "../Box";
+import { Card, CardBody } from "../Card";
+
+<Meta title="Molecules/Textarea" component={Textarea} />
+
+<Canvas>
+    <Story name="Basic">
+        {props => (
+            <Card>
+                <CardBody>
+                    <Box width="300px">
+                        <Textarea label="Primary" mb={4} />
+                        <Textarea label="Primary (disabled)" disabled mb={4} />
+                        <Textarea
+                            label="Primary with error"
+                            error="Must have a value"
+                            mb={10}
+                        />
+                        <Textarea
+                            variant="secondary"
+                            label="Secondary"
+                            mb={4}
+                        />
+                        <Textarea
+                            variant="secondary"
+                            label="Secondary (disabled)"
+                            mb={4}
+                            disabled
+                        />
+                        <Textarea
+                            variant="secondary"
+                            label="Basic with error"
+                            error="Must have a value"
+                        />
+                    </Box>
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+    <Story name="With count">
+        {props => {
+            const [value, setValue] = useState();
+            const handleChange = ({ target: { value } }) => {
+                setValue(value);
+            };
+            return (
+                <Card>
+                    <CardBody>
+                        <Box width="300px">
+                            <Textarea
+                                label="Count label"
+                                maxCharCount={255}
+                                charCountDescription="characters of (example)"
+                                value={value}
+                                onChange={handleChange}
+                            />
+                        </Box>
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
+    <Story name="Autosize">
+        {props => {
+            const [value, setValue] = useState();
+            const handleChange = ({ target: { value } }) => {
+                setValue(value);
+            };
+            return (
+                <Card>
+                    <CardBody>
+                        <Box width="300px">
+                            <Textarea
+                                label="Autosize"
+                                autosize
+                                height="100px"
+                                value={value}
+                                onChange={handleChange}
+                            />
+                        </Box>
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
+</Canvas>

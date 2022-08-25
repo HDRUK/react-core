@@ -1,15 +1,15 @@
 import { css, Theme } from "@emotion/react";
 import {
-  getComponentGlobalStyles,
-  getComponentSizeStyles,
-  getComponentVariantStyles,
-  getSize,
+    getComponentGlobalStyles,
+    getComponentSizeStyles,
+    getComponentVariantStyles,
+    getSize,
 } from "../../theme";
 import { ButtonStyleProps } from "./Button.types";
 
 export const mixins = {
-  button: () =>
-    `
+    button: () =>
+        `
         border-width: 2px;
         border-style: solid;
         display: inline-flex;
@@ -25,14 +25,14 @@ export const mixins = {
 };
 
 export const root =
-  ({ variant, size }: ButtonStyleProps) =>
-  (theme: Theme) =>
-    css`
-      ${mixins.button()}
+    ({ variant, size }: ButtonStyleProps) =>
+    (theme: Theme) =>
+        css`
+            ${mixins.button()}
 
-      ${getComponentGlobalStyles("Message", theme)}
+            ${getComponentGlobalStyles("Button", theme)}
       ${getComponentVariantStyles("Button", variant, theme)}
       ${getComponentSizeStyles("Button", size, theme)}
 
       gap: ${getSize(1.5, theme)};
-    `;
+        `;
