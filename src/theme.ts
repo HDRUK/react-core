@@ -270,35 +270,23 @@ export const THEME_ICON_BUTTON = {
         primary: {
             background: "white",
             hoverBackground: "purple500",
+            fill: "purple500",
+            hoverFill: "white",
             borderColor: "purple500",
         },
         secondary: {
             background: "white",
             hoverBackground: "green400",
             borderColor: "green400",
+            fill: "green400",
+            hoverFill: "white",
         },
         tertiary: {
             background: "white",
             hoverBackground: "grey400",
             borderColor: "grey400",
-        },
-    },
-    elements: {
-        Icon: {
-            variants: {
-                primary: {
-                    fill: "purple500",
-                    hoverFill: "white",
-                },
-                secondary: {
-                    fill: "green400",
-                    hoverFill: "white",
-                },
-                tertiary: {
-                    fill: "grey400",
-                    hoverFill: "white",
-                },
-            },
+            fill: "grey400",
+            hoverFill: "white",
         },
     },
 };

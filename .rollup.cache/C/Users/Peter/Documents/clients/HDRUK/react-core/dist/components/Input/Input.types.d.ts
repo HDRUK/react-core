@@ -9,7 +9,7 @@ export interface InputProps extends Omit<ComponentProps<"input">, "width">, Comp
     iconLeft?: ReactNode;
     iconRight?: ReactNode;
 }
-export interface InputStyleProps extends Pick<InputProps, "variant" | "disabled" | "error"> {
+export interface InputStyleProps extends Pick<InputProps, "variant" | "error"> {
     offsetLeft?: number;
     offsetRight?: number;
 }

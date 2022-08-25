@@ -17,7 +17,7 @@ const BackToTop = ({
         window.addEventListener("scroll", () => {
             toggleVisibility();
         });
-    });
+    }, []);
 
     const toggleVisibility = () => {
         setShowButton(window.scrollY > scrollOffset);

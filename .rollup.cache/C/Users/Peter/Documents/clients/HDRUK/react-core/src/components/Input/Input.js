@@ -23,8 +23,13 @@ var Input = function (_a) {
     }, [updateRight, iconRightRef]);
     return (_jsxs("div", __assign({ className: cx(className, "ui-Input"), css: [
             commonStyles,
-            styles.root({ offsetLeft: offsetLeft, offsetRight: offsetRight, variant: variant, disabled: disabled, error: error }),
-        ] }, { children: [label && _jsx(Label, __assign({ htmlFor: id }, { children: label })), description && _jsx(Message, __assign({ mb: 2 }, { children: description })), iconLeft && (_jsx("span", __assign({ css: [styles.icon, styles.iconLeft], ref: iconLeftRef }, { children: iconLeft }))), _jsx("input", __assign({}, outerProps, { id: id, disabled: disabled })), iconRight && (_jsx("span", __assign({ css: [styles.icon, styles.iconRight], ref: iconRightRef }, { children: iconRight }))), error && (_jsx(Message, __assign({ variant: "danger", mt: 2 }, { children: error })))] })));
+            styles.root({
+                offsetLeft: offsetLeft,
+                offsetRight: offsetRight,
+                variant: variant,
+                error: error,
+            }),
+        ] }, { children: [label && (_jsx(Label, __assign({ htmlFor: id, mb: 2, disabled: disabled }, { children: label }))), description && _jsx(Message, __assign({ mb: 2 }, { children: description })), iconLeft && (_jsx("span", __assign({ css: [styles.icon, styles.iconLeft], ref: iconLeftRef }, { children: iconLeft }))), _jsx("input", __assign({}, outerProps, { id: id, disabled: disabled, css: [styles.input({ variant: variant, error: error })] })), iconRight && (_jsx("span", __assign({ css: [styles.icon, styles.iconRight], ref: iconRightRef }, { children: iconRight }))), error && (_jsx(Message, __assign({ variant: "danger", mt: 2 }, { children: error })))] })));
 };
 Input.defaultProps = {
     variant: "primary",

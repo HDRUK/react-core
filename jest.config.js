@@ -6,6 +6,7 @@ module.exports = {
     ],
     moduleNameMapper: {
         "public/(.*)": "<rootDir>/public/$1",
+        ".+\\.(svg|png|jpg)$": "identity-obj-proxy",
     },
     modulePaths: ["<rootDir>/public"],
     modulePathIgnorePatterns: [
