@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-
 import { useEffect, useState } from "react";
 import IconButton from "../IconButton";
 import { ReactComponent as ChevronUpIcon } from "../../images/icons/chevron-up.svg";
@@ -7,6 +6,7 @@ import { BackToTopProps } from "./BackToTop.types";
 import * as styles from "./BackToTop.styles";
 
 const BackToTop = ({
+    className,
     scrollOffset = 100,
     size = "xs",
     variant = "secondary",
@@ -15,13 +15,9 @@ const BackToTop = ({
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            toggleVisibility();
+            setShowButton(window.scrollY > scrollOffset);
         });
     }, []);
-
-    const toggleVisibility = () => {
-        setShowButton(window.scrollY > scrollOffset);
-    };
 
     const jumpToTop = () => {
         window.scrollTo({
@@ -30,16 +26,20 @@ const BackToTop = ({
         });
     };
 
-    return showButton ? (
-        <div css={styles.root()}>
-            <IconButton
-                onClick={jumpToTop}
-                variant={variant}
-                size={size}
-                svg={<ChevronUpIcon />}
-            />
-        </div>
-    ) : null;
+    return (
+        <>
+            {showButton ? (
+                <div className={className} css={styles.root}>
+                    <IconButton
+                        onClick={jumpToTop}
+                        variant={variant}
+                        size={size}
+                        svg={<ChevronUpIcon />}
+                    />
+                </div>
+            ) : null}
+        </>
+    );
 };
 
 export default BackToTop;
