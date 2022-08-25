@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the Textarea component When it is rendered And it has autosize Then should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-Textarea css-1awrxsy-Textarea"
+  >
+    <label
+      class="ui-Label css-1ic5hhl-Label"
+    >
+      Sample label
+    </label>
+    <div>
+      <textarea
+        data-testid="autosize"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Given the Textarea component When it is rendered And it is countable Then should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-Textarea css-1awrxsy-Textarea"
+  >
+    <label
+      class="ui-Label css-1ic5hhl-Label"
+    >
+      Sample label
+    </label>
+    <div>
+      <p
+        class="ui-Typography css-1cvyuuu-Typography"
+      />
+      <div
+        class="ui-Box css-1xdghbe-Box"
+        data-testid="count"
+      >
+        0 sample description
+        <div
+          class="ui-Box css-u08mtz-Box"
+        >
+           (0/5)
+        </div>
+      </div>
+      <p />
+      <textarea
+        maxlength="5"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Given the Textarea component When it is rendered Then should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-Textarea css-1awrxsy-Textarea"
+  >
+    <label
+      class="ui-Label css-1ic5hhl-Label"
+    >
+      Sample label
+    </label>
+    <div>
+      <textarea />
+    </div>
+  </div>
+</DocumentFragment>
+`;

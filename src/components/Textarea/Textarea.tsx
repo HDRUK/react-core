@@ -50,6 +50,16 @@ const Textarea = ({
         height,
     });
 
+    let valueLength = 0;
+
+    if (value) {
+        if (maxCharCount && value.length > maxCharCount) {
+            valueLength = maxCharCount;
+        } else {
+            valueLength = value.length;
+        }
+    }
+
     return (
         <div
             className={cx("ui-Textarea", className)}
@@ -65,10 +75,11 @@ const Textarea = ({
             <div>
                 {!!maxCharCount && (
                     <Typography color="grey700Alt">
-                        <Box mb={1} display="flex">
-                            {value?.length || 0} {charCountDescription}
+                        <Box mb={1} display="flex" data-testid="count">
+                            {valueLength} {charCountDescription}
                             <Box textAlign="right" flexGrow="1">
-                                ({value?.length || 0}/{maxCharCount})
+                                {" "}
+                                ({valueLength}/{maxCharCount})
                             </Box>
                         </Box>
                     </Typography>
@@ -81,6 +92,7 @@ const Textarea = ({
                         ref={inputRef}
                         maxLength={maxCharCount}
                         {...outerProps}
+                        data-testid="autosize"
                     />
                 )}
                 {!autosize && (

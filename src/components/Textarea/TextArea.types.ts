@@ -7,10 +7,10 @@ export interface TextAreaProps
     extends ComponentStyleProps,
         ComponentHeightProps,
         Omit<TextareaAutosizeProps, "width" | "height" | "value"> {
-    autosize: boolean;
-    maxCharCount: number;
-    charCountDescription: ReactNode;
     variant: InputVariants;
+    autosize?: boolean;
+    maxCharCount?: number;
+    charCountDescription?: ReactNode;
     description?: ReactNode;
     error?: ReactNode;
     label?: ReactNode;
