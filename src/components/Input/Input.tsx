@@ -28,12 +28,26 @@ const Input = ({
     m,
     mx,
     my,
+    width,
+    maxWidth,
+    minWidth,
     ...outerProps
 }: InputProps) => {
     const iconLeftRef = useRef(null);
     const iconRightRef = useRef(null);
 
-    const commonStyles = useCommonStyles({ mt, mb, ml, mr, m, mx, my });
+    const commonStyles = useCommonStyles({
+        mt,
+        mb,
+        ml,
+        mr,
+        m,
+        mx,
+        my,
+        width,
+        maxWidth,
+        minWidth,
+    });
 
     const {
         update: updateLeft,
@@ -70,7 +84,7 @@ const Input = ({
                 </Label>
             )}
             {description && <Message mb={2}>{description}</Message>}
-            <Box position="relative">
+            <Box position="relative" width="100%">
                 {iconLeft && (
                     <span
                         css={[styles.icon, styles.iconLeft]}
