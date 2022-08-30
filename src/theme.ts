@@ -1,4 +1,5 @@
 import { Theme } from "@emotion/react";
+import { get } from "lodash-es";
 import isNil from "lodash-es/isNil";
 import {
     CommonStyleProps,
@@ -137,12 +138,24 @@ export const getCommonStyles = (props: CommonStyleProps, theme: Theme) => {
 	`;
 };
 
+export const replaceThemeVarsInProp = (value: string, theme: Theme) => {
+    const themeVars = value ? value.match(/%theme.[^%]+%/g) : [];
+
+    (themeVars || []).forEach((item: string) => {
+        value = value.replace(item, get(theme, item.replace(/%|theme\./g, "")));
+    });
+
+    return value;
+};
+
 export const getComponentStylesFromTheme = (props: any, theme: Theme) => {
     const styles = Object.keys(props).map(prop => {
         const propParts = prop.replace(/([a-z])([A-Z])/g, "$1,$2").split(",");
         const isColor = Object.keys(theme.colors).includes(props[prop]);
-        const value = isColor ? theme.colors[props[prop]] : props[prop];
         const pseudoSelector = propParts[0];
+        let value = isColor ? theme.colors[props[prop]] : props[prop];
+
+        value = replaceThemeVarsInProp(value, theme);
 
         if (
             pseudoSelector === "hover" ||
@@ -204,6 +217,13 @@ export const getComponentSizeStyles = (
     );
 };
 
+export const getComponentSerializable = (
+    component: keyof ThemeComponents,
+    theme: Theme
+) => {
+    return theme.components[component].serializable;
+};
+
 export const getComponentGlobals = (
     component: keyof ThemeComponents,
     theme: Theme
@@ -211,12 +231,12 @@ export const getComponentGlobals = (
     return theme.components[component].globals;
 };
 
-export const getComponentGlobalStyles = (
+export const getComponentSerializableStyles = (
     component: keyof ThemeComponents,
     theme: Theme
 ) => {
     return getComponentStylesFromTheme(
-        getComponentGlobals(component, theme),
+        getComponentSerializable(component, theme),
         theme
     );
 };
@@ -415,7 +435,8 @@ export const DEFAULT_THEME: Theme = {
     },
     components: {
         Alert: {
-            globals: {
+            globals: {},
+            serializable: {
                 borderRadius: "4px",
             },
             variants: {
@@ -453,14 +474,16 @@ export const DEFAULT_THEME: Theme = {
         },
         Button: THEME_BUTTON,
         Card: {
-            globals: {
+            globals: {},
+            serializable: {
                 boxShadow: "1px 1px 3px 0 rgb(0 0 0 / 9%)",
                 backgroundColor: "white",
                 borderRadius: "2px",
             },
         },
         CardHeader: {
-            globals: {
+            globals: {},
+            serializable: {
                 borderColor: "grey200",
                 fontSize: "xl",
                 fontWeight: "500",
@@ -468,26 +491,27 @@ export const DEFAULT_THEME: Theme = {
             },
         },
         CardBody: {
-            globals: {
+            globals: {},
+            serializable: {
                 padding: "24px",
             },
         },
         CardFooter: {
-            globals: {
+            globals: {},
+            serializable: {
                 borderColor: "grey200",
                 padding: "16px",
             },
         },
         Cta: {},
         Dimmer: {
-            globals: {
+            globals: {},
+            serializable: {
                 backgroundColor: "rgba(0,0,0,0.15)",
             },
         },
         FeatureContentHorizontal: {
-            globals: {
-                cardOffset: "-22px",
-            },
+            globals: { cardOffset: "-22px" },
         },
         FeatureContentVertical: {
             globals: {
@@ -496,12 +520,14 @@ export const DEFAULT_THEME: Theme = {
         },
         FileSelector: {},
         FileSelectorButton: {
-            globals: {
+            globals: {},
+            serializable: {
                 fill: "purple500",
             },
         },
         FileSelectorListing: {
-            globals: {
+            globals: {},
+            serializable: {
                 actionsFill: "purple500",
             },
         },
@@ -510,7 +536,8 @@ export const DEFAULT_THEME: Theme = {
         },
         IconButton: THEME_ICON_BUTTON,
         Input: {
-            globals: {
+            globals: {},
+            serializable: {
                 borderRadius: "4px",
             },
             sizes: {
@@ -539,13 +566,23 @@ export const DEFAULT_THEME: Theme = {
                 },
             },
         },
-        Label: {
+        Field: {
             globals: {
-                disabledColor: "grey500",
+                focus: {
+                    boxShadowColor: "green400",
+                },
+            },
+            serializable: {
+                backgroundColor: "grey100",
+                padding: "8px 24px",
             },
         },
+        Label: {
+            globals: { disabledColor: "grey500" },
+        },
         Message: {
-            globals: {
+            globals: {},
+            serializable: {
                 fontSize: "sm",
             },
             variants: {

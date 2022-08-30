@@ -3,6 +3,7 @@ import { cx } from "@emotion/css";
 import TextareaAutosize from "react-textarea-autosize";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import Box from "../Box";
+import { useField } from "../Field/FieldProvider";
 import Label from "../Label";
 import Message from "../Message";
 import Typography from "../Typography";
@@ -36,6 +37,8 @@ const Textarea = ({
     disabled,
     ...outerProps
 }: TextAreaProps) => {
+    const decorated = useField();
+
     const commonStyles = useCommonStyles({
         mt,
         mb,
@@ -52,6 +55,8 @@ const Textarea = ({
 
     let valueLength = 0;
 
+    const errorMessage = error || decorated.error;
+
     if (value) {
         if (maxCharCount && value.length > maxCharCount) {
             valueLength = maxCharCount;
@@ -65,7 +70,12 @@ const Textarea = ({
             className={cx("ui-Textarea", className)}
             css={[
                 commonStyles,
-                styles.root({ variant, minHeight, maxHeight, error }),
+                styles.root({
+                    variant,
+                    minHeight,
+                    maxHeight,
+                    error: errorMessage,
+                }),
             ]}>
             {label && (
                 <Label htmlFor={id} mb={2} disabled={disabled}>
@@ -86,28 +96,34 @@ const Textarea = ({
                 )}
                 {autosize && (
                     <TextareaAutosize
+                        {...outerProps}
                         value={value}
                         id={id}
                         disabled={disabled}
-                        ref={inputRef}
+                        ref={el => {
+                            decorated.ref.current = el;
+                            if (inputRef) inputRef.current = el;
+                        }}
                         maxLength={maxCharCount}
-                        {...outerProps}
                         data-testid="autosize"
                     />
                 )}
                 {!autosize && (
                     <textarea
+                        {...outerProps}
                         id={id}
                         disabled={disabled}
-                        ref={inputRef}
+                        ref={el => {
+                            decorated.ref.current = el;
+                            if (inputRef) inputRef.current = el;
+                        }}
                         maxLength={maxCharCount}
-                        {...outerProps}
                     />
                 )}
             </div>
-            {error && (
-                <Message variant="danger" mt={2}>
-                    {error}
+            {errorMessage && (
+                <Message variant="danger" mt={1}>
+                    {errorMessage}
                 </Message>
             )}
         </div>

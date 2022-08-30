@@ -1,7 +1,7 @@
 import { css, Theme } from "@emotion/react";
 import {
     getColorStyle,
-    getComponentGlobalStyles,
+    getComponentSerializableStyles,
     getComponentVariantStyles,
     getSize,
 } from "../../theme";
@@ -17,15 +17,8 @@ export const root =
 
             input {
                 height: 40px;
-
-                padding-left: calc(
-                    ${offsetLeft}px + ${getSize(offsetLeft ? 5 : 3, theme)}
-                );
-
-                padding-right: calc(
-                    ${offsetRight}px + ${getSize(offsetRight ? 5 : 3, theme)}
-                );
-
+                padding-left: calc(${offsetLeft}px + ${getSize(3, theme)});
+                padding-right: calc(${offsetRight}px + ${getSize(3, theme)});
                 box-sizing: border-box;
             }
 
@@ -44,7 +37,7 @@ export const input =
             border-width: 2px;
             width: 100%;
 
-            ${getComponentGlobalStyles("Input", theme)}
+            ${getComponentSerializableStyles("Input", theme)}
             ${getComponentVariantStyles("Input", variant, theme)}
             ${error && getColorStyle("border-color", "red700", theme)}
 

@@ -1,32 +1,32 @@
 import { css, Theme } from "@emotion/react";
-import { getComponentGlobalStyles } from "../../theme";
+import { getComponentSerializableStyles } from "../../theme";
 
 export const root = () => (theme: Theme) => {
-  return css`
-    word-break: break-word;
-    position: relative;
+    return css`
+        word-break: break-word;
+        position: relative;
 
-    ${getComponentGlobalStyles("Card", theme)}
-  `;
+        ${getComponentSerializableStyles("Card", theme)}
+    `;
 };
 
 export const cardHeader = (theme: Theme) =>
-  css`
-    border-bottom: 1px solid;
+    css`
+        border-bottom: 1px solid;
 
-    ${getComponentGlobalStyles("CardHeader", theme)}
-  `;
+        ${getComponentSerializableStyles("CardHeader", theme)}
+    `;
 
 export const cardBody = (theme: Theme) =>
-  css`
-    ${getComponentGlobalStyles("CardBody", theme)}
-  `;
+    css`
+        ${getComponentSerializableStyles("CardBody", theme)}
+    `;
 
 export const cardFooter = (theme: Theme) =>
-  css`
-    display: flex;
-    justify-content: flex-end;
-    border-top: 1px solid;
+    css`
+        display: flex;
+        justify-content: flex-end;
+        border-top: 1px solid;
 
-    ${getComponentGlobalStyles("CardFooter", theme)}
-  `;
+        ${getComponentSerializableStyles("CardFooter", theme)}
+    `;

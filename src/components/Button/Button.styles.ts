@@ -1,6 +1,6 @@
 import { css, Theme } from "@emotion/react";
 import {
-    getComponentGlobalStyles,
+    getComponentSerializableStyles,
     getComponentSizeStyles,
     getComponentVariantStyles,
     getSize,
@@ -30,7 +30,7 @@ export const root =
         css`
             ${mixins.button()}
 
-            ${getComponentGlobalStyles("Button", theme)}
+            ${getComponentSerializableStyles("Button", theme)}
       ${getComponentVariantStyles("Button", variant, theme)}
       ${getComponentSizeStyles("Button", size, theme)}
 

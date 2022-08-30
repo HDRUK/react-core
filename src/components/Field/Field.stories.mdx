@@ -1,0 +1,58 @@
+import { useState } from "react";
+import SVG from "react-inlinesvg";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+
+import Field from "./Field";
+import { Card, CardBody } from "../Card";
+import Icon from "../Icon";
+import Box from "../Box";
+import Input from "../Input";
+import Textarea from "../Textarea";
+
+<Meta title="Molecules/Field" component={Field} />
+
+<Canvas>
+    <Story name="Decorated">
+        {props => {
+            return (
+                <Card>
+                    <CardBody>
+                        <Box display="flex" gap={4}>
+                            <Box width="300px">
+                                <Field {...props} mb={4}>
+                                    <Input label="Input" />
+                                </Field>
+                                <Field {...props} mb={4}>
+                                    <Input label="Input (disabled)" disabled />
+                                </Field>
+                                <Field
+                                    {...props}
+                                    mb={4}
+                                    error="This is a required field">
+                                    <Input label="Input (error)" />
+                                </Field>
+                            </Box>
+                            <Box width="300px">
+                                <Field {...props} mb={4}>
+                                    <Textarea label="Textarea" />
+                                </Field>
+                                <Field {...props} mb={4}>
+                                    <Textarea
+                                        label="Textarea (disabled)"
+                                        disabled
+                                    />
+                                </Field>
+                                <Field
+                                    {...props}
+                                    mb={4}
+                                    error="This is a required field">
+                                    <Textarea label="Textarea (error)" />
+                                </Field>
+                            </Box>
+                        </Box>
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
+</Canvas>
