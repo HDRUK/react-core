@@ -312,7 +312,7 @@ export const THEME_ICON_BUTTON = {
 };
 
 export const THEME_BUTTON = {
-    globals: {
+    serializable: {
         borderRadius: "4px",
     },
     sizes: {
