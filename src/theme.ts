@@ -297,12 +297,12 @@ export const THEME_BUTTON = {
     },
     sizes: {
         small: {
-            fontSize: "md",
-            padding: "8px 12px",
-            height: "34px",
+            fontSize: "sm",
+            padding: "4px 6px",
+            height: "30px",
         },
-        medium: { fontSize: "md", padding: "8px 16px", height: "40px" },
-        large: { fontSize: "lg", padding: "10px 20px", height: "46px" },
+        medium: { fontSize: "md", padding: "8px 12px", height: "40px" },
+        large: { fontSize: "lg", padding: "12px 18px", height: "50px" },
     },
     variants: {
         primary: {
@@ -510,6 +510,9 @@ export const DEFAULT_THEME: Theme = {
         },
         IconButton: THEME_ICON_BUTTON,
         Input: {
+            globals: {
+                borderRadius: "4px",
+            },
             sizes: {
                 small: {
                     height: "30px",

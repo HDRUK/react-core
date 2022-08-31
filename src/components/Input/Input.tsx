@@ -9,6 +9,7 @@ import useDOMAttributes from "../../hooks/useDOMAttributes/useDOMAttributes";
 import useCommonStyles from "../../hooks/useCommonStyles";
 import Label from "../Label";
 import Message from "../Message";
+import Box from "../Box";
 
 const Input = ({
     className,
@@ -27,12 +28,26 @@ const Input = ({
     m,
     mx,
     my,
+    width,
+    maxWidth,
+    minWidth,
     ...outerProps
 }: InputProps) => {
     const iconLeftRef = useRef(null);
     const iconRightRef = useRef(null);
 
-    const commonStyles = useCommonStyles({ mt, mb, ml, mr, m, mx, my });
+    const commonStyles = useCommonStyles({
+        mt,
+        mb,
+        ml,
+        mr,
+        m,
+        mx,
+        my,
+        width,
+        maxWidth,
+        minWidth,
+    });
 
     const {
         update: updateLeft,
@@ -60,23 +75,37 @@ const Input = ({
                     offsetLeft,
                     offsetRight,
                     variant,
-                    disabled,
                     error,
                 }),
             ]}>
-            {label && <Label htmlFor={id}>{label}</Label>}
+            {label && (
+                <Label htmlFor={id} mb={2} disabled={disabled}>
+                    {label}
+                </Label>
+            )}
             {description && <Message mb={2}>{description}</Message>}
-            {iconLeft && (
-                <span css={[styles.icon, styles.iconLeft]} ref={iconLeftRef}>
-                    {iconLeft}
-                </span>
-            )}
-            <input {...outerProps} id={id} disabled={disabled} />
-            {iconRight && (
-                <span css={[styles.icon, styles.iconRight]} ref={iconRightRef}>
-                    {iconRight}
-                </span>
-            )}
+            <Box position="relative" width="100%">
+                {iconLeft && (
+                    <span
+                        css={[styles.icon, styles.iconLeft]}
+                        ref={iconLeftRef}>
+                        {iconLeft}
+                    </span>
+                )}
+                <input
+                    {...outerProps}
+                    id={id}
+                    disabled={disabled}
+                    css={[styles.input({ variant, error })]}
+                />
+                {iconRight && (
+                    <span
+                        css={[styles.icon, styles.iconRight]}
+                        ref={iconRightRef}>
+                        {iconRight}
+                    </span>
+                )}
+            </Box>
             {error && (
                 <Message variant="danger" mt={2}>
                     {error}
