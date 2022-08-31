@@ -13,6 +13,9 @@ const InputGroup = ({
     m,
     mx,
     my,
+    width,
+    maxWidth,
+    minWidth,
     className,
     ...outerProps
 }: InputGroupProps) => {
@@ -24,6 +27,9 @@ const InputGroup = ({
         m,
         mx,
         my,
+        width,
+        maxWidth,
+        minWidth,
     });
 
     return (

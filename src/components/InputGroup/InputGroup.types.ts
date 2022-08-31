@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
-import { ComponentMarginProps } from "../../types";
+import { ComponentStyleProps } from "../../types";
 
 export interface InputGroupProps
     extends ComponentProps<"div">,
-        ComponentMarginProps {}
+        ComponentStyleProps {}
