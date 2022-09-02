@@ -9,6 +9,10 @@ export const root = () => {
             height: auto;
         }
 
+        .ui-Input {
+            flex-grow: 1;
+        }
+
         .ui-Button:first-child {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
