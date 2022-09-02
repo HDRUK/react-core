@@ -129,7 +129,8 @@
         "webpack": "^5.73.0"
     },
     "dependencies": {
-        "react-textarea-autosize": "^8.3.3"
+        "react-textarea-autosize": "^8.3.3",
+        "react-use": "^17.4.0"
     },
     "readme": "ERROR: No README data found!"
 }

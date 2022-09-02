@@ -116,6 +116,7 @@ export interface ThemeComponents {
     Icon: any;
     IconButton: any;
     Input: any;
+    Field: any;
     Label: any;
     Tag: any;
     Typography: any;

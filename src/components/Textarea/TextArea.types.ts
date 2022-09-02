@@ -1,4 +1,4 @@
-import { ReactNode, RefObject } from "react";
+import { ReactNode, MutableRefObject } from "react";
 import { TextareaAutosizeProps } from "react-textarea-autosize";
 import { ComponentHeightProps, ComponentStyleProps } from "../../types";
 import { InputVariants } from "../Input/Input.types";
@@ -14,7 +14,7 @@ export interface TextAreaProps
     description?: ReactNode;
     error?: ReactNode;
     label?: ReactNode;
-    inputRef?: RefObject<HTMLTextAreaElement>;
+    inputRef?: MutableRefObject<HTMLTextAreaElement | null>;
     value?: string;
 }
 

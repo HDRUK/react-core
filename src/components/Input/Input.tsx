@@ -2,14 +2,16 @@
 
 import { cx } from "@emotion/css";
 
-import * as styles from "./Input.styles";
-import { InputProps } from "./Input.types";
-import { useEffect, useRef } from "react";
-import useDOMAttributes from "../../hooks/useDOMAttributes/useDOMAttributes";
+import { useMeasure } from "react-use";
 import useCommonStyles from "../../hooks/useCommonStyles";
+import { ReactComponent as ClearIcon } from "../../images/icons/clear.svg";
+import Box from "../Box";
+import Icon from "../Icon";
+import { useField } from "../Field/FieldProvider";
 import Label from "../Label";
 import Message from "../Message";
-import Box from "../Box";
+import * as styles from "./Input.styles";
+import { InputProps } from "./Input.types";
 
 const Input = ({
     className,
@@ -31,10 +33,16 @@ const Input = ({
     width,
     maxWidth,
     minWidth,
+    inputRef,
+    onClear,
+    value,
     ...outerProps
 }: InputProps) => {
-    const iconLeftRef = useRef(null);
-    const iconRightRef = useRef(null);
+    const decorated = useField();
+
+    const [iconLeftRef, { width: offsetLeft }] = useMeasure<HTMLSpanElement>();
+    const [iconRightRef, { width: offsetRight }] =
+        useMeasure<HTMLSpanElement>();
 
     const commonStyles = useCommonStyles({
         mt,
@@ -49,22 +57,7 @@ const Input = ({
         minWidth,
     });
 
-    const {
-        update: updateLeft,
-        attributes: { offsetWidth: offsetLeft },
-    } = useDOMAttributes(["offsetWidth"]);
-    const {
-        update: updateRight,
-        attributes: { offsetWidth: offsetRight },
-    } = useDOMAttributes(["offsetWidth"]);
-
-    useEffect(() => {
-        updateLeft(iconLeftRef.current);
-    }, [updateLeft, iconLeftRef]);
-
-    useEffect(() => {
-        updateRight(iconRightRef.current);
-    }, [updateRight, iconRightRef]);
+    const errorMessage = error || decorated.error;
 
     return (
         <div
@@ -75,7 +68,7 @@ const Input = ({
                     offsetLeft,
                     offsetRight,
                     variant,
-                    error,
+                    error: error || decorated.error,
                 }),
             ]}>
             {label && (
@@ -96,19 +89,37 @@ const Input = ({
                     {...outerProps}
                     id={id}
                     disabled={disabled}
-                    css={[styles.input({ variant, error })]}
+                    css={[
+                        styles.input({
+                            variant,
+                            error: error || decorated.error,
+                        }),
+                    ]}
+                    ref={el => {
+                        decorated.ref.current = el;
+                        if (inputRef) inputRef.current = el;
+                    }}
+                    value={value}
                 />
-                {iconRight && (
+                {(iconRight || (onClear && value)) && (
                     <span
                         css={[styles.icon, styles.iconRight]}
                         ref={iconRightRef}>
                         {iconRight}
+                        {onClear && value && (
+                            <Icon
+                                svg={<ClearIcon />}
+                                fill="grey400"
+                                onClick={onClear}
+                                role="button"
+                            />
+                        )}
                     </span>
                 )}
             </Box>
-            {error && (
-                <Message variant="danger" mt={2}>
-                    {error}
+            {errorMessage && (
+                <Message variant="danger" mt={1}>
+                    {errorMessage}
                 </Message>
             )}
         </div>
