@@ -9,6 +9,7 @@ export { default as FeatureContent } from "./components/FeatureContent";
 export { default as Icon } from "./components/Icon";
 export { default as IconButton } from "./components/IconButton";
 export { default as Input } from "./components/Input";
+export { default as InputGroup } from "./components/InputGroup";
 export { default as Label } from "./components/Label";
 export { default as Message } from "./components/Message";
 export { default as Tag } from "./components/Tag";
