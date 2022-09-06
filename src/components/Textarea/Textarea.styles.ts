@@ -1,4 +1,5 @@
 import { css, Theme } from "@emotion/react";
+import { getStyles } from "../../theme";
 import { input } from "../Input/Input.styles";
 import { TextAreaStyleProps } from "./TextArea.types";
 
@@ -12,10 +13,8 @@ export const root =
 
             textarea {
                 ${input({ variant, error })(theme)}
-
-                width: 100%;
-                min-height: ${minHeight};
-                max-height: ${maxHeight};
+                ${getStyles("min-height", minHeight, theme)};
+                ${getStyles("max-height", maxHeight, theme)};
             }
         `;
     };
