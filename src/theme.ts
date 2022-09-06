@@ -6,6 +6,7 @@ import {
     ThemeColors,
     ThemeComponents,
     ThemeFontSizes,
+    ThemeFontWeights,
 } from "./types";
 
 export const getSize = (
@@ -21,6 +22,14 @@ export const getColorStyle = (
     theme: Theme
 ) => {
     return !isNil(value) ? getCommonStyle(prop, theme.colors[value]) : "";
+};
+
+export const getFontWeight = (
+    prop: string,
+    value: keyof ThemeFontWeights | undefined,
+    theme: Theme
+) => {
+    return !isNil(value) ? getCommonStyle(prop, theme.font.weight[value]) : "";
 };
 
 export const getSpacingStyle = (
@@ -188,6 +197,17 @@ export const getComponentVariantStyles = (
     );
 };
 
+export const getComponentWeightStyles = (
+    component: keyof ThemeComponents,
+    weight: string,
+    theme: Theme
+) => {
+    return getComponentStylesFromTheme(
+        theme.components[component].weights[weight],
+        theme
+    );
+};
+
 export const getSubComponentVariantStyles = (
     component: keyof ThemeComponents,
     subComponent: keyof ThemeComponents,
@@ -283,6 +303,12 @@ export const THEME_FONT_SIZES: ThemeFontSizes = {
     "3xl": "28px",
     "4xl": "32px",
     "5xl": "40px",
+};
+
+export const THEME_FONT_WEIGHTS: ThemeFontWeights = {
+    light: 300,
+    normal: 500,
+    bold: 700,
 };
 
 export const THEME_ICON_BUTTON = {
@@ -391,6 +417,7 @@ export const DEFAULT_THEME: Theme = {
     },
     font: {
         size: THEME_FONT_SIZES,
+        weight: THEME_FONT_WEIGHTS,
     },
     colors: {
         white: "#fff",

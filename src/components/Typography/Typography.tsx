@@ -12,13 +12,14 @@ const Typography = ({
     mb,
     ml,
     mr,
-    m,
+    m = 0,
     mx,
     my,
     width,
     minWidth,
     maxWidth,
-    variant,
+    variant = "body",
+    weight = "normal",
     as,
 }: TypographyProps) => {
     const commonStyles = useCommonStyles({
@@ -55,16 +56,16 @@ const Typography = ({
             className={cx(className, "ui-Typography")}
             css={[
                 commonStyles,
-                styles.root({ variant, color, tag: Component }),
+                styles.root({
+                    variant,
+                    color,
+                    tag: Component,
+                    weight,
+                }),
             ]}>
             {children}
         </Component>
     ) : null;
-};
-
-Typography.defaultProps = {
-    variant: "body",
-    m: 0,
 };
 
 export default Typography;

@@ -1,73 +1,86 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 
 import Typography, {
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-  P,
-  Caption,
-  Small,
-  Tiny,
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    H6,
+    P,
+    Caption,
+    Small,
+    Tiny,
 } from "./";
 import { Card, CardBody } from "../Card";
 
 <Meta
-  title="Atoms/Typography"
-  component={Typography}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=724%3A7610",
-    },
-  }}
+    title="Atoms/Typography"
+    component={Typography}
+    parameters={{
+        design: {
+            type: "figma",
+            url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=724%3A7610",
+        },
+    }}
 />
 
 <Canvas>
-  <Story name="Variants">
-    {(props) => (
-      <Card>
-        <CardBody>
-          <H1 {...props} mb={2}>
-            Heading 1
-          </H1>
-          <H2 {...props} mb={2}>
-            Heading 2
-          </H2>
-          <H3 {...props} mb={2}>
-            Heading 3
-          </H3>
-          <H4 {...props} mb={2}>
-            Heading 4
-          </H4>
-          <H5 {...props} mb={2}>
-            Heading 5
-          </H5>
-          <H6 {...props} mb={2}>
-            Heading 6
-          </H6>
-          <P {...props} mb={2}>
-            Body
-          </P>
-          <div>
-            <Caption {...props} mb={2}>
-              Caption
-            </Caption>
-          </div>
-          <div>
-            <Small {...props} mb={2}>
-              Small
-            </Small>
-          </div>
-          <div>
-            <Tiny {...props} mb={2}>
-              Tiny
-            </Tiny>
-          </div>
-        </CardBody>
-      </Card>
-    )}
-  </Story>
+    <Story name="Variants">
+        {props => (
+            <Card>
+                <CardBody>
+                    <H1 {...props} mb={2}>
+                        Heading 1
+                    </H1>
+                    <H2 {...props} mb={2}>
+                        Heading 2
+                    </H2>
+                    <H3 {...props} mb={2}>
+                        Heading 3
+                    </H3>
+                    <H4 {...props} mb={2}>
+                        Heading 4
+                    </H4>
+                    <H5 {...props} mb={2}>
+                        Heading 5
+                    </H5>
+                    <H6 {...props} mb={2}>
+                        Heading 6
+                    </H6>
+                    <P {...props} mb={2}>
+                        Body
+                    </P>
+                    <div>
+                        <Caption {...props} mb={2}>
+                            Caption
+                        </Caption>
+                    </div>
+                    <div>
+                        <Small {...props} mb={2}>
+                            Small
+                        </Small>
+                    </div>
+                    <div>
+                        <Tiny {...props} mb={2}>
+                            Tiny
+                        </Tiny>
+                    </div>
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+    <Story name="Weight">
+        {props => (
+            <Card>
+                <CardBody>
+                    {["light", "normal", "bold"].map(weight => (
+                        <P {...props} weight={weight} mb={2}>
+                            {weight}
+                        </P>
+                    ))}
+                </CardBody>
+            </Card>
+        )}
+    </Story>
 </Canvas>
