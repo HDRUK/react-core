@@ -48,15 +48,24 @@ export const getCommonStyle = (
     return !isNil(value) ? getStyles(prop, value, theme) : "";
 };
 
+export const getFormattedStyles = (
+    value: any,
+    theme: Theme,
+    formatter: (value: any) => string
+) => {
+    return getStyles("", value, theme, formatter);
+};
+
 export const getStyles = (
-    propParts: string[] | string,
+    propParts: string[] | string | undefined,
     value: any,
     theme: Theme,
     formatter?: (value: any) => string
 ) => {
-    const styleProp = Array.isArray(propParts)
-        ? propParts.join("-").toLowerCase()
-        : propParts;
+    const styleProp =
+        propParts && Array.isArray(propParts)
+            ? propParts.join("-").toLowerCase()
+            : propParts;
     let styles = ``;
 
     if (typeof value === "object") {
@@ -86,8 +95,16 @@ export const getStyles = (
     return styles;
 };
 
-export const getStyle = (styleProp: string, value: any, theme: Theme) => {
-    if (styleProp === "font-size") {
+export const getStyle = (
+    styleProp: string | undefined,
+    value: any,
+    theme: Theme
+) => {
+    if (value === undefined) {
+        return "";
+    } else if (!styleProp) {
+        return value;
+    } else if (styleProp === "font-size") {
         return `${styleProp}: ${
             theme.font.size[value as keyof ThemeFontSizes]
         };`;

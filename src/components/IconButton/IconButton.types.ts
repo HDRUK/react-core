@@ -2,6 +2,7 @@ import { ComponentProps, ReactElement } from "react";
 import {
     CommonVariants,
     ComponentStyleProps,
+    Responsive,
     ThemeFontSizes,
 } from "../../types";
 
@@ -9,7 +10,7 @@ export interface IconButtonProps
     extends ComponentProps<"button">,
         ComponentStyleProps {
     variant: CommonVariants;
-    size: keyof ThemeFontSizes;
+    size: Responsive<keyof ThemeFontSizes>;
     svg: ReactElement;
 }
 
