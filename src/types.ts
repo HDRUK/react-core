@@ -88,6 +88,11 @@ export interface ThemeFontSizes {
     "4xl": string;
     "5xl": string;
 }
+export interface ThemeFontWeights {
+    light: number;
+    normal: number;
+    bold: number;
+}
 
 export type ThemeColors = Record<string, string>;
 
