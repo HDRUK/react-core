@@ -4,6 +4,7 @@ import {
     getComponentSizeStyles,
     getComponentVariantStyles,
     getSize,
+    getStyles,
 } from "../../theme";
 import { ButtonStyleProps } from "./Button.types";
 
@@ -32,7 +33,10 @@ export const root =
 
             ${getComponentSerializableStyles("Button", theme)}
       ${getComponentVariantStyles("Button", variant, theme)}
-      ${getComponentSizeStyles("Button", size, theme)}
+
+      ${getStyles(undefined, size, theme, (value: string) => {
+                return getComponentSizeStyles("Button", value, theme);
+            })}
 
       gap: ${getSize(1.5, theme)};
         `;
