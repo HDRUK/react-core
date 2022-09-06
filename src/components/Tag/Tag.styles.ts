@@ -1,8 +1,7 @@
 import { css, Theme } from "@emotion/react";
 import {
-    getComponentVariantStyles,
     getComponentSizeStyles,
-    getStyles,
+    getComponentVariantStyles,
     getFormattedStyles,
 } from "../../theme";
 import { TagStyleProps } from "./Tag.types";
