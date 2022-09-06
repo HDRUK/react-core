@@ -3,6 +3,8 @@ import { get } from "lodash-es";
 import isNil from "lodash-es/isNil";
 import {
     CommonStyleProps,
+    Responsive,
+    ThemeBreakpoints,
     ThemeColors,
     ThemeComponents,
     ThemeFontSizes,
@@ -20,36 +22,79 @@ export const getColorStyle = (
     value: keyof ThemeColors | undefined,
     theme: Theme
 ) => {
-    return !isNil(value) ? getCommonStyle(prop, theme.colors[value]) : "";
+    return !isNil(value)
+        ? getStyles(prop, value, theme, (value: string) => {
+              return theme.colors[value];
+          })
+        : "";
 };
 
 export const getSpacingStyle = (
     prop: string,
-    value: number | undefined,
+    value: Responsive<number | undefined>,
     theme: Theme
 ) => {
-    return !isNil(value) ? `${prop}: ${getSize(value, theme)};` : "";
+    return !isNil(value)
+        ? getStyles(prop, value, theme, (value: number | undefined) => {
+              return getSize(value, theme);
+          })
+        : "";
 };
 
 export const getCommonStyle = (
     prop: string,
-    value: string | number | undefined
-) => {
-    return !isNil(value) ? `${prop}: ${value};` : "";
-};
-
-export const getStyle = (
-    propParts: string[],
-    value: keyof ThemeFontSizes,
+    value: Responsive<string | number | undefined>,
     theme: Theme
 ) => {
-    const styleProp = propParts.join("-").toLowerCase();
+    return !isNil(value) ? getStyles(prop, value, theme) : "";
+};
 
-    if (styleProp === "font-size") {
-        return `${styleProp}: ${theme.font.size[value]};`;
+export const getStyles = (
+    propParts: string[] | string,
+    value: any,
+    theme: Theme,
+    formatter?: (value: any) => string
+) => {
+    const styleProp = Array.isArray(propParts)
+        ? propParts.join("-").toLowerCase()
+        : propParts;
+    let styles = ``;
+
+    if (typeof value === "object") {
+        const keys = Object.keys(value) as (keyof ThemeBreakpoints)[];
+
+        styles = keys
+            .map((breakpoint: keyof ThemeBreakpoints) => {
+                return `@media (min-width: ${theme.breakpoints[breakpoint]}) {
+                ${getStyle(
+                    styleProp,
+                    formatter
+                        ? formatter(value[breakpoint])
+                        : value[breakpoint],
+                    theme
+                )}
+              }`;
+            })
+            .join("\n");
+    } else {
+        styles = getStyle(
+            styleProp,
+            formatter ? formatter(value) : value,
+            theme
+        );
     }
 
-    return `${styleProp}: ${value};`;
+    return styles;
+};
+
+export const getStyle = (styleProp: string, value: any, theme: Theme) => {
+    if (styleProp === "font-size") {
+        return `${styleProp}: ${
+            theme.font.size[value as keyof ThemeFontSizes]
+        };`;
+    } else {
+        return `${styleProp}: ${value};`;
+    }
 };
 
 export const getCommonStyles = (props: CommonStyleProps, theme: Theme) => {
@@ -110,31 +155,31 @@ export const getCommonStyles = (props: CommonStyleProps, theme: Theme) => {
   ${getSpacingStyle("padding-bottom", pb || py, theme)}
   ${getSpacingStyle("padding-top", pt || py, theme)}
     ${getSpacingStyle("gap", gap, theme)}
-		${getCommonStyle("width", width)}
-		${getCommonStyle("max-width", maxWidth)}
-		${getCommonStyle("min-width", minWidth)}
-    ${getCommonStyle("height", height)}
-		${getCommonStyle("max-Height", maxHeight)}
-		${getCommonStyle("min-Height", minHeight)}
-    ${getCommonStyle("display", display)}
-		${getCommonStyle("align-items", alignItems)}
-    ${getCommonStyle("justify-content", justifyContent)}
-    ${getCommonStyle("flex-grow", flexGrow)}
-    ${getCommonStyle("flex-shrink", flexShrink)}
-    ${getCommonStyle("flex-direction", flexDirection)}
-    ${getCommonStyle("flex-basis", flexBasis)}
-    ${getCommonStyle("position", position)}
-    ${getCommonStyle("top", top)}
-    ${getCommonStyle("bottom", bottom)}
-    ${getCommonStyle("left", left)}
-    ${getCommonStyle("right", right)}
-    ${getCommonStyle("overflow", overflow)}
-    ${getCommonStyle("grid-template-columns", gridTemplateColumns)}
-    ${getCommonStyle("grid-template-rows", gridTemplateRows)}
-    ${getCommonStyle("grid-template-areas", gridTemplateAreas)}
-    ${getCommonStyle("grid-column", gridColumn)}
-    ${getCommonStyle("direction", direction)}
-    ${getCommonStyle("text-align", textAlign)}
+		${getCommonStyle("width", width, theme)}
+		${getCommonStyle("max-width", maxWidth, theme)}
+		${getCommonStyle("min-width", minWidth, theme)}
+    ${getCommonStyle("height", height, theme)}
+		${getCommonStyle("max-Height", maxHeight, theme)}
+		${getCommonStyle("min-Height", minHeight, theme)}
+    ${getCommonStyle("display", display, theme)}
+		${getCommonStyle("align-items", alignItems, theme)}
+    ${getCommonStyle("justify-content", justifyContent, theme)}
+    ${getCommonStyle("flex-grow", flexGrow, theme)}
+    ${getCommonStyle("flex-shrink", flexShrink, theme)}
+    ${getCommonStyle("flex-direction", flexDirection, theme)}
+    ${getCommonStyle("flex-basis", flexBasis, theme)}
+    ${getCommonStyle("position", position, theme)}
+    ${getCommonStyle("top", top, theme)}
+    ${getCommonStyle("bottom", bottom, theme)}
+    ${getCommonStyle("left", left, theme)}
+    ${getCommonStyle("right", right, theme)}
+    ${getCommonStyle("overflow", overflow, theme)}
+    ${getCommonStyle("grid-template-columns", gridTemplateColumns, theme)}
+    ${getCommonStyle("grid-template-rows", gridTemplateRows, theme)}
+    ${getCommonStyle("grid-template-areas", gridTemplateAreas, theme)}
+    ${getCommonStyle("grid-column", gridColumn, theme)}
+    ${getCommonStyle("direction", direction, theme)}
+    ${getCommonStyle("text-align", textAlign, theme)}
 	`;
 };
 
@@ -166,12 +211,12 @@ export const getComponentStylesFromTheme = (props: any, theme: Theme) => {
 
             return `
                 :${pseudoSelector} {
-                   ${getStyle(propParts, value, theme)}
+                   ${getStyles(propParts, value, theme)}
                 }
             `;
         }
 
-        return getStyle(propParts, value, theme);
+        return getStyles(propParts, value, theme);
     });
 
     return styles.join("\n");
@@ -285,106 +330,15 @@ export const THEME_FONT_SIZES: ThemeFontSizes = {
     "5xl": "40px",
 };
 
-export const THEME_ICON_BUTTON = {
-    variants: {
-        primary: {
-            background: "white",
-            hoverBackground: "purple500",
-            fill: "purple500",
-            hoverFill: "white",
-            borderColor: "purple500",
-        },
-        secondary: {
-            background: "white",
-            hoverBackground: "green400",
-            borderColor: "green400",
-            fill: "green400",
-            hoverFill: "white",
-        },
-        tertiary: {
-            background: "white",
-            hoverBackground: "grey400",
-            borderColor: "grey400",
-            fill: "grey400",
-            hoverFill: "white",
-        },
-    },
-};
-
-export const THEME_BUTTON = {
-    serializable: {
-        borderRadius: "4px",
-    },
-    sizes: {
-        small: {
-            fontSize: "sm",
-            padding: "4px 6px",
-            height: "30px",
-        },
-        medium: { fontSize: "md", padding: "8px 12px", height: "40px" },
-        large: { fontSize: "lg", padding: "12px 18px", height: "50px" },
-    },
-    variants: {
-        primary: {
-            background: "purple500",
-            hoverBackground: "purple700",
-            disabledBackground: "purple100",
-            borderColor: "purple500",
-            hoverBorderColor: "purple700",
-            disabledBorderColor: "purple100",
-            disabledColor: "purple200",
-            color: "white",
-            fill: "white",
-        },
-        primaryAlt: {
-            background: "green700",
-            hoverBackground: "green900",
-            disabledBackground: "green100",
-            borderColor: "green700",
-            hoverBorderColor: "green900",
-            disabledBorderColor: "green100",
-            disabledColor: "green300",
-            color: "white",
-            fill: "white",
-        },
-        secondary: {
-            background: "white",
-            hoverBackground: "green400",
-            disabledBackground: "white",
-            borderColor: "green400",
-            hoverBorderColor: "green400",
-            disabledBorderColor: "green200",
-            color: "grey800",
-            fill: "grey800",
-            hoverColor: "white",
-            disabledColor: "grey500",
-        },
-        secondaryAlt: {
-            background: "white",
-            hoverBackground: "white",
-            disabledBackground: "white",
-            borderColor: "white",
-            hoverBorderColor: "white",
-            disabledBorderColor: "white",
-            disabledColor: "grey300",
-            color: "grey800",
-            fill: "grey800",
-        },
-        tertiary: {
-            background: "grey200",
-            hoverBackground: "grey300",
-            disabledBackground: "grey200",
-            borderColor: "grey200",
-            hoverBorderColor: "grey300",
-            color: "grey800",
-            fill: "grey800",
-            disabledBorderColor: "grey200",
-            disabledColor: "grey500",
-        },
-    },
-};
-
 export const DEFAULT_THEME: Theme = {
+    breakpoints: {
+        xxs: "0",
+        xs: "576px",
+        sm: "768px",
+        md: "992px",
+        lg: "1200px",
+        xl: "1400px",
+    },
     base: {
         increment: 4,
         unit: "px",
@@ -472,7 +426,78 @@ export const DEFAULT_THEME: Theme = {
                 },
             },
         },
-        Button: THEME_BUTTON,
+        Button: {
+            globals: {
+                borderRadius: "4px",
+            },
+            sizes: {
+                small: {
+                    fontSize: "sm",
+                    padding: "4px 6px",
+                    height: "30px",
+                },
+                medium: { fontSize: "md", padding: "8px 12px", height: "40px" },
+                large: { fontSize: "lg", padding: "12px 18px", height: "50px" },
+            },
+            variants: {
+                primary: {
+                    background: "purple500",
+                    hoverBackground: "purple700",
+                    disabledBackground: "purple100",
+                    borderColor: "purple500",
+                    hoverBorderColor: "purple700",
+                    disabledBorderColor: "purple100",
+                    disabledColor: "purple200",
+                    color: "white",
+                    fill: "white",
+                },
+                primaryAlt: {
+                    background: "green700",
+                    hoverBackground: "green900",
+                    disabledBackground: "green100",
+                    borderColor: "green700",
+                    hoverBorderColor: "green900",
+                    disabledBorderColor: "green100",
+                    disabledColor: "green300",
+                    color: "white",
+                    fill: "white",
+                },
+                secondary: {
+                    background: "white",
+                    hoverBackground: "green400",
+                    disabledBackground: "white",
+                    borderColor: "green400",
+                    hoverBorderColor: "green400",
+                    disabledBorderColor: "green200",
+                    color: "grey800",
+                    fill: "grey800",
+                    hoverColor: "white",
+                    disabledColor: "grey500",
+                },
+                secondaryAlt: {
+                    background: "white",
+                    hoverBackground: "white",
+                    disabledBackground: "white",
+                    borderColor: "white",
+                    hoverBorderColor: "white",
+                    disabledBorderColor: "white",
+                    disabledColor: "grey300",
+                    color: "grey800",
+                    fill: "grey800",
+                },
+                tertiary: {
+                    background: "grey200",
+                    hoverBackground: "grey300",
+                    disabledBackground: "grey200",
+                    borderColor: "grey200",
+                    hoverBorderColor: "grey300",
+                    color: "grey800",
+                    fill: "grey800",
+                    disabledBorderColor: "grey200",
+                    disabledColor: "grey500",
+                },
+            },
+        },
         Card: {
             globals: {},
             serializable: {
@@ -534,7 +559,31 @@ export const DEFAULT_THEME: Theme = {
         Icon: {
             sizes: THEME_FONT_SIZES,
         },
-        IconButton: THEME_ICON_BUTTON,
+        IconButton: {
+            variants: {
+                primary: {
+                    background: "white",
+                    hoverBackground: "purple500",
+                    fill: "purple500",
+                    hoverFill: "white",
+                    borderColor: "purple500",
+                },
+                secondary: {
+                    background: "white",
+                    hoverBackground: "green400",
+                    borderColor: "green400",
+                    fill: "green400",
+                    hoverFill: "white",
+                },
+                tertiary: {
+                    background: "white",
+                    hoverBackground: "grey400",
+                    borderColor: "grey400",
+                    fill: "grey400",
+                    hoverFill: "white",
+                },
+            },
+        },
         Input: {
             globals: {},
             serializable: {
