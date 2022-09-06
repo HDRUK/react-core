@@ -28,6 +28,7 @@ export const getColorStyle = (
               return theme.colors[value];
           })
         : "";
+<<<<<<< HEAD
 };
 
 export const getFontWeight = (
@@ -40,6 +41,8 @@ export const getFontWeight = (
               return theme.font.weight[value];
           })
         : "";
+=======
+>>>>>>> afc2946 (Responsive props helpers)
 };
 
 export const getSpacingStyle = (
@@ -109,6 +112,7 @@ export const getStyles = (
     return styles;
 };
 
+<<<<<<< HEAD
 export const getStyle = (
     styleProp: string | undefined,
     value: any,
@@ -119,6 +123,10 @@ export const getStyle = (
     } else if (!styleProp) {
         return value;
     } else if (styleProp === "font-size") {
+=======
+export const getStyle = (styleProp: string, value: any, theme: Theme) => {
+    if (styleProp === "font-size") {
+>>>>>>> afc2946 (Responsive props helpers)
         return `${styleProp}: ${
             theme.font.size[value as keyof ThemeFontSizes]
         };`;
@@ -449,6 +457,81 @@ export const DEFAULT_THEME: Theme = {
             },
         },
         Button: {
+<<<<<<< HEAD
+=======
+            globals: {
+                borderRadius: "4px",
+            },
+            sizes: {
+                small: {
+                    fontSize: "sm",
+                    padding: "4px 6px",
+                    height: "30px",
+                },
+                medium: { fontSize: "md", padding: "8px 12px", height: "40px" },
+                large: { fontSize: "lg", padding: "12px 18px", height: "50px" },
+            },
+            variants: {
+                primary: {
+                    background: "purple500",
+                    hoverBackground: "purple700",
+                    disabledBackground: "purple100",
+                    borderColor: "purple500",
+                    hoverBorderColor: "purple700",
+                    disabledBorderColor: "purple100",
+                    disabledColor: "purple200",
+                    color: "white",
+                    fill: "white",
+                },
+                primaryAlt: {
+                    background: "green700",
+                    hoverBackground: "green900",
+                    disabledBackground: "green100",
+                    borderColor: "green700",
+                    hoverBorderColor: "green900",
+                    disabledBorderColor: "green100",
+                    disabledColor: "green300",
+                    color: "white",
+                    fill: "white",
+                },
+                secondary: {
+                    background: "white",
+                    hoverBackground: "green400",
+                    disabledBackground: "white",
+                    borderColor: "green400",
+                    hoverBorderColor: "green400",
+                    disabledBorderColor: "green200",
+                    color: "grey800",
+                    fill: "grey800",
+                    hoverColor: "white",
+                    disabledColor: "grey500",
+                },
+                secondaryAlt: {
+                    background: "white",
+                    hoverBackground: "white",
+                    disabledBackground: "white",
+                    borderColor: "white",
+                    hoverBorderColor: "white",
+                    disabledBorderColor: "white",
+                    disabledColor: "grey300",
+                    color: "grey800",
+                    fill: "grey800",
+                },
+                tertiary: {
+                    background: "grey200",
+                    hoverBackground: "grey300",
+                    disabledBackground: "grey200",
+                    borderColor: "grey200",
+                    hoverBorderColor: "grey300",
+                    color: "grey800",
+                    fill: "grey800",
+                    disabledBorderColor: "grey200",
+                    disabledColor: "grey500",
+                },
+            },
+        },
+        Card: {
+>>>>>>> afc2946 (Responsive props helpers)
             globals: {
                 borderRadius: "4px",
             },
