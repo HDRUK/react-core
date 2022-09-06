@@ -28,7 +28,6 @@ export const getColorStyle = (
               return theme.colors[value];
           })
         : "";
-<<<<<<< HEAD
 };
 
 export const getFontWeight = (
@@ -41,8 +40,6 @@ export const getFontWeight = (
               return theme.font.weight[value];
           })
         : "";
-=======
->>>>>>> afc2946 (Responsive props helpers)
 };
 
 export const getSpacingStyle = (
@@ -113,6 +110,9 @@ export const getStyles = (
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b13982d (Utils)
 export const getStyle = (
     styleProp: string | undefined,
     value: any,
@@ -123,10 +123,13 @@ export const getStyle = (
     } else if (!styleProp) {
         return value;
     } else if (styleProp === "font-size") {
+<<<<<<< HEAD
 =======
 export const getStyle = (styleProp: string, value: any, theme: Theme) => {
     if (styleProp === "font-size") {
 >>>>>>> afc2946 (Responsive props helpers)
+=======
+>>>>>>> b13982d (Utils)
         return `${styleProp}: ${
             theme.font.size[value as keyof ThemeFontSizes]
         };`;
