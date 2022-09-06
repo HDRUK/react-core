@@ -2,7 +2,7 @@ export type Responsive<T> = T | ThemeBreakpoints;
 
 export type CommonVariants = "primary" | "secondary" | "tertiary";
 
-export type CommonSizes = "small" | "medium" | "large";
+export type CommonSizes = Responsive<"small" | "medium" | "large">;
 
 export interface CommonStyleProps
     extends MarginStyleProps,
