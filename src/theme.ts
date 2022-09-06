@@ -109,10 +109,6 @@ export const getStyles = (
     return styles;
 };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b13982d (Utils)
 export const getStyle = (
     styleProp: string | undefined,
     value: any,
@@ -123,13 +119,6 @@ export const getStyle = (
     } else if (!styleProp) {
         return value;
     } else if (styleProp === "font-size") {
-<<<<<<< HEAD
-=======
-export const getStyle = (styleProp: string, value: any, theme: Theme) => {
-    if (styleProp === "font-size") {
->>>>>>> afc2946 (Responsive props helpers)
-=======
->>>>>>> b13982d (Utils)
         return `${styleProp}: ${
             theme.font.size[value as keyof ThemeFontSizes]
         };`;
@@ -460,8 +449,6 @@ export const DEFAULT_THEME: Theme = {
             },
         },
         Button: {
-<<<<<<< HEAD
-=======
             globals: {
                 borderRadius: "4px",
             },
@@ -534,7 +521,6 @@ export const DEFAULT_THEME: Theme = {
             },
         },
         Card: {
->>>>>>> afc2946 (Responsive props helpers)
             globals: {
                 borderRadius: "4px",
             },
@@ -604,14 +590,6 @@ export const DEFAULT_THEME: Theme = {
                     disabledBorderColor: "grey200",
                     disabledColor: "grey500",
                 },
-            },
-        },
-        Card: {
-            globals: {},
-            serializable: {
-                boxShadow: "1px 1px 3px 0 rgb(0 0 0 / 9%)",
-                backgroundColor: "white",
-                borderRadius: "2px",
             },
         },
         CardHeader: {
