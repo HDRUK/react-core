@@ -1,6 +1,6 @@
 {
     "name": "hdruk-react-core",
-    "version": "0.2.16",
+    "version": "0.2.18",
     "private": false,
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
