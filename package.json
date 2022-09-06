@@ -63,7 +63,9 @@
         "humanize": "^0.0.9",
         "lodash-es": "^4.17.21",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "react-use": "^17.4.0",
+        "react-textarea-autosize": "^8.3.3"
     },
     "devDependencies": {
         "@emotion/css": "^11.9.0",
@@ -114,6 +116,8 @@
         "react-inlinesvg": "^3.0.0",
         "react-json-view": "^1.21.3",
         "react-scripts": "5.0.1",
+        "react-textarea-autosize": "^8.3.3",
+        "react-use": "^17.4.0",
         "rimraf": "^3.0.2",
         "rollup": "^2.77.2",
         "rollup-plugin-dts": "^4.2.2",
@@ -128,9 +132,6 @@
         "web-vitals": "^2.1.4",
         "webpack": "^5.73.0"
     },
-    "dependencies": {
-        "react-textarea-autosize": "^8.3.3",
-        "react-use": "^17.4.0"
-    },
+    "dependencies": {},
     "readme": "ERROR: No README data found!"
 }
