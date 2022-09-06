@@ -3,7 +3,6 @@ import {
     getComponentSizeStyles,
     getComponentVariantStyles,
     getFormattedStyles,
-    getStyles,
 } from "../../theme";
 import { IconButtonStyleProps } from "./IconButton.types";
 
