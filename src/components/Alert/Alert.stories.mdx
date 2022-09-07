@@ -7,48 +7,52 @@ import Alert from "./Alert";
 <Meta title="Molecules/Alert" component={Alert} />
 
 <Canvas>
-  <Story name="Variants">
-    {(props) => {
-      return (
-        <Card>
-          <CardBody>
-            {["success", "info", "warning", "danger", "description"].map(
-              (variant) => (
-                <div>
-                  <Alert variant={variant} mb={4} dismissable>
-                    Lorem ipsum dolor sit amet ad hicio hortus est
-                  </Alert>
-                </div>
-              )
-            )}
-          </CardBody>
-        </Card>
-      );
-    }}
-  </Story>
-  <Story name="Duration">
-    {(props) => {
-      const [showClosed, setShowClosed] = React.useState(false);
-      const handleClose = React.useCallback(() => {
-        setShowClosed(true);
-      }, []);
-      return (
-        <Card>
-          <CardBody>
-            <Alert
-              variant="success"
-              autoclose
-              autocloseDuration={2000}
-              onClose={handleClose}
-            >
-              Lorem ipsum dolor sit amet ad hicio hortus est
-            </Alert>
-            {showClosed && "Alert has been auto-closed!"}
-          </CardBody>
-        </Card>
-      );
-    }}
-  </Story>
+    <Story name="Variants">
+        {props => {
+            return (
+                <Card>
+                    <CardBody>
+                        {[
+                            "success",
+                            "info",
+                            "warning",
+                            "danger",
+                            "description",
+                        ].map(variant => (
+                            <div key={variant}>
+                                <Alert variant={variant} mb={4} dismissable>
+                                    Lorem ipsum dolor sit amet ad hicio hortus
+                                    est
+                                </Alert>
+                            </div>
+                        ))}
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
+    <Story name="Duration">
+        {props => {
+            const [showClosed, setShowClosed] = React.useState(false);
+            const handleClose = React.useCallback(() => {
+                setShowClosed(true);
+            }, []);
+            return (
+                <Card>
+                    <CardBody>
+                        <Alert
+                            variant="success"
+                            autoclose
+                            autocloseDuration={2000}
+                            onClose={handleClose}>
+                            Lorem ipsum dolor sit amet ad hicio hortus est
+                        </Alert>
+                        {showClosed && "Alert has been auto-closed!"}
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
 </Canvas>
 
 <ArgsTable of={Alert} />

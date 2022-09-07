@@ -1,5 +1,9 @@
 import { css, Theme } from "@emotion/react";
-import { getComponentSizeStyles, getComponentVariantStyles } from "../../theme";
+import {
+    getComponentSizeStyles,
+    getComponentVariantStyles,
+    getFormattedStyles,
+} from "../../theme";
 import { IconButtonStyleProps } from "./IconButton.types";
 
 export const root = () => () =>
@@ -19,10 +23,15 @@ export const icon =
             border-width: 2px;
             box-sizing: content-box;
             ${getComponentVariantStyles("IconButton", variant, theme)}
-            border-radius: calc(
-                ${getComponentSizeStyles("Icon", size, theme)} * 2
-            );
-            padding: calc(
-                ${getComponentSizeStyles("Icon", size, theme)} * 2 / 3
-            );
+
+            ${getFormattedStyles(size, theme, (value: string) => {
+                return `
+                    border-radius: calc(
+                        ${getComponentSizeStyles("Icon", value, theme)} * 2
+                    );
+                    padding: calc(
+                        ${getComponentSizeStyles("Icon", value, theme)} * 2 / 3
+                    );
+        `;
+            })}
         `;

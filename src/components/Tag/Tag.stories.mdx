@@ -3,41 +3,41 @@ import { Card, CardBody } from "../Card";
 import Tag from "./Tag";
 
 <Meta
-  title="Molecules/Tag"
-  component={Tag}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=2761%3A214272",
-    },
-  }}
+    title="Molecules/Tag"
+    component={Tag}
+    parameters={{
+        design: {
+            type: "figma",
+            url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=2761%3A214272",
+        },
+    }}
 />
 
 <Canvas>
-  <Story name="Variants">
-    {(props) => (
-      <Card>
-        <CardBody>
-          {["info", "danger", "warning", "success"].map((variant) => (
-            <Tag variant={variant} mr={2}>
-              {variant.replace(/\b\w/g, (c) => c.toUpperCase())}
-            </Tag>
-          ))}
-        </CardBody>
-      </Card>
-    )}
-  </Story>
-  <Story name="Sizes">
-    {(props) => (
-      <Card>
-        <CardBody>
-          {["small", "medium", "large"].map((size) => (
-            <Tag size={size} mr={2}>
-              {size.replace(/\b\w/g, (c) => c.toUpperCase())}
-            </Tag>
-          ))}
-        </CardBody>
-      </Card>
-    )}
-  </Story>
+    <Story name="Variants">
+        {props => (
+            <Card>
+                <CardBody>
+                    {["info", "danger", "warning", "success"].map(variant => (
+                        <Tag variant={variant} mr={2} key={variant}>
+                            {variant.replace(/\b\w/g, c => c.toUpperCase())}
+                        </Tag>
+                    ))}
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+    <Story name="Sizes">
+        {props => (
+            <Card>
+                <CardBody>
+                    {["small", "medium", "large"].map(size => (
+                        <Tag size={size} mr={2} key={size}>
+                            {size.replace(/\b\w/g, c => c.toUpperCase())}
+                        </Tag>
+                    ))}
+                </CardBody>
+            </Card>
+        )}
+    </Story>
 </Canvas>

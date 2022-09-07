@@ -1,0 +1,50 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { H3 } from "../components/Typography";
+
+<Meta title="Docs/Properties" />
+
+In general, size properties are responsive as <b>ARE</b> common properties such as margins. Properties such as color or variants <b>are NOT</b>.
+
+<h5>Example of common properties:</h5>
+
+```js
+<Box
+    display={{
+        xxs: "none",
+        sm: "flex",
+    }}
+    mb={{
+        xs: 1,
+        sm: 4,
+    }}></Box>
+```
+
+<h5>Example of size properties:</h5>
+
+```js
+<Icon
+    size={{
+        xxs: "sm",
+        sm: "xl",
+    }}
+/>
+```
+
+<h5>How to include responsive properties via emotion:</h5>
+
+```js
+css`
+    //Returns a more complex string of css based on the responive value
+    ${getFormattedStyles(
+        size,
+        theme,
+        (value: string) => `
+            width: ${value};
+            height: ${value};
+        `
+    )}
+
+    //Gets styles for a single prop
+    ${getStyles("width", size, theme)}
+`;
+```

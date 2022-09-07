@@ -1,49 +1,41 @@
+export type Responsive<T> = T | ThemeBreakpoints;
+
 export type CommonVariants = "primary" | "secondary" | "tertiary";
 
-export type CommonSizes = "small" | "medium" | "large";
+export type CommonSizes = Responsive<"small" | "medium" | "large">;
 
-export interface CommonStyleProps {
-    overflow?: string;
-    display?: string;
-    alignItems?: string;
-    justifyContent?: string;
-    p?: number;
-    pl?: number;
-    pb?: number;
-    pt?: number;
-    pr?: number;
-    py?: number;
-    px?: number;
-    m?: number;
-    ml?: number;
-    mb?: number;
-    mt?: number;
-    mr?: number;
-    mx?: number;
-    my?: number;
-    flexGrow?: string;
-    flexShrink?: string;
-    flexBasis?: string;
-    position?: string;
-    width?: string;
-    minWidth?: string;
-    maxWidth?: string;
-    height?: string;
-    minHeight?: string;
-    maxHeight?: string;
-    top?: string;
-    bottom?: string;
-    left?: string;
-    right?: string;
-    gap?: number;
+export interface CommonStyleProps
+    extends MarginStyleProps,
+        WidthStyleProps,
+        HeightStyleProps {
+    overflow?: Responsive<string>;
+    display?: Responsive<string>;
+    alignItems?: Responsive<string>;
+    justifyContent?: Responsive<string>;
+    p?: Responsive<number>;
+    pl?: Responsive<number>;
+    pb?: Responsive<number>;
+    pt?: Responsive<number>;
+    pr?: Responsive<number>;
+    py?: Responsive<number>;
+    px?: Responsive<number>;
+    flexGrow?: Responsive<string>;
+    flexShrink?: Responsive<string>;
+    flexBasis?: Responsive<string>;
+    position?: Responsive<string>;
+    top?: Responsive<string>;
+    bottom?: Responsive<string>;
+    left?: Responsive<string>;
+    right?: Responsive<string>;
+    gap?: Responsive<number>;
     backgroundColor?: string;
-    gridTemplateColumns?: string;
-    gridTemplateRows?: string;
-    gridTemplateAreas?: string;
-    gridColumn?: string;
-    direction?: string;
-    textAlign?: string;
-    flexDirection?: string;
+    gridTemplateColumns?: Responsive<string>;
+    gridTemplateRows?: Responsive<string>;
+    gridTemplateAreas?: Responsive<string>;
+    gridColumn?: Responsive<string>;
+    direction?: Responsive<string>;
+    textAlign?: Responsive<string>;
+    flexDirection?: Responsive<string>;
 }
 
 export type ComponentStyleProps = MarginStyleProps & WidthStyleProps;
@@ -54,26 +46,35 @@ export type ComponentWidthProps = WidthStyleProps;
 
 export type ComponentHeightProps = HeightStyleProps;
 
+export interface ThemeBreakpoints {
+    xxs: string;
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+}
+
 export interface MarginStyleProps {
-    m?: number;
-    ml?: number;
-    mb?: number;
-    mt?: number;
-    mr?: number;
-    mx?: number;
-    my?: number;
+    m?: Responsive<number>;
+    ml?: Responsive<number>;
+    mb?: Responsive<number>;
+    mt?: Responsive<number>;
+    mr?: Responsive<number>;
+    mx?: Responsive<number>;
+    my?: Responsive<number>;
 }
 
 export interface WidthStyleProps {
-    width?: string;
-    minWidth?: string;
-    maxWidth?: string;
+    width?: Responsive<string>;
+    minWidth?: Responsive<string>;
+    maxWidth?: Responsive<string>;
 }
 
 export interface HeightStyleProps {
-    height?: string;
-    minHeight?: string;
-    maxHeight?: string;
+    height?: Responsive<string>;
+    minHeight?: Responsive<string>;
+    maxHeight?: Responsive<string>;
 }
 
 export interface ThemeFontSizes {
@@ -128,6 +129,7 @@ export interface ThemeComponents {
 }
 
 export interface Theme {
+    breakpoints: ThemeBreakpoints;
     base: {
         increment: number;
         unit: string;
