@@ -1,6 +1,6 @@
 {
     "name": "hdruk-react-core",
-    "version": "0.2.19",
+    "version": "0.2.20",
     "private": false,
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
@@ -61,8 +61,6 @@
     "peerDependencies": {
         "@emotion/css": "^11.9.0",
         "@emotion/react": "^11.9.3",
-        "humanize": "^0.0.9",
-        "lodash-es": "^4.17.21",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
     },
@@ -133,7 +131,9 @@
     },
     "dependencies": {
         "react-use": "^17.4.0",
-        "react-textarea-autosize": "^8.3.3"
+        "react-textarea-autosize": "^8.3.3",
+        "humanize": "^0.0.9",
+        "lodash-es": "^4.17.21"
     },
     "readme": "ERROR: No README data found!"
 }
