@@ -49,7 +49,12 @@ import clearIcon from "../../images/icons/clear.svg";
                         paperIcon,
                         clearIcon,
                     ].map(icon => (
-                        <Icon svg={<SVG src={icon} />} mr={2} size="xl" />
+                        <Icon
+                            svg={<SVG src={icon} />}
+                            mr={2}
+                            size="xl"
+                            key={icon}
+                        />
                     ))}
                     <Icon
                         svg={<SVG src={dangerIcon} />}
@@ -83,7 +88,12 @@ import clearIcon from "../../images/icons/clear.svg";
                         "4xl",
                         "5xl",
                     ].map(size => (
-                        <Icon svg={<SVG src={starIcon} />} size={size} mr={2} />
+                        <Icon
+                            svg={<SVG src={starIcon} />}
+                            size={size}
+                            mr={2}
+                            key={size}
+                        />
                     ))}
                 </CardBody>
             </Card>

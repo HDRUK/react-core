@@ -75,7 +75,7 @@ import { Card, CardBody } from "../Card";
             <Card>
                 <CardBody>
                     {["light", "normal", "bold"].map(weight => (
-                        <P {...props} weight={weight} mb={2}>
+                        <P {...props} weight={weight} mb={2} key={weight}>
                             {weight}
                         </P>
                     ))}
