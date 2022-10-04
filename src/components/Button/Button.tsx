@@ -5,53 +5,52 @@ import useCommonStyles from "../../hooks/useCommonStyles";
 import { ButtonProps } from "./Button.types";
 
 const Button = ({
-  variant,
-  children,
-  size,
-  m,
-  mt,
-  mb,
-  ml,
-  mr,
-  mx,
-  my,
-  width,
-  minWidth,
-  maxWidth,
-  iconLeft,
-  iconRight,
-  className,
-  ...outerProps
-}: ButtonProps) => {
-  const commonStyles = useCommonStyles({
-    mt,
-    mr,
-    ml,
-    mb,
+    variant,
+    children,
+    size,
     m,
+    mt,
+    mb,
+    ml,
+    mr,
     mx,
     my,
     width,
-    maxWidth,
     minWidth,
-  });
+    maxWidth,
+    iconLeft,
+    iconRight,
+    className,
+    ...outerProps
+}: ButtonProps) => {
+    const commonStyles = useCommonStyles({
+        mt,
+        mr,
+        ml,
+        mb,
+        m,
+        mx,
+        my,
+        width,
+        maxWidth,
+        minWidth,
+    });
 
-  return (
-    <button
-      {...outerProps}
-      css={[commonStyles, styles.root({ size, variant })]}
-      className={cx("ui-Button", className)}
-    >
-      {iconLeft} {children} {iconRight}
-    </button>
-  );
+    return (
+        <button
+            css={[commonStyles, styles.root({ size, variant })]}
+            className={cx("ui-Button", className)}
+            {...outerProps}>
+            {iconLeft} {children} {iconRight}
+        </button>
+    );
 };
 
 Button.defaultProps = {
-  size: "medium",
-  variant: "primary",
-  type: "button",
-  disabled: false,
+    size: "medium",
+    variant: "primary",
+    type: "button",
+    disabled: false,
 };
 
 export default Button;

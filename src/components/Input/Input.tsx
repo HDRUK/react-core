@@ -61,7 +61,7 @@ const Input = ({
 
     return (
         <div
-            className={cx(className, "ui-Input")}
+            className={cx("ui-Input", className)}
             css={[
                 commonStyles,
                 styles.root({
@@ -86,7 +86,6 @@ const Input = ({
                     </span>
                 )}
                 <input
-                    {...outerProps}
                     id={id}
                     disabled={disabled}
                     css={[
@@ -100,6 +99,7 @@ const Input = ({
                         if (inputRef) inputRef.current = el;
                     }}
                     value={value}
+                    {...outerProps}
                 />
                 {(iconRight || (onClear && value)) && (
                     <span

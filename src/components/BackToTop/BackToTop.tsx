@@ -10,6 +10,7 @@ const BackToTop = ({
     scrollOffset = 100,
     size = "xs",
     variant = "secondary",
+    ...outerProps
 }: BackToTopProps) => {
     const [showButton, setShowButton] = useState(false);
 
@@ -29,7 +30,7 @@ const BackToTop = ({
     return (
         <>
             {showButton ? (
-                <div className={className} css={styles.root}>
+                <div className={className} css={styles.root} {...outerProps}>
                     <IconButton
                         onClick={jumpToTop}
                         variant={variant}

@@ -5,15 +5,15 @@ import CardFooter from "../Card/CardFooter";
 import { CardFooterProps } from "../Card/Card.types";
 
 const ModalFooter = ({
-  className,
-  children,
-  ...outerProps
+    className,
+    children,
+    ...outerProps
 }: CardFooterProps) => {
-  return (
-    <CardFooter {...outerProps} className={cx(className, "ui-ModalFooter")}>
-      {children}
-    </CardFooter>
-  );
+    return (
+        <CardFooter className={cx("ui-ModalFooter", className)} {...outerProps}>
+            {children}
+        </CardFooter>
+    );
 };
 
 export default ModalFooter;

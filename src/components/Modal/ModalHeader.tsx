@@ -5,15 +5,15 @@ import CardHeader from "../Card/CardHeader";
 import { CardHeaderProps } from "../Card/Card.types";
 
 const ModalHeader = ({
-  className,
-  children,
-  ...outerProps
+    className,
+    children,
+    ...outerProps
 }: CardHeaderProps) => {
-  return (
-    <CardHeader {...outerProps} className={cx(className, "ui-ModalHeader")}>
-      {children}
-    </CardHeader>
-  );
+    return (
+        <CardHeader className={cx("ui-ModalHeader", className)} {...outerProps}>
+            {children}
+        </CardHeader>
+    );
 };
 
 export default ModalHeader;

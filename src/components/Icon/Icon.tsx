@@ -6,36 +6,35 @@ import * as styles from "./Icon.styles";
 import { IconProps } from "./Icon.types";
 
 const Icon = ({
-  svg,
-  size,
-  color,
-  fill,
-  stroke,
-  className,
-  ml,
-  mr,
-  mb,
-  mt,
-  m,
-  mx,
-  my,
-  ...outerProps
+    svg,
+    size,
+    color,
+    fill,
+    stroke,
+    className,
+    ml,
+    mr,
+    mb,
+    mt,
+    m,
+    mx,
+    my,
+    ...outerProps
 }: IconProps) => {
-  const commonStyles = useCommonStyles({ mt, mb, ml, mr, m, mx, my });
+    const commonStyles = useCommonStyles({ mt, mb, ml, mr, m, mx, my });
 
-  return (
-    <span
-      {...outerProps}
-      className={cx("ui-Icon", className)}
-      css={[commonStyles, styles.root({ size, color, fill, stroke })]}
-    >
-      {svg}
-    </span>
-  );
+    return (
+        <span
+            className={cx("ui-Icon", className)}
+            css={[commonStyles, styles.root({ size, color, fill, stroke })]}
+            {...outerProps}>
+            {svg}
+        </span>
+    );
 };
 
 Icon.defaultProps = {
-  size: "md",
+    size: "md",
 };
 
 export default Icon;

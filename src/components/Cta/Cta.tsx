@@ -32,15 +32,15 @@ const Cta = ({
 
     return (
         <button
-            {...outerProps}
-            className={cx(className, "ui-Cta")}
+            className={cx("ui-Cta", className)}
             css={[
                 commonStyles,
                 styles.root({
                     color,
                     fill,
                 }),
-            ]}>
+            ]}
+            {...outerProps}>
             {iconLeft} {children} {iconRight}
         </button>
     );

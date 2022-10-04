@@ -12,27 +12,11 @@ import * as styles from "./Alert.styles";
 import { AlertProps } from "./Alert.types";
 
 const Alert = ({
-  icon,
-  variant,
-  onClose,
-  children,
-  className,
-  mt,
-  mb,
-  ml,
-  mr,
-  m,
-  mx,
-  my,
-  width,
-  minWidth,
-  maxWidth,
-  dismissable,
-  autoclose,
-  autocloseDuration,
-  ...outerProps
-}: AlertProps) => {
-  const commonStyles = useCommonStyles({
+    icon,
+    variant,
+    onClose,
+    children,
+    className,
     mt,
     mb,
     ml,
@@ -43,70 +27,85 @@ const Alert = ({
     width,
     minWidth,
     maxWidth,
-  });
+    dismissable,
+    autoclose,
+    autocloseDuration,
+    ...outerProps
+}: AlertProps) => {
+    const commonStyles = useCommonStyles({
+        mt,
+        mb,
+        ml,
+        mr,
+        m,
+        mx,
+        my,
+        width,
+        minWidth,
+        maxWidth,
+    });
 
-  const [show, setShow] = useState(true);
+    const [show, setShow] = useState(true);
 
-  const handleClose = useCallback(() => {
-    setShow(false);
+    const handleClose = useCallback(() => {
+        setShow(false);
 
-    if (onClose) onClose();
-  }, []);
+        if (onClose) onClose();
+    }, []);
 
-  useEffect(() => {
-    if (show && autoclose) {
-      const showTimeout = setTimeout(() => {
-        handleClose();
-      }, autocloseDuration);
+    useEffect(() => {
+        if (show && autoclose) {
+            const showTimeout = setTimeout(() => {
+                handleClose();
+            }, autocloseDuration);
 
-      return () => {
-        clearTimeout(showTimeout);
-      };
-    }
-  }, [show, autoclose]);
+            return () => {
+                clearTimeout(showTimeout);
+            };
+        }
+    }, [show, autoclose]);
 
-  return show ? (
-    <div
-      className={cx(className, "ui-Alert")}
-      css={[commonStyles, styles.root({ variant })]}
-      {...outerProps}
-    >
-      <div css={styles.icon}>
-        {icon}
-        {!icon && variant === "success" && (
-          <Icon svg={<CheckIcon fill="inherit" />} size="xl" />
-        )}
-        {!icon && variant === "danger" && (
-          <Icon svg={<DangerIcon fill="inherit" />} size="xl" />
-        )}
-        {!icon && variant === "warning" && (
-          <Icon svg={<DangerIcon fill="inherit" />} size="xl" />
-        )}
-        {!icon && variant === "info" && (
-          <Icon svg={<InfoIcon fill="inherit" />} size="xl" />
-        )}
-        {!icon && variant === "description" && (
-          <Icon svg={<InfoIcon fill="inherit" />} size="xl" />
-        )}
-      </div>
-      <div css={styles.content}>{children}</div>
-      {dismissable && (
-        <div css={styles.dismiss}>
-          <Icon
-            svg={<CloseIcon fill="inherit" />}
-            onClick={handleClose}
-            role="button"
-            size="lg"
-          />
+    return show ? (
+        <div
+            className={cx("ui-Alert", className)}
+            css={[commonStyles, styles.root({ variant })]}
+            {...outerProps}>
+            <div css={styles.icon}>
+                {icon}
+                {!icon && variant === "success" && (
+                    <Icon svg={<CheckIcon fill="inherit" />} size="xl" />
+                )}
+                {!icon && variant === "danger" && (
+                    <Icon svg={<DangerIcon fill="inherit" />} size="xl" />
+                )}
+                {!icon && variant === "warning" && (
+                    <Icon svg={<DangerIcon fill="inherit" />} size="xl" />
+                )}
+                {!icon && variant === "info" && (
+                    <Icon svg={<InfoIcon fill="inherit" />} size="xl" />
+                )}
+                {!icon && variant === "description" && (
+                    <Icon svg={<InfoIcon fill="inherit" />} size="xl" />
+                )}
+            </div>
+            <div css={styles.content}>{children}</div>
+            {dismissable && (
+                <div css={styles.dismiss}>
+                    <Icon
+                        svg={<CloseIcon fill="inherit" />}
+                        onClick={handleClose}
+                        role="button"
+                        size="lg"
+                    />
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  ) : null;
+    ) : null;
 };
 
 Alert.defaultProps = {
-  variant: "info",
-  autocloseDuration: 10000,
+    variant: "info",
+    autocloseDuration: 10000,
 };
 
 export default Alert;

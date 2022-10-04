@@ -26,17 +26,19 @@ export type VariantTags =
 
 export type WeightTags = "light" | "normal" | "bold";
 
-export interface TypographyProps
-    extends Omit<React.HTMLProps<HTMLElement>, "color" | "width">,
-        ComponentStyleProps {
+interface Props<C extends React.ElementType> extends ComponentStyleProps {
+    as?: C;
     variant?: VariantTags;
     weight?: WeightTags;
     color?: keyof Theme["colors"];
-    as?: keyof JSX.IntrinsicElements;
 }
 
-export interface TypographyStyleProps extends Pick<TypographyProps, "color"> {
+export type TypographyProps<C extends React.ElementType> = Props<C> &
+    Omit<React.ComponentPropsWithoutRef<C>, keyof Props<C>>;
+
+export interface TypographyStyleProps {
+    color?: keyof Theme["colors"];
     variant: VariantTags;
     weight: WeightTags;
-    tag: keyof JSX.IntrinsicElements;
+    tag: string;
 }

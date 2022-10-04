@@ -4,7 +4,7 @@ import useCommonStyles from "../../hooks/useCommonStyles";
 import { TypographyProps } from "./Typography.types";
 import * as styles from "./Typography.styles";
 
-const Typography = ({
+const Typography = <C extends React.ElementType = "span">({
     children,
     color,
     className,
@@ -21,7 +21,8 @@ const Typography = ({
     variant = "body",
     weight = "normal",
     as,
-}: TypographyProps) => {
+    ...outerProps
+}: TypographyProps<C>) => {
     const commonStyles = useCommonStyles({
         mt,
         mb,
@@ -35,7 +36,7 @@ const Typography = ({
         maxWidth,
     });
 
-    let Component: keyof JSX.IntrinsicElements | undefined = as;
+    let Component = as || "span";
 
     if (!as) {
         if (variant === "body") {
@@ -53,16 +54,17 @@ const Typography = ({
 
     return Component ? (
         <Component
-            className={cx(className, "ui-Typography")}
+            className={cx("ui-Typography", className)}
             css={[
                 commonStyles,
                 styles.root({
                     variant,
                     color,
-                    tag: Component,
+                    tag: Component as string,
                     weight,
                 }),
-            ]}>
+            ]}
+            {...outerProps}>
             {children}
         </Component>
     ) : null;

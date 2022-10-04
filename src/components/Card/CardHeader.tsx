@@ -4,19 +4,18 @@ import * as styles from "./Card.styles";
 import { CardHeaderProps } from "./Card.types";
 
 const CardHeader = ({
-  className,
-  children,
-  ...outerProps
+    className,
+    children,
+    ...outerProps
 }: CardHeaderProps) => {
-  return (
-    <div
-      {...outerProps}
-      className={cx(className, "ui-CardHeader")}
-      css={styles.cardHeader}
-    >
-      {children}
-    </div>
-  );
+    return (
+        <div
+            {...outerProps}
+            className={cx("ui-CardHeader", className)}
+            css={styles.cardHeader}>
+            {children}
+        </div>
+    );
 };
 
 export default CardHeader;
