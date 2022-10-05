@@ -34,9 +34,9 @@ const InputGroup = ({
 
     return (
         <div
-            {...outerProps}
-            className={cx(className, "ui-InputGroup")}
-            css={[commonStyles, styles.root]}>
+            className={cx("ui-InputGroup", className)}
+            css={[commonStyles, styles.root]}
+            {...outerProps}>
             {children}
         </div>
     );

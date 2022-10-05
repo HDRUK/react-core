@@ -4,24 +4,23 @@ import * as styles from "./Dimmer.styles";
 import { DimmerProps } from "./Dimmer.types";
 
 const Dimmer = ({
-  children,
-  className,
-  contentAlignment,
-  ...outerProps
+    children,
+    className,
+    contentAlignment,
+    ...outerProps
 }: DimmerProps) => {
-  return (
-    <div
-      {...outerProps}
-      className={cx(className, "ui-Dimmer")}
-      css={styles.root({ contentAlignment })}
-    >
-      {children}
-    </div>
-  );
+    return (
+        <div
+            className={cx("ui-Dimmer", className)}
+            css={styles.root({ contentAlignment })}
+            {...outerProps}>
+            {children}
+        </div>
+    );
 };
 
 Dimmer.defaultProps = {
-  contentAlignment: "center",
+    contentAlignment: "center",
 };
 
 export default Dimmer;

@@ -67,15 +67,15 @@ const Field = ({
     return (
         <InputDecoratorProvider value={{ ref, error }}>
             <div
-                {...outerProps}
-                className={cx(className, "ui-Field")}
+                className={cx("ui-Field", className)}
                 css={[
                     commonStyles,
                     styles.root({
                         error,
                         focussed,
                     }),
-                ]}>
+                ]}
+                {...outerProps}>
                 {children}
             </div>
         </InputDecoratorProvider>

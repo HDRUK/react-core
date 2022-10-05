@@ -96,7 +96,6 @@ const Textarea = ({
                 )}
                 {autosize && (
                     <TextareaAutosize
-                        {...outerProps}
                         value={value}
                         id={id}
                         disabled={disabled}
@@ -106,11 +105,11 @@ const Textarea = ({
                         }}
                         maxLength={maxCharCount}
                         data-testid="autosize"
+                        {...outerProps}
                     />
                 )}
                 {!autosize && (
                     <textarea
-                        {...outerProps}
                         id={id}
                         disabled={disabled}
                         ref={el => {
@@ -118,6 +117,7 @@ const Textarea = ({
                             if (inputRef) inputRef.current = el;
                         }}
                         maxLength={maxCharCount}
+                        {...outerProps}
                     />
                 )}
             </div>
