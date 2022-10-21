@@ -10,97 +10,110 @@ import Box from "../Box";
 import Button from "../Button";
 import Icon from "../Icon";
 
-import { ReactComponent as RemoveIcon } from "../../images/icons/close.svg";
-import { ReactComponent as UploadIcon } from "../../images/icons/upload.svg";
+import RemoveIcon from "../../images/icons/close.svg";
+import UploadIcon from "../../images/icons/upload.svg";
 
 <Meta title="Organisms/FileSelector" component={FileSelector} />
 
 <Canvas>
-  <Story name="Multiple">
-    {(props) => {
-      const [json, setJson] = useState(null);
-      const [progress, setProgress] = useState([]);
-      const handleUploadClick = (fileList) => {
-        setProgress([...fileList].map(() => 0));
-        mimicUpload(0);
-      };
-      const mimicUpload = (value) => {
-        if (value <= 100) {
-          setProgress([value]);
-          setTimeout(() => {
-            mimicUpload(value + 10);
-          }, 500);
-        }
-      };
-      return (
-        <Card width="800px">
-          <CardBody>
-            <FileSelector
-              onFilesUpdated={({ fileList, readAsText, reset }) => {
-                if (fileList.length) {
-                  readAsText(fileList[0]).then((result) => {
-                    setJson(JSON.parse(result));
-                  });
+    <Story name="Multiple">
+        {props => {
+            const [json, setJson] = useState(null);
+            const [progress, setProgress] = useState([]);
+            const handleUploadClick = fileList => {
+                setProgress([...fileList].map(() => 0));
+                mimicUpload(0);
+            };
+            const mimicUpload = value => {
+                if (value <= 100) {
+                    setProgress([value]);
+                    setTimeout(() => {
+                        mimicUpload(value + 10);
+                    }, 500);
                 }
-              }}
-              listing={(props) => {
-                return (
-                  <FileSelectorListing
-                    {...props}
-                    actions={({ onRemove, name }) => {
-                      if (progress[0] !== undefined) {
-                        return (
-                          <Box backgroundColor="grey200" width="100%">
-                            <Box
-                              backgroundColor="platinum700"
-                              height="16px"
-                              width={`${progress[0]}%`}
-                            />
-                          </Box>
-                        );
-                      }
-                      return (
-                        <Button
-                          variant="tertiary"
-                          onClick={() => onRemove(name)}
-                          iconLeft={
-                            <Icon svg={<RemoveIcon />} fill="purple500" />
-                          }
-                          size="small"
-                        >
-                          Remove
-                        </Button>
-                      );
-                    }}
-                  />
-                );
-              }}
-              actions={({ fileList, readAsText, reset }) => {
-                return fileList.length ? (
-                  <>
-                    <Button mr={2} onClick={() => handleUploadClick(fileList)}>
-                      Upload
-                    </Button>
-                    <Button
-                      variant="tertiary"
-                      onClick={() => {
-                        reset();
-                        setJson(null);
-                      }}
-                    >
-                      Reset
-                    </Button>
-                  </>
-                ) : null;
-              }}
-              noFilesMessage="No files have been selected"
-              multiple
-              mb={json ? 4 : 0}
-            />
-            {json && <ReactJson src={json} theme="monokai" />}
-          </CardBody>
-        </Card>
-      );
-    }}
-  </Story>
+            };
+            return (
+                <Card width="800px">
+                    <CardBody>
+                        <FileSelector
+                            onFilesUpdated={({
+                                fileList,
+                                readAsText,
+                                reset,
+                            }) => {
+                                if (fileList.length) {
+                                    readAsText(fileList[0]).then(result => {
+                                        setJson(JSON.parse(result));
+                                    });
+                                }
+                            }}
+                            listing={props => {
+                                return (
+                                    <FileSelectorListing
+                                        {...props}
+                                        actions={({ onRemove, name }) => {
+                                            if (progress[0] !== undefined) {
+                                                return (
+                                                    <Box
+                                                        backgroundColor="grey200"
+                                                        width="100%">
+                                                        <Box
+                                                            backgroundColor="platinum700"
+                                                            height="16px"
+                                                            width={`${progress[0]}%`}
+                                                        />
+                                                    </Box>
+                                                );
+                                            }
+                                            return (
+                                                <Button
+                                                    variant="tertiary"
+                                                    onClick={() =>
+                                                        onRemove(name)
+                                                    }
+                                                    iconLeft={
+                                                        <Icon
+                                                            svg={<RemoveIcon />}
+                                                            fill="purple500"
+                                                        />
+                                                    }
+                                                    size="small">
+                                                    Remove
+                                                </Button>
+                                            );
+                                        }}
+                                    />
+                                );
+                            }}
+                            actions={({ fileList, readAsText, reset }) => {
+                                return fileList.length ? (
+                                    <>
+                                        <Button
+                                            mr={2}
+                                            onClick={() =>
+                                                handleUploadClick(fileList)
+                                            }>
+                                            Upload
+                                        </Button>
+                                        <Button
+                                            variant="tertiary"
+                                            onClick={() => {
+                                                reset();
+                                                setJson(null);
+                                            }}>
+                                            Reset
+                                        </Button>
+                                    </>
+                                ) : null;
+                            }}
+                            noFilesMessage="No files have been selected"
+                            multiple
+                            mb={json ? 4 : 0}
+                        />
+                        {json && <ReactJson src={json} theme="monokai" />}
+                    </CardBody>
+                </Card>
+            );
+        }}
+    </Story>
 </Canvas>

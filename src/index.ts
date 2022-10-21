@@ -26,6 +26,7 @@ export { default as Caption } from "./components/Typography/Caption";
 export { default as Small } from "./components/Typography/Small";
 export { default as Tiny } from "./components/Typography/Tiny";
 export { default as useRetryAsync } from "./hooks/useRetryAsync";
+
 export * from "./components/Card";
 export * from "./components/Modal";
 export * from "./theme";

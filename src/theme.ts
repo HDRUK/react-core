@@ -649,6 +649,9 @@ export const DEFAULT_THEME: Theme = {
             },
         },
         Label: {
+            serializable: {
+                fontSize: "md",
+            },
             globals: { disabledColor: "grey500" },
         },
         Message: {
