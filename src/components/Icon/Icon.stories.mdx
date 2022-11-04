@@ -4,20 +4,20 @@ import SVG from "react-inlinesvg";
 import Icon from "./Icon";
 import { Card, CardBody } from "../Card";
 
-import closeIcon from "../../images/icons/close.svg";
-import jsonIcon from "../../images/icons/json.svg";
-import searchIcon from "../../images/icons/search.svg";
-import starIcon from "../../images/icons/star.svg";
-import checkIcon from "../../images/icons/check.svg";
-import uploadIcon from "../../images/icons/upload.svg";
-import successIcon from "../../images/icons/success.svg";
-import padlockIcon from "../../images/icons/padlock.svg";
-import projectIcon from "../../images/icons/project.svg";
-import pencilIcon from "../../images/icons/pencil.svg";
-import paperIcon from "../../images/icons/paper.svg";
-import dangerIcon from "../../images/icons/danger.svg";
-import infoIcon from "../../images/icons/info.svg";
-import clearIcon from "../../images/icons/clear.svg";
+import { ReactComponent as CloseIcon } from "../../images/icons/close.svg";
+import { ReactComponent as JsonIcon } from "../../images/icons/json.svg";
+import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
+import { ReactComponent as StarIcon } from "../../images/icons/star.svg";
+import { ReactComponent as CheckIcon } from "../../images/icons/check.svg";
+import { ReactComponent as UploadIcon } from "../../images/icons/upload.svg";
+import { ReactComponent as SuccessIcon } from "../../images/icons/success.svg";
+import { ReactComponent as PadlockIcon } from "../../images/icons/padlock.svg";
+import { ReactComponent as ProjectIcon } from "../../images/icons/project.svg";
+import { ReactComponent as PencilIcon } from "../../images/icons/pencil.svg";
+import { ReactComponent as PaperIcon } from "../../images/icons/paper.svg";
+import { ReactComponent as DangerIcon } from "../../images/icons/danger.svg";
+import { ReactComponent as InfoIcon } from "../../images/icons/info.svg";
+import { ReactComponent as ClearIcon } from "../../images/icons/clear.svg";
 
 <Meta
     title="Atoms/Icon"
@@ -36,34 +36,24 @@ import clearIcon from "../../images/icons/clear.svg";
             <Card>
                 <CardBody>
                     {[
-                        closeIcon,
-                        jsonIcon,
-                        searchIcon,
-                        starIcon,
-                        checkIcon,
-                        uploadIcon,
-                        successIcon,
-                        padlockIcon,
-                        pencilIcon,
-                        projectIcon,
-                        paperIcon,
-                        clearIcon,
-                    ].map(icon => (
-                        <Icon
-                            svg={<SVG src={icon} />}
-                            mr={2}
-                            size="xl"
-                            key={icon}
-                        />
+                        CloseIcon,
+                        JsonIcon,
+                        SearchIcon,
+                        StarIcon,
+                        CheckIcon,
+                        UploadIcon,
+                        SuccessIcon,
+                        PadlockIcon,
+                        PencilIcon,
+                        ProjectIcon,
+                        PaperIcon,
+                        ClearIcon,
+                    ].map(Svg => (
+                        <Icon svg={<Svg />} mr={2} size="xl" />
                     ))}
+                    <Icon svg={<DangerIcon />} mr={2} size="xl" fill="red700" />
                     <Icon
-                        svg={<SVG src={dangerIcon} />}
-                        mr={2}
-                        size="xl"
-                        fill="red700"
-                    />
-                    <Icon
-                        svg={<SVG src={infoIcon} />}
+                        svg={<InfoIcon />}
                         mr={2}
                         size="xl"
                         fill="purple500"

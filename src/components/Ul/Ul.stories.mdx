@@ -1,0 +1,55 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import Icon from "../Icon";
+import { Card, CardBody } from "../Card";
+import Ul from "./Ul";
+import Li from "../Li";
+import { ReactComponent as CheckIcon } from "../../images/icons/check.svg";
+import { ReactComponent as DangerIcon } from "../../images/icons/danger.svg";
+
+<Meta title="Molecules/Ul" component={Ul} />
+
+<Canvas>
+    <Story name="Basic">
+        {props => (
+            <Card>
+                <CardBody>
+                    <Ul {...props}>
+                        <Li>List item 1</Li>
+                        <Li>List item 2</Li>
+                        <Li>List item 3</Li>
+                    </Ul>
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+    <Story name="With icons">
+        {props => (
+            <Card>
+                <CardBody>
+                    <Ul listStyleType="none" {...props}>
+                        <Li
+                            icon={
+                                <Icon
+                                    svg={<CheckIcon />}
+                                    fill="green600"
+                                    size="xl"
+                                />
+                            }>
+                            Icon tick
+                        </Li>
+                        <Li
+                            icon={
+                                <Icon
+                                    svg={<DangerIcon />}
+                                    fill="red600"
+                                    size="xl"
+                                />
+                            }>
+                            Icon danger
+                        </Li>
+                    </Ul>
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+</Canvas>

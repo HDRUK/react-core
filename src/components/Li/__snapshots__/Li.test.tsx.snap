@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the Li component When it is rendered Then should match the snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="ui-Ul css-rswhjr-Ul"
+  >
+    <li
+      class="ui-Li css-19hw7pz-Li"
+    >
+       List item
+    </li>
+  </ul>
+</DocumentFragment>
+`;
