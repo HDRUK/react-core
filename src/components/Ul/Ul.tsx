@@ -30,7 +30,7 @@ const Ul = ({
     return (
         <ul
             className={cx("ui-Ul", className)}
-            css={[commonStyles, styles.root({ listStyleType })]}
+            css={[styles.root({ listStyleType }), commonStyles]}
             {...outerProps}>
             {children}
         </ul>
