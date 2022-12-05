@@ -7,8 +7,7 @@ import { Card, CardBody } from "../Card";
 import Icon from "../Icon";
 import Box from "../Box";
 
-import searchIcon from "../../images/icons/search.svg";
-import clearIcon from "../../images/icons/clear.svg";
+import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
 
 <Meta title="Molecules/Input" component={Input} />
 
@@ -93,7 +92,7 @@ import clearIcon from "../../images/icons/clear.svg";
                                 label="With icons"
                                 iconLeft={
                                     <span>
-                                        <SVG src={searchIcon} fill="#3DB28C" />
+                                        <SearchIcon fill="#3DB28C" />
                                     </span>
                                 }
                                 onChange={handleChange}

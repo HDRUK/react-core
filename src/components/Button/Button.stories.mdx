@@ -5,125 +5,128 @@ import Button from "./Button";
 import { Card, CardBody } from "../Card";
 import Box from "../Box";
 
-import searchIcon from "../../images/icons/search.svg";
-import userIcon from "../../images/icons/star.svg";
+import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
+import { ReactComponent as StarIcon } from "../../images/icons/star.svg";
 
 <Meta
-  title="Molecules/Button"
-  component={Button}
-  parameters={{
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=1021%3A16226",
-    },
-  }}
+    title="Molecules/Button"
+    component={Button}
+    parameters={{
+        design: {
+            type: "figma",
+            url: "https://www.figma.com/file/fo4DadnYGfvtWawiQYcwmj/HDR-UK---Library?node-id=1021%3A16226",
+        },
+    }}
 />
 
 <Canvas>
-  <Story name="Variants">
-    {(props) => (
-      <Card>
-        <CardBody>
-          <Box display="flex" gap={20} mb={10}>
-            <div>
-              <Button {...props} mr={2}>
-                Primary
-              </Button>
-              <Button {...props} disabled>
-                Primary (disabled)
-              </Button>
-            </div>
-            <div>
-              <Button {...props} mr={2} variant="primaryAlt">
-                Primary alt
-              </Button>
-              <Button {...props} disabled variant="primaryAlt">
-                Primary alt (disabled)
-              </Button>
-            </div>
-          </Box>
-          <Box display="flex" gap={20} mb={10}>
-            <div>
-              <Button {...props} variant="secondary" mr={2}>
-                Secondary
-              </Button>
-              <Button {...props} variant="secondary" disabled>
-                Secondary (disabled)
-              </Button>
-            </div>
-            <div>
-              <Button {...props} variant="secondaryAlt" mb={4} mr={2}>
-                Secondary alt
-              </Button>
-              <Button {...props} variant="secondaryAlt" mb={4} disabled>
-                Secondary alt (disabled)
-              </Button>
-            </div>
-          </Box>
-          <div>
-            <Button {...props} variant="tertiary" mr={2}>
-              Tertiary
-            </Button>
-            <Button {...props} variant="tertiary" disabled>
-              Tertiary (disabled)
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
-    )}
-  </Story>
-  <Story name="Sizes">
-    {(props) => (
-      <Card>
-        <CardBody>
-          <div>
-            <Button {...props} mb={4} size="large">
-              Large
-            </Button>
-          </div>
-          <div>
-            <Button {...props} mb={4}>
-              Medium
-            </Button>
-          </div>
-          <div>
-            <Button {...props} size="small">
-              Small
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
-    )}
-  </Story>
-  <Story name="Icons">
-    {(props) => (
-      <Card>
-        <CardBody>
-          <div>
-            <Button {...props} mb={4} iconLeft={<SVG src={searchIcon} />}>
-              Icon left
-            </Button>
-          </div>
-          <div>
-            <Button
-              {...props}
-              mb={4}
-              iconRight={<SVG src={userIcon} fill="white" />}
-            >
-              Icon right
-            </Button>
-          </div>
-          <div>
-            <Button
-              {...props}
-              iconLeft={<SVG src={searchIcon} />}
-              iconRight={<SVG src={userIcon} />}
-            >
-              Icon left and right
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
-    )}
-  </Story>
+    <Story name="Variants">
+        {props => (
+            <Card>
+                <CardBody>
+                    <Box display="flex" gap={20} mb={10}>
+                        <div>
+                            <Button {...props} mr={2}>
+                                Primary
+                            </Button>
+                            <Button {...props} disabled>
+                                Primary (disabled)
+                            </Button>
+                        </div>
+                        <div>
+                            <Button {...props} mr={2} variant="primaryAlt">
+                                Primary alt
+                            </Button>
+                            <Button {...props} disabled variant="primaryAlt">
+                                Primary alt (disabled)
+                            </Button>
+                        </div>
+                    </Box>
+                    <Box display="flex" gap={20} mb={10}>
+                        <div>
+                            <Button {...props} variant="secondary" mr={2}>
+                                Secondary
+                            </Button>
+                            <Button {...props} variant="secondary" disabled>
+                                Secondary (disabled)
+                            </Button>
+                        </div>
+                        <div>
+                            <Button
+                                {...props}
+                                variant="secondaryAlt"
+                                mb={4}
+                                mr={2}>
+                                Secondary alt
+                            </Button>
+                            <Button
+                                {...props}
+                                variant="secondaryAlt"
+                                mb={4}
+                                disabled>
+                                Secondary alt (disabled)
+                            </Button>
+                        </div>
+                    </Box>
+                    <div>
+                        <Button {...props} variant="tertiary" mr={2}>
+                            Tertiary
+                        </Button>
+                        <Button {...props} variant="tertiary" disabled>
+                            Tertiary (disabled)
+                        </Button>
+                    </div>
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+    <Story name="Sizes">
+        {props => (
+            <Card>
+                <CardBody>
+                    <div>
+                        <Button {...props} mb={4} size="large">
+                            Large
+                        </Button>
+                    </div>
+                    <div>
+                        <Button {...props} mb={4}>
+                            Medium
+                        </Button>
+                    </div>
+                    <div>
+                        <Button {...props} size="small">
+                            Small
+                        </Button>
+                    </div>
+                </CardBody>
+            </Card>
+        )}
+    </Story>
+    <Story name="Icons">
+        {props => (
+            <Card>
+                <CardBody>
+                    <div>
+                        <Button {...props} mb={4} iconLeft={<SearchIcon />}>
+                            Icon left
+                        </Button>
+                    </div>
+                    <div>
+                        <Button {...props} mb={4} iconRight={<StarIcon />}>
+                            Icon right
+                        </Button>
+                    </div>
+                    <div>
+                        <Button
+                            {...props}
+                            iconLeft={<SearchIcon />}
+                            iconRight={<StarIcon />}>
+                            Icon left and right
+                        </Button>
+                    </div>
+                </CardBody>
+            </Card>
+        )}
+    </Story>
 </Canvas>
